@@ -1,26 +1,327 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 72.2% 50.6%;
+    --primary-foreground: 0 85.7% 97.3%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 72.2% 50.6%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 72.2% 50.6%;
+    --primary-foreground: 0 85.7% 97.3%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 72.2% 50.6%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-geist-sans);
+  }
+}
+
+@layer utilities {
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
+
+/* PREMİUM DARK MODE TASARIMI - UYUMLU GRİ PALETİ */
+[data-theme="dark"] {
+  background-color: #0a0a0a !important;
+  color: #e4e4e7 !important;
+}
+
+[data-theme="dark"] * {
+  border-color: #27272a !important;
+}
+
+/* Ana arkaplan - Koyu gri (lacivert değil) */
+[data-theme="dark"] .bg-gray-50 {
+  background-color: #0a0a0a !important;
+}
+
+/* Kartlar ve paneller - Orta koyu gri */
+[data-theme="dark"] .bg-white {
+  background-color: #171717 !important;
+  border: 1px solid #262626 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Sidebar - Gradient koyu gri */
+html[data-theme="dark"] nav {
+  background: linear-gradient(145deg, #171717 0%, #1a1a1a 100%) !important;
+  border-right: 1px solid #262626 !important;
+}
+
+/* Header - Şık koyu gri */
+html[data-theme="dark"] header {
+  background: linear-gradient(145deg, #171717 0%, #191919 100%) !important;
+  border-bottom: 1px solid #262626 !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* Text renkler - Premium tipografi */
+[data-theme="dark"] .text-gray-900 {
+  color: #f4f4f5 !important;
+}
+
+[data-theme="dark"] .text-gray-600 {
+  color: #a1a1aa !important;
+}
+
+[data-theme="dark"] .text-gray-500 {
+  color: #71717a !important;
+}
+
+[data-theme="dark"] .text-gray-700 {
+  color: #d4d4d8 !important;
+}
+
+/* Border renkler - Minimal ve şık */
+[data-theme="dark"] .border-gray-100 {
+  border-color: #27272a !important;
+}
+
+[data-theme="dark"] .border-gray-200 {
+  border-color: #3f3f46 !important;
+}
+
+/* Hover efektleri - Yumuşak geçişler */
+[data-theme="dark"] .hover\:bg-gray-100:hover {
+  background-color: #27272a !important;
+}
+
+[data-theme="dark"] .hover\:bg-gray-50:hover {
+  background-color: #27272a !important;
+}
+
+/* Icon container'lar - Premium renkler */
+[data-theme="dark"] .bg-blue-100 {
+  background-color: rgba(30, 58, 138, 0.2) !important;
+}
+
+[data-theme="dark"] .bg-green-100 {
+  background-color: rgba(20, 83, 45, 0.2) !important;
+}
+
+[data-theme="dark"] .bg-red-100 {
+  background-color: rgba(127, 29, 29, 0.2) !important;
+}
+
+[data-theme="dark"] .bg-purple-100 {
+  background-color: rgba(88, 28, 135, 0.2) !important;
+}
+
+[data-theme="dark"] .bg-yellow-100 {
+  background-color: rgba(120, 53, 15, 0.2) !important;
+}
+
+/* Button hover efektleri */
+[data-theme="dark"] .hover\:bg-blue-50:hover {
+  background-color: rgba(30, 58, 138, 0.3) !important;
+}
+
+[data-theme="dark"] .hover\:bg-red-50:hover {
+  background-color: rgba(127, 29, 29, 0.3) !important;
+}
+
+[data-theme="dark"] .hover\:bg-yellow-50:hover {
+  background-color: rgba(120, 53, 15, 0.3) !important;
+}
+
+[data-theme="dark"] .hover\:bg-green-50:hover {
+  background-color: rgba(20, 83, 45, 0.3) !important;
+}
+
+[data-theme="dark"] .hover\:bg-orange-50:hover {
+  background-color: rgba(154, 60, 18, 0.3) !important;
+}
+
+/* Input ve form elementleri */
+[data-theme="dark"] input {
+  background-color: #27272a !important;
+  border-color: #3f3f46 !important;
+  color: #f4f4f5 !important;
+}
+
+[data-theme="dark"] select {
+  background-color: #27272a !important;
+  border-color: #3f3f46 !important;
+  color: #f4f4f5 !important;
+}
+
+/* Kategori badge'leri */
+[data-theme="dark"] .bg-blue-100.text-blue-800 {
+  background-color: #1e3a8a30 !important;
+  color: #93c5fd !important;
+}
+
+/* Smooth transitions */
+[data-theme="dark"] * {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+}
+
+/* Ana div konteyner override */
+html[data-theme="dark"] .min-h-screen > div {
+  background-color: #0a0a0a !important;
+}
+
+/* PREMİUM LIGHT MODE TASARIMI */
+[data-theme="light"] {
+  background-color: #fafafa !important;
+  color: #0a0a0a !important;
+}
+
+/* Light mode ana arkaplan - Çok açık gri */
+[data-theme="light"] .bg-gray-50 {
+  background-color: #fafafa !important;
+}
+
+/* Light mode kartlar - Temiz beyaz + gölge */
+[data-theme="light"] .bg-white {
+  background-color: #ffffff !important;
+  border: 1px solid #f0f0f0 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Light mode sidebar - Temiz beyaz */
+html[data-theme="light"] nav {
+  background: linear-gradient(145deg, #ffffff 0%, #fefefe 100%) !important;
+  border-right: 1px solid #f0f0f0 !important;
+}
+
+/* Light mode header - Şeffaf beyaz */
+html[data-theme="light"] header {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+/* Light mode text - Premium tipografi */
+[data-theme="light"] .text-gray-900 {
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] .text-gray-600 {
+  color: #525252 !important;
+}
+
+[data-theme="light"] .text-gray-500 {
+  color: #737373 !important;
+}
+
+[data-theme="light"] .text-gray-700 {
+  color: #404040 !important;
+}
+
+/* Light mode border - Soft borders */
+[data-theme="light"] .border-gray-100 {
+  border-color: #f0f0f0 !important;
+}
+
+[data-theme="light"] .border-gray-200 {
+  border-color: #e5e5e5 !important;
+}
+
+/* Light mode hover efektleri */
+[data-theme="light"] .hover\:bg-gray-100:hover {
+  background-color: #f5f5f5 !important;
+}
+
+[data-theme="light"] .hover\:bg-gray-50:hover {
+  background-color: #fafafa !important;
+}
+
+/* Light mode icon container'lar - Soft renkler */
+[data-theme="light"] .bg-blue-100 {
+  background-color: #dbeafe !important;
+}
+
+[data-theme="light"] .bg-green-100 {
+  background-color: #dcfce7 !important;
+}
+
+[data-theme="light"] .bg-red-100 {
+  background-color: #fee2e2 !important;
+}
+
+[data-theme="light"] .bg-purple-100 {
+  background-color: #f3e8ff !important;
+}
+
+[data-theme="light"] .bg-yellow-100 {
+  background-color: #fef3c7 !important;
+}
+
+/* Light mode input ve form elementleri */
+[data-theme="light"] input {
+  background-color: #ffffff !important;
+  border-color: #e5e5e5 !important;
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] select {
+  background-color: #ffffff !important;
+  border-color: #e5e5e5 !important;
+  color: #1a1a1a !important;
+}
+
+/* Light mode kategori badge'leri */
+[data-theme="light"] .bg-blue-100.text-blue-800 {
+  background-color: #dbeafe !important;
+  color: #1e40af !important;
+}
+
+/* Ana div konteyner override - light */
+html[data-theme="light"] .min-h-screen > div {
+  background-color: #fafafa !important;
 }

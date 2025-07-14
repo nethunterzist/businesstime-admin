@@ -1,0 +1,3549 @@
+   ▲ Next.js 15.3.5
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1432ms
+ ○ Compiling / ...
+ ✓ Compiled / in 3.2s (981 modules)
+🏠 Current active tab: dashboard
+ GET / 200 in 3470ms
+ ✓ Compiled in 797ms (447 modules)
+🏠 Current active tab: dashboard
+ GET / 200 in 233ms
+ ✓ Compiled /api/videos in 344ms (519 modules)
+ ✓ Compiled in 239ms (434 modules)
+ GET /favicon.ico 200 in 1160ms
+ GET /api/videos 200 in 1744ms
+ ✓ Compiled /api/categories in 128ms (1053 modules)
+ GET /api/categories 200 in 395ms
+ GET /api/videos 200 in 257ms
+ GET /api/categories 200 in 269ms
+ GET /api/categories 200 in 124ms
+ GET /api/videos 200 in 137ms
+ ✓ Compiled in 441ms (448 modules)
+ GET / 200 in 83ms
+🏠 Current active tab: dashboard
+ GET / 200 in 171ms
+ GET /favicon.ico 200 in 16ms
+ GET /api/videos 200 in 454ms
+ GET /api/categories 200 in 150ms
+ GET /api/videos 200 in 151ms
+ GET /api/categories 200 in 250ms
+ GET /api/videos 200 in 149ms
+ GET /api/categories 200 in 125ms
+🏠 Current active tab: dashboard
+ GET / 200 in 89ms
+ GET /favicon.ico 200 in 8ms
+ GET /api/videos 200 in 228ms
+ GET /api/categories 200 in 125ms
+ GET /api/videos 200 in 129ms
+ GET /api/videos 200 in 125ms
+ GET /api/categories 200 in 354ms
+ GET /api/categories 200 in 130ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 854ms (1057 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 1148ms
+ ✓ Compiled in 1112ms (951 modules)
+ GET / 200 in 186ms
+ ✓ Compiled /api/categories in 414ms (615 modules)
+ ✓ Compiled (617 modules)
+ GET /api/categories 200 in 826ms
+ GET /api/videos 200 in 831ms
+ ✓ Compiled in 634ms (1065 modules)
+ GET / 200 in 124ms
+ ✓ Compiled in 522ms (1065 modules)
+ GET / 200 in 89ms
+ ✓ Compiled in 596ms (951 modules)
+ GET / 200 in 106ms
+ ✓ Compiled in 1013ms (951 modules)
+ GET / 200 in 123ms
+ ✓ Compiled in 726ms (951 modules)
+ GET / 200 in 98ms
+ ✓ Compiled in 966ms (951 modules)
+ GET / 200 in 93ms
+🏠 Current active tab: dashboard
+ GET / 200 in 193ms
+ ✓ Compiled /api/videos in 348ms (615 modules)
+ GET /api/videos 200 in 980ms
+ ✓ Compiled /api/categories in 55ms (617 modules)
+ GET /api/categories 200 in 246ms
+ GET /api/categories 200 in 150ms
+ GET /api/categories 200 in 146ms
+ GET /api/videos 200 in 223ms
+ GET /api/videos 200 in 154ms
+ GET /api/videos 200 in 120ms
+ GET /api/categories 200 in 129ms
+ GET /api/videos 200 in 112ms
+ GET /api/categories 200 in 112ms
+ ✓ Compiled in 880ms (951 modules)
+ GET / 200 in 212ms
+ ✓ Compiled in 699ms (951 modules)
+ GET / 200 in 74ms
+🏠 Current active tab: dashboard
+ GET / 200 in 177ms
+ ✓ Compiled /api/videos in 245ms (519 modules)
+ ✓ Compiled (617 modules)
+ GET /favicon.ico 200 in 389ms
+ GET /api/videos 200 in 911ms
+ ✓ Compiled /api/categories in 138ms (619 modules)
+ GET /api/categories 200 in 354ms
+ GET /api/categories 200 in 143ms
+ GET /api/categories 200 in 207ms
+ GET /api/videos 200 in 360ms
+ GET /api/categories 200 in 146ms
+ GET /api/categories 200 in 124ms
+ GET /api/videos 200 in 135ms
+ GET /api/videos 200 in 135ms
+ GET /api/videos 200 in 126ms
+ ✓ Compiled in 1075ms (951 modules)
+ GET / 200 in 583ms
+ ✓ Compiled in 1053ms (951 modules)
+ GET / 200 in 685ms
+ ✓ Compiled in 1652ms (951 modules)
+ GET / 200 in 453ms
+🏠 Current active tab: dashboard
+ GET / 200 in 1535ms
+ ○ Compiling /api/settings ...
+ ✓ Compiled /api/settings in 2.8s (615 modules)
+ ✓ Compiled in 79.9s (434 modules)
+❌ API error: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at POST (src/app/api/settings/route.ts:30:31)
+  28 | export async function POST(request: Request) {
+  29 |   try {
+> 30 |     const body = await request.json()
+     |                               ^
+  31 |     console.log('📥 Received settings update:', body)
+  32 |     
+  33 |     // Convert settings object to array of key-value pairs
+🏠 Current active tab: dashboard
+ GET / 200 in 603ms
+ ○ Compiling /api/videos ...
+ ✓ Compiled /api/videos in 1495ms (519 modules)
+ ✓ Compiled /api/reports in 3ms (617 modules)
+ ✓ Compiled in 2.9s (1053 modules)
+ GET /favicon.ico 200 in 16420ms
+ GET /api/reports 200 in 15576ms
+ GET /api/videos 200 in 17457ms
+ ○ Compiling /api/categories ...
+ GET /api/reports 200 in 735ms
+ ✓ Compiled /api/categories in 1031ms (621 modules)
+ GET /api/categories 200 in 1958ms
+ ✓ Compiled /api/settings in 262ms (615 modules)
+ GET /api/settings 200 in 925ms
+ GET /api/settings 200 in 303ms
+ GET /api/settings 200 in 365ms
+ GET /api/settings 200 in 328ms
+📥 Received settings update: { suggested_search_tags: 'merhaba' }
+🔄 Processing settings array: [
+  {
+    key: 'suggested_search_tags',
+    value: 'merhaba',
+    description: 'Setting for suggested_search_tags',
+    updated_at: '2025-07-14T12:56:17.933Z'
+  }
+]
+✅ Settings upserted successfully: [
+  {
+    id: '731ffb0b-1be7-4f87-874e-48d666f14c3a',
+    key: 'suggested_search_tags',
+    value: 'merhaba',
+    description: 'Setting for suggested_search_tags',
+    created_at: '2025-07-14T12:56:18.142492+00:00',
+    updated_at: '2025-07-14T12:56:17.933+00:00'
+  }
+]
+ POST /api/settings 200 in 264ms
+🏠 Current active tab: dashboard
+ GET / 200 in 273ms
+ ✓ Compiled /api/videos in 154ms (617 modules)
+ ✓ Compiled (619 modules)
+ GET /favicon.ico 200 in 315ms
+ GET /api/videos 200 in 438ms
+ ✓ Compiled /api/categories in 81ms (621 modules)
+ GET /api/categories 200 in 247ms
+ GET /api/settings 200 in 139ms
+ GET /api/settings 200 in 235ms
+ GET /api/settings 200 in 232ms
+ GET /api/settings 200 in 129ms
+📥 Received settings update: { suggested_search_tags: 'merhaba' }
+🔄 Processing settings array: [
+  {
+    key: 'suggested_search_tags',
+    value: 'merhaba',
+    description: 'Setting for suggested_search_tags',
+    updated_at: '2025-07-14T12:56:27.834Z'
+  }
+]
+✅ Settings upserted successfully: [
+  {
+    id: '731ffb0b-1be7-4f87-874e-48d666f14c3a',
+    key: 'suggested_search_tags',
+    value: 'merhaba',
+    description: 'Setting for suggested_search_tags',
+    created_at: '2025-07-14T12:56:18.142492+00:00',
+    updated_at: '2025-07-14T12:56:28.091766+00:00'
+  }
+]
+ POST /api/settings 200 in 297ms
+🏠 Current active tab: dashboard
+ GET / 200 in 150ms
+ GET /favicon.ico 200 in 7ms
+ GET /api/videos 200 in 157ms
+ GET /api/categories 200 in 150ms
+ ✓ Compiled /api/reports in 326ms (623 modules)
+ GET /api/settings 200 in 252ms
+ GET /api/reports 200 in 741ms
+ GET /api/settings 200 in 140ms
+ GET /api/reports 200 in 244ms
+ GET /api/settings 200 in 241ms
+ GET /api/settings 200 in 121ms
+🏠 Current active tab: dashboard
+ GET / 200 in 198ms
+ GET /favicon.ico 200 in 12ms
+ GET /api/videos 200 in 302ms
+ GET /api/categories 200 in 132ms
+ GET /api/reports 200 in 278ms
+ GET /api/reports 200 in 278ms
+ GET /api/settings 200 in 212ms
+ GET /api/settings 200 in 126ms
+ GET /api/settings 200 in 184ms
+ GET /api/settings 200 in 142ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1108ms (1061 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 1614ms
+ GET /api/settings 200 in 401ms
+🏠 Current active tab: dashboard
+ GET / 200 in 1210ms
+ GET /favicon.ico 200 in 136ms
+ GET /api/settings 200 in 1215ms
+ GET /api/videos 200 in 1569ms
+ GET /api/settings 200 in 260ms
+ GET /api/categories 200 in 233ms
+ GET /api/settings 200 in 204ms
+ GET /api/settings 200 in 302ms
+ ✓ Compiled in 6s (951 modules)
+ GET / 200 in 595ms
+ ✓ Compiled in 991ms (951 modules)
+ GET / 200 in 213ms
+🏠 Current active tab: dashboard
+ GET / 200 in 214ms
+ ✓ Compiled /api/videos in 193ms (519 modules)
+ ✓ Compiled (617 modules)
+ GET /favicon.ico 200 in 645ms
+ ✓ Compiled /api/settings in 264ms (619 modules)
+ GET /api/videos 200 in 1233ms
+ ✓ Compiled /api/categories in 73ms (621 modules)
+ GET /api/settings 200 in 621ms
+ GET /api/categories 200 in 287ms
+ GET /api/settings 200 in 134ms
+ GET /api/settings 200 in 124ms
+ GET /api/settings 200 in 117ms
+ GET /api/settings 200 in 133ms
+ GET /api/settings 200 in 133ms
+ ✓ Compiled in 1008ms (448 modules)
+ GET / 200 in 257ms
+ ✓ Compiled in 6.6s (951 modules)
+ GET / 200 in 841ms
+ ✓ Compiled in 1464ms (951 modules)
+ GET / 200 in 242ms
+ ○ Compiling /api/settings ...
+ ✓ Compiled /api/settings in 1175ms (615 modules)
+ GET /api/settings 200 in 3438ms
+ GET /api/settings 200 in 154ms
+ GET /api/settings 200 in 152ms
+ ✓ Compiled in 5.8s (951 modules)
+ GET / 200 in 11749ms
+ ✓ Compiled in 8.4s (951 modules)
+ GET / 200 in 566ms
+ ✓ Compiled in 928ms (951 modules)
+ GET / 200 in 302ms
+ ○ Compiling /api/videos ...
+ ✓ Compiled /api/categories in 8s (615 modules)
+ ✓ Compiled (617 modules)
+🏠 Current active tab: dashboard
+ GET / 200 in 6835ms
+ GET /api/categories 200 in 15283ms
+ GET /api/videos 200 in 15656ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 6s (619 modules)
+ GET /favicon.ico 200 in 7630ms
+ GET /api/videos 200 in 8169ms
+ GET /api/categories 200 in 144ms
+🏠 Current active tab: dashboard
+ GET / 200 in 225ms
+ GET /favicon.ico 200 in 22ms
+ GET /api/videos 200 in 306ms
+ GET /api/categories 200 in 141ms
+ ✓ Compiled /api/settings in 245ms (621 modules)
+ GET /api/settings 200 in 441ms
+ GET /api/settings 200 in 147ms
+ GET /api/settings 200 in 126ms
+ GET /api/settings 200 in 126ms
+ GET /api/settings 200 in 142ms
+ GET /api/settings 200 in 184ms
+ GET /api/settings 200 in 133ms
+ GET /api/settings 200 in 127ms
+🏠 Current active tab: dashboard
+ GET / 200 in 583ms
+ GET /favicon.ico 200 in 40ms
+ GET /api/videos 200 in 583ms
+ GET /api/categories 200 in 153ms
+ GET /api/settings 200 in 161ms
+ GET /api/settings 200 in 147ms
+ GET /api/settings 200 in 316ms
+ GET /api/settings 200 in 157ms
+ GET /api/settings 200 in 122ms
+ GET /api/settings 200 in 138ms
+ GET /api/settings 200 in 128ms
+ GET /api/settings 200 in 159ms
+🏠 Current active tab: dashboard
+ GET / 200 in 81ms
+ GET /api/videos 200 in 246ms
+ GET /api/categories 200 in 121ms
+ GET /api/settings 200 in 125ms
+ GET /api/settings 200 in 126ms
+ GET /api/settings 200 in 131ms
+ GET /api/settings 200 in 129ms
+ GET /api/settings 200 in 145ms
+ GET /api/settings 200 in 150ms
+ GET /api/settings 200 in 131ms
+ GET /api/settings 200 in 133ms
+ ✓ Compiled in 1711ms (448 modules)
+ GET / 200 in 39ms
+ ✓ Compiled in 23.2s (951 modules)
+ GET / 200 in 994ms
+ ✓ Compiled in 1973ms (951 modules)
+ GET / 200 in 319ms
+ ✓ Compiled in 4.5s (951 modules)
+ GET / 200 in 171ms
+🏠 Current active tab: dashboard
+ GET / 200 in 622ms
+ ✓ Compiled /api/videos in 248ms (519 modules)
+ ✓ Compiled (617 modules)
+ GET /favicon.ico 200 in 1005ms
+ GET /api/videos 200 in 1779ms
+ ✓ Compiled /api/categories in 92ms (619 modules)
+ GET /api/categories 200 in 284ms
+ ✓ Compiled in 699ms (1067 modules)
+ GET / 200 in 136ms
+ ✓ Compiled in 860ms (951 modules)
+ GET / 200 in 689ms
+🏠 Current active tab: dashboard
+ GET / 200 in 198ms
+ ✓ Compiled /api/videos in 249ms (519 modules)
+ ✓ Compiled (617 modules)
+ GET /favicon.ico 200 in 537ms
+ GET /api/videos 200 in 1022ms
+ ✓ Compiled /api/categories in 58ms (619 modules)
+ GET /api/categories 200 in 343ms
+ ✓ Compiled /api/settings in 285ms (621 modules)
+ GET /api/settings 200 in 552ms
+ GET /api/settings 200 in 141ms
+ GET /api/settings 200 in 150ms
+ GET /api/settings 200 in 131ms
+ GET /api/settings 200 in 129ms
+ GET /api/settings 200 in 127ms
+ GET /api/settings 200 in 119ms
+ GET /api/settings 200 in 116ms
+ ✓ Compiled in 1252ms (448 modules)
+ GET / 200 in 181ms
+ ✓ Compiled in 562ms (448 modules)
+ GET / 200 in 73ms
+ ○ Compiling /api/featured-content ...
+ ✓ Compiled /api/featured-content in 590ms (1048 modules)
+ ✓ Compiled /api/settings in 74ms (617 modules)
+ GET /api/featured-content 200 in 1330ms
+ GET /api/settings 200 in 560ms
+ GET /api/featured-content 200 in 143ms
+ GET /api/settings 200 in 139ms
+ GET /api/settings 200 in 135ms
+ GET /api/featured-content 200 in 142ms
+ GET /api/settings 200 in 131ms
+ GET /api/featured-content 200 in 150ms
+ GET /api/settings 200 in 133ms
+ GET /api/settings 200 in 129ms
+ GET /api/settings 200 in 136ms
+ GET /api/settings 200 in 164ms
+ GET /api/settings 200 in 180ms
+ GET /api/settings 200 in 207ms
+ GET /api/settings 200 in 272ms
+ GET /api/settings 200 in 158ms
+ GET /api/settings 200 in 311ms
+ GET /api/settings 200 in 187ms
+ GET /api/settings 200 in 443ms
+ ✓ Compiled in 542ms (448 modules)
+ GET /api/settings 200 in 304ms
+ GET / 200 in 182ms
+ ○ Compiling /api/reports ...
+ ✓ Compiled /api/reports in 603ms (619 modules)
+ GET /api/reports 200 in 1143ms
+ GET /api/reports 200 in 280ms
+ GET /api/settings 200 in 319ms
+ GET /api/settings 200 in 120ms
+ GET /api/settings 200 in 162ms
+ GET /api/settings 200 in 192ms
+ GET /api/settings 200 in 118ms
+ GET /api/settings 200 in 122ms
+ GET /api/settings 200 in 122ms
+ GET /api/settings 200 in 119ms
+ GET /api/featured-content 200 in 292ms
+ GET /api/featured-content 200 in 146ms
+ GET /api/settings 200 in 159ms
+ GET /api/settings 200 in 139ms
+ GET /api/settings 200 in 241ms
+ GET /api/settings 200 in 156ms
+ GET /api/settings 200 in 132ms
+ GET /api/settings 200 in 127ms
+ GET /api/settings 200 in 185ms
+ GET /api/settings 200 in 126ms
+ ✓ Compiled in 505ms (448 modules)
+ GET / 200 in 87ms
+ ✓ Compiled in 1838ms (951 modules)
+ GET / 200 in 1377ms
+ ✓ Compiled in 929ms (961 modules)
+ GET / 200 in 580ms
+ ✓ Compiled /api/settings in 315ms (620 modules)
+ GET /api/settings 200 in 2986ms
+ GET /api/settings 200 in 144ms
+🏠 Current active tab: dashboard
+ GET / 200 in 1033ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 570ms (622 modules)
+ ✓ Compiled (624 modules)
+ GET /favicon.ico 200 in 870ms
+ GET /api/settings 200 in 1103ms
+ GET /api/videos 200 in 1135ms
+ GET /api/settings 200 in 124ms
+ ✓ Compiled /api/categories in 189ms (626 modules)
+ GET /api/categories 200 in 373ms
+ GET /api/settings 200 in 364ms
+ GET /api/settings 200 in 158ms
+ GET /api/settings 200 in 175ms
+ GET /api/settings 200 in 131ms
+ GET /api/settings 200 in 133ms
+ GET /api/settings 200 in 134ms
+ GET /api/settings 200 in 124ms
+ GET /api/settings 200 in 131ms
+ GET /api/settings 200 in 137ms
+ GET /api/settings 200 in 136ms
+ GET /api/settings 200 in 435ms
+ GET /api/settings 200 in 140ms
+ GET /api/settings 200 in 119ms
+ GET /api/settings 200 in 123ms
+ GET /api/settings 200 in 121ms
+ GET /api/settings 200 in 129ms
+ ✓ Compiled /api/featured-content in 348ms (628 modules)
+ GET /api/featured-content 200 in 542ms
+ GET /api/featured-content 200 in 116ms
+ GET /api/categories 200 in 136ms
+ GET /api/categories 200 in 117ms
+ GET /api/videos 200 in 273ms
+ GET /api/videos 200 in 143ms
+ GET /api/featured-content 200 in 159ms
+ GET /api/featured-content 200 in 115ms
+ ✓ Compiled in 1472ms (1079 modules)
+ GET / 200 in 615ms
+🏠 Current active tab: dashboard
+ GET / 200 in 170ms
+ ✓ Compiled /favicon.ico in 158ms (628 modules)
+ GET /favicon.ico 200 in 269ms
+ GET /api/videos 200 in 562ms
+ GET /api/categories 200 in 152ms
+ GET /api/settings 200 in 134ms
+ GET /api/settings 200 in 137ms
+ GET /api/settings 200 in 129ms
+ GET /api/settings 200 in 122ms
+ GET /api/settings 200 in 131ms
+ GET /api/settings 200 in 126ms
+ GET /api/settings 200 in 135ms
+ GET /api/settings 200 in 130ms
+ GET /api/featured-content 200 in 319ms
+ GET /api/featured-content 200 in 138ms
+ GET /api/settings 200 in 561ms
+ GET /api/settings 200 in 176ms
+📥 Received settings update: { enable_push_notifications: true }
+🔄 Processing settings array: [
+  {
+    key: 'enable_push_notifications',
+    value: true,
+    description: 'Setting for enable_push_notifications',
+    updated_at: '2025-07-14T14:31:15.133Z'
+  }
+]
+✅ Settings upserted successfully: [
+  {
+    id: '1a35e9b4-42b9-44cd-9c83-a8acfff40f54',
+    key: 'enable_push_notifications',
+    value: true,
+    description: 'Setting for enable_push_notifications',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:31:15.41296+00:00'
+  }
+]
+ POST /api/settings 200 in 330ms
+ ○ Compiling /api/send-notification ...
+ ✓ Compiled /api/send-notification in 580ms (1075 modules)
+📨 Sending notification: {
+  title: 'Yeni video yayınlandı!',
+  message: 'İş dünyasından yeni videomuz yayında. Hemen izleyin!',
+  type: 'new_video',
+  videoId: null,
+  targetAudience: 'all'
+}
+ GET / 200 in 178ms
+✅ Notification created with ID: 327491b5-9205-443e-a431-59caac0e8656
+📱 Found active devices: 1
+✅ Notification recipients created: 1
+🚀 Mock push notification sent to 1 devices
+ POST /api/send-notification 200 in 1407ms
+ GET /api/settings 200 in 339ms
+ GET /api/settings 200 in 204ms
+ GET /api/settings 200 in 144ms
+ GET /api/settings 200 in 181ms
+ GET /api/settings 200 in 141ms
+ GET /api/settings 200 in 138ms
+ GET /api/settings 200 in 128ms
+ GET /api/settings 200 in 161ms
+ ✓ Compiled in 2.8s (1075 modules)
+📥 Received settings update: {
+  appName: 'Business Time',
+  description: 'İş dünyasından en güncel haberler, eğitimler ve içerikler',
+  logoUrl: '',
+  autoPlayVideos: true,
+  enableSharing: true,
+  videoQuality: '720p',
+  enablePushNotifications: true,
+  maintenanceMode: false,
+  maintenanceMessage: 'Uygulama şu anda bakım modunda. Lütfen daha sonra tekrar deneyin.',
+  cacheEnabled: true,
+  maxCacheSize: 500,
+  cacheExpiryHours: 24,
+  enableOfflineMode: true,
+  enableDarkMode: true,
+  enableAutoUpdate: true,
+  enableCrashReporting: true,
+  enablePerformanceMonitoring: true,
+  app_name: 'Business Time TV',
+  app_version: '1.0.0',
+  maintenance_mode: false,
+  featured_videos_count: 5,
+  categories_per_page: 20,
+  videos_per_page: 20,
+  max_video_duration: 3600,
+  enable_comments: false,
+  analytics_enabled: true,
+  auto_play_videos: true,
+  video_quality_default: '720p',
+  cache_duration_hours: 24,
+  rate_limit_per_minute: 60,
+  admin_email: 'admin@businesstime.app',
+  enable_push_notifications: true,
+  help_support_content: {
+    content: '# Yardım ve Destek\n' +
+      '\n' +
+      '## Bizimle İletişime Geçin\n' +
+      '\n' +
+      'Sorularınız için aşağıdaki kanalları kullanabilirsiniz:\n' +
+      '\n' +
+      '### E-posta Desteği\n' +
+      'support@businesstime.app\n' +
+      '\n' +
+      '### WhatsApp Desteği\n' +
+      '7/24 anlık destek\n' +
+      '+90 555 123 45 67\n' +
+      '\n' +
+      '## Sık Sorulan Sorular\n' +
+      '\n' +
+      '### Videolar neden yüklenmiyor?\n' +
+      'Video yükleme sorunları genellikle internet bağlantısından kaynaklanır. WiFi veya mobil veri bağlantınızı kontrol edin. Ayrıca uygulamayı kapatıp tekrar açmayı deneyin.\n' +
+      '\n' +
+      '### Videoları nasıl kaydedebilirim?\n' +
+      'Video izlerken sağ alttaki kaydet butonuna tıklayarak videoları kaydedebilirsiniz. Kaydettiğiniz videolara Ayarlar > Kaydettiğim Videolar bölümünden ulaşabilirsiniz.\n' +
+      '\n' +
+      '### Koyu tema nasıl açılır?\n' +
+      'Ayarlar > Görünüm > Koyu Tema seçeneğini aktif ederek koyu temaya geçebilirsiniz. Bu ayar otomatik olarak kaydedilir.\n' +
+      '\n' +
+      '### Bildirimleri nasıl kapatabilirim?\n' +
+      'Ayarlar > Bildirimler bölümünden push bildirimlerini kapatabilirsiniz. Ayrıca cihaz ayarlarından da uygulama bildirimlerini yönetebilirsiniz.\n' +
+      '\n' +
+      '## Destek Saatleri\n' +
+      '\n' +
+      'Pazartesi - Cuma: 09:00 - 18:00\n' +
+      'Cumartesi: 10:00 - 16:00\n' +
+      'WhatsApp desteği 7/24 aktiftir\n' +
+      '\n' +
+      'Geri dönüş süresi: 2-24 saat içinde',
+    updated_by: 'admin',
+    last_updated: '2025-01-14T00:00:00Z'
+  },
+  about_content: {
+    content: '# Business Time TV Hakkında\n' +
+      '\n' +
+      '## Misyonumuz\n' +
+      '\n' +
+      'İş dünyasından kaliteli, güncel ve eğitici içerikleri herkese ulaştırarak, girişimci ruhu desteklemek ve profesyonel gelişime katkıda bulunmak. Teknolojinin gücünü kullanarak öğrenmeyi erişilebilir kılmak.\n' +
+      '\n' +
+      '## Özellikler\n' +
+      '\n' +
+      '• HD Video Streaming - Yüksek kalitede video deneyimi\n' +
+      '• Video Kaydetme - Favori videolarınızı saklayın\n' +
+      '• Akıllı Arama - İstediğiniz içeriği hızlıca bulun\n' +
+      '• Koyu/Açık Tema - Gözlerinizi yormayan tasarım\n' +
+      '• Trend Videolar - En popüler iş dünyası içerikleri\n' +
+      '• Bildirimler - Yeni içeriklerden haberdar olun\n' +
+      '\n' +
+      '## Ekibimiz\n' +
+      '\n' +
+      '### Furkan Yiğit\n' +
+      'Kurucu & CEO\n' +
+      '10+ yıl teknoloji deneyimi\n' +
+      '\n' +
+      '### Geliştirici Ekibi\n' +
+      'Yazılım Geliştirme\n' +
+      'React Native & Backend uzmanları\n' +
+      '\n' +
+      '### İçerik Ekibi\n' +
+      'Video Editörleri\n' +
+      'Profesyonel iş dünyası içerikleri\n' +
+      '\n' +
+      '## İstatistikler\n' +
+      '\n' +
+      '• 500+ Video İçerik\n' +
+      '• 10K+ Aktif Kullanıcı\n' +
+      '• 25+ Kategori\n' +
+      '\n' +
+      '## İletişim\n' +
+      '\n' +
+      'info@businesstime.app\n' +
+      'businesstime.app\n' +
+      '\n' +
+      '## Sosyal Medya\n' +
+      '\n' +
+      'Twitter: @businesstimetv\n' +
+      'LinkedIn: /company/businesstimetv\n' +
+      'Instagram: @businesstimetv\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '© 2025 Business Time TV. Tüm hakları saklıdır.\n' +
+      'Made with ❤️ in Turkey',
+    updated_by: 'admin',
+    last_updated: '2025-01-14T00:00:00Z'
+  },
+  terms_of_service_content: '{"content":"# Business Time Kullanım Koşulları\\n\\nBu Kullanım Koşulları (\\"Koşullar\\"), Business Time TV mobil uygulaması (\\"Uygulama\\") kullanımınızı düzenler. Uygulamayı kullanarak bu koşulları kabul etmiş olursunuz.\\n\\n## 1. Hizmet Tanımı\\n\\nBusiness Time TV, iş dünyasından videolar, haberler ve içerikler sunan bir mobil uygulamadır. Hizmetimiz ücretsizdir ve reklam destekli olarak sunulmaktadır.\\n\\n## 2. Kullanım Kuralları\\n\\nUygulamayı kullanırken aşağıdaki kuralları kabul edersiniz:\\n\\n• Uygulamayı yalnızca yasal amaçlar için kullanacaksınız\\n• Başkalarının haklarını ihlal etmeyeceksiniz\\n• Uygunsuz içerik paylaşmayacaksınız\\n• Sistemi kötüye kullanmayacaksınız\\n\\n## 3. İçerik Politikası\\n\\nUygulamamızdaki tüm videolar editörlerimiz tarafından seçilir ve yüklenir. İçeriklerimiz iş dünyası, finansal haberler, eğitim ve profesyonel gelişim konularında hazırlanmaktadır.\\n\\n## 4. Fikri Mülkiyet Hakları\\n\\nUygulamadaki tüm içerikler telif hakkı ile korunmaktadır. İçerikleri kopyalayamaz, dağıtamaz veya ticari amaçlarla kullanamazsınız.\\n\\n## İletişim\\n\\nKullanım koşulları hakkında sorularınız için:\\ninfo@businesstime.com","last_updated":"2025-07-14T11:33:11.997Z","updated_by":"admin"}',
+  privacy_policy_content: '{"content":"Business Time olarak kullanıcılarımızın gizliliğini korumayı önemsiyoruz. Bu gizlilik politikası, uygulamamızı kullanırken kişisel bilgilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.\\n\\n## Topladığımız Bilgiler\\n\\n• İzleme geçmişi ve video tercihleri\\n• Beğenilen ve kaydedilen videolar\\n• Uygulama kullanım istatistikleri\\n• Cihaz bilgileri (model, işletim sistemi)\\n\\n## Bilgilerin Kullanımı\\n\\nToplanan bilgiler şu amaçlarla kullanılır:\\n\\n• Kişiselleştirilmiş içerik önerileri\\n• Uygulama performansının iyileştirilmesi\\n• Teknik destek sağlanması\\n• Güvenlik ve dolandırıcılık önleme\\n\\n## Veri Güvenliği\\n\\nVerilerinizi korumak için endüstri standardı güvenlik önlemleri alıyoruz. Tüm veri aktarımları SSL şifreleme ile korunur ve sunucularımız güvenli veri merkezlerinde barındırılır.\\n\\n## İletişim\\n\\nGizlilik ile ilgili sorularınız için bizimle iletişime geçebilirsiniz:\\nprivacy@businesstime.comss","last_updated":"2025-07-14T11:33:17.547Z","updated_by":"admin"}',
+  suggested_search_tags: 'merhaba'
+}
+🔄 Processing settings array: [
+  {
+    key: 'appName',
+    value: 'Business Time',
+    description: 'Setting for appName',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'description',
+    value: 'İş dünyasından en güncel haberler, eğitimler ve içerikler',
+    description: 'Setting for description',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'logoUrl',
+    value: '',
+    description: 'Setting for logoUrl',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'autoPlayVideos',
+    value: true,
+    description: 'Setting for autoPlayVideos',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'enableSharing',
+    value: true,
+    description: 'Setting for enableSharing',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'videoQuality',
+    value: '720p',
+    description: 'Setting for videoQuality',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'enablePushNotifications',
+    value: true,
+    description: 'Setting for enablePushNotifications',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'maintenanceMode',
+    value: false,
+    description: 'Setting for maintenanceMode',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'maintenanceMessage',
+    value: 'Uygulama şu anda bakım modunda. Lütfen daha sonra tekrar deneyin.',
+    description: 'Setting for maintenanceMessage',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'cacheEnabled',
+    value: true,
+    description: 'Setting for cacheEnabled',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'maxCacheSize',
+    value: 500,
+    description: 'Setting for maxCacheSize',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'cacheExpiryHours',
+    value: 24,
+    description: 'Setting for cacheExpiryHours',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'enableOfflineMode',
+    value: true,
+    description: 'Setting for enableOfflineMode',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'enableDarkMode',
+    value: true,
+    description: 'Setting for enableDarkMode',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'enableAutoUpdate',
+    value: true,
+    description: 'Setting for enableAutoUpdate',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'enableCrashReporting',
+    value: true,
+    description: 'Setting for enableCrashReporting',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'enablePerformanceMonitoring',
+    value: true,
+    description: 'Setting for enablePerformanceMonitoring',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'app_name',
+    value: 'Business Time TV',
+    description: 'Setting for app_name',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'app_version',
+    value: '1.0.0',
+    description: 'Setting for app_version',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'maintenance_mode',
+    value: false,
+    description: 'Setting for maintenance_mode',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'featured_videos_count',
+    value: 5,
+    description: 'Setting for featured_videos_count',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'categories_per_page',
+    value: 20,
+    description: 'Setting for categories_per_page',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'videos_per_page',
+    value: 20,
+    description: 'Setting for videos_per_page',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'max_video_duration',
+    value: 3600,
+    description: 'Setting for max_video_duration',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'enable_comments',
+    value: false,
+    description: 'Setting for enable_comments',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'analytics_enabled',
+    value: true,
+    description: 'Setting for analytics_enabled',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'auto_play_videos',
+    value: true,
+    description: 'Setting for auto_play_videos',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'video_quality_default',
+    value: '720p',
+    description: 'Setting for video_quality_default',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'cache_duration_hours',
+    value: 24,
+    description: 'Setting for cache_duration_hours',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'rate_limit_per_minute',
+    value: 60,
+    description: 'Setting for rate_limit_per_minute',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'admin_email',
+    value: 'admin@businesstime.app',
+    description: 'Setting for admin_email',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'enable_push_notifications',
+    value: true,
+    description: 'Setting for enable_push_notifications',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'help_support_content',
+    value: {
+      content: '# Yardım ve Destek\n' +
+        '\n' +
+        '## Bizimle İletişime Geçin\n' +
+        '\n' +
+        'Sorularınız için aşağıdaki kanalları kullanabilirsiniz:\n' +
+        '\n' +
+        '### E-posta Desteği\n' +
+        'support@businesstime.app\n' +
+        '\n' +
+        '### WhatsApp Desteği\n' +
+        '7/24 anlık destek\n' +
+        '+90 555 123 45 67\n' +
+        '\n' +
+        '## Sık Sorulan Sorular\n' +
+        '\n' +
+        '### Videolar neden yüklenmiyor?\n' +
+        'Video yükleme sorunları genellikle internet bağlantısından kaynaklanır. WiFi veya mobil veri bağlantınızı kontrol edin. Ayrıca uygulamayı kapatıp tekrar açmayı deneyin.\n' +
+        '\n' +
+        '### Videoları nasıl kaydedebilirim?\n' +
+        'Video izlerken sağ alttaki kaydet butonuna tıklayarak videoları kaydedebilirsiniz. Kaydettiğiniz videolara Ayarlar > Kaydettiğim Videolar bölümünden ulaşabilirsiniz.\n' +
+        '\n' +
+        '### Koyu tema nasıl açılır?\n' +
+        'Ayarlar > Görünüm > Koyu Tema seçeneğini aktif ederek koyu temaya geçebilirsiniz. Bu ayar otomatik olarak kaydedilir.\n' +
+        '\n' +
+        '### Bildirimleri nasıl kapatabilirim?\n' +
+        'Ayarlar > Bildirimler bölümünden push bildirimlerini kapatabilirsiniz. Ayrıca cihaz ayarlarından da uygulama bildirimlerini yönetebilirsiniz.\n' +
+        '\n' +
+        '## Destek Saatleri\n' +
+        '\n' +
+        'Pazartesi - Cuma: 09:00 - 18:00\n' +
+        'Cumartesi: 10:00 - 16:00\n' +
+        'WhatsApp desteği 7/24 aktiftir\n' +
+        '\n' +
+        'Geri dönüş süresi: 2-24 saat içinde',
+      updated_by: 'admin',
+      last_updated: '2025-01-14T00:00:00Z'
+    },
+    description: 'Setting for help_support_content',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'about_content',
+    value: {
+      content: '# Business Time TV Hakkında\n' +
+        '\n' +
+        '## Misyonumuz\n' +
+        '\n' +
+        'İş dünyasından kaliteli, güncel ve eğitici içerikleri herkese ulaştırarak, girişimci ruhu desteklemek ve profesyonel gelişime katkıda bulunmak. Teknolojinin gücünü kullanarak öğrenmeyi erişilebilir kılmak.\n' +
+        '\n' +
+        '## Özellikler\n' +
+        '\n' +
+        '• HD Video Streaming - Yüksek kalitede video deneyimi\n' +
+        '• Video Kaydetme - Favori videolarınızı saklayın\n' +
+        '• Akıllı Arama - İstediğiniz içeriği hızlıca bulun\n' +
+        '• Koyu/Açık Tema - Gözlerinizi yormayan tasarım\n' +
+        '• Trend Videolar - En popüler iş dünyası içerikleri\n' +
+        '• Bildirimler - Yeni içeriklerden haberdar olun\n' +
+        '\n' +
+        '## Ekibimiz\n' +
+        '\n' +
+        '### Furkan Yiğit\n' +
+        'Kurucu & CEO\n' +
+        '10+ yıl teknoloji deneyimi\n' +
+        '\n' +
+        '### Geliştirici Ekibi\n' +
+        'Yazılım Geliştirme\n' +
+        'React Native & Backend uzmanları\n' +
+        '\n' +
+        '### İçerik Ekibi\n' +
+        'Video Editörleri\n' +
+        'Profesyonel iş dünyası içerikleri\n' +
+        '\n' +
+        '## İstatistikler\n' +
+        '\n' +
+        '• 500+ Video İçerik\n' +
+        '• 10K+ Aktif Kullanıcı\n' +
+        '• 25+ Kategori\n' +
+        '\n' +
+        '## İletişim\n' +
+        '\n' +
+        'info@businesstime.app\n' +
+        'businesstime.app\n' +
+        '\n' +
+        '## Sosyal Medya\n' +
+        '\n' +
+        'Twitter: @businesstimetv\n' +
+        'LinkedIn: /company/businesstimetv\n' +
+        'Instagram: @businesstimetv\n' +
+        '\n' +
+        '---\n' +
+        '\n' +
+        '© 2025 Business Time TV. Tüm hakları saklıdır.\n' +
+        'Made with ❤️ in Turkey',
+      updated_by: 'admin',
+      last_updated: '2025-01-14T00:00:00Z'
+    },
+    description: 'Setting for about_content',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'terms_of_service_content',
+    value: '{"content":"# Business Time Kullanım Koşulları\\n\\nBu Kullanım Koşulları (\\"Koşullar\\"), Business Time TV mobil uygulaması (\\"Uygulama\\") kullanımınızı düzenler. Uygulamayı kullanarak bu koşulları kabul etmiş olursunuz.\\n\\n## 1. Hizmet Tanımı\\n\\nBusiness Time TV, iş dünyasından videolar, haberler ve içerikler sunan bir mobil uygulamadır. Hizmetimiz ücretsizdir ve reklam destekli olarak sunulmaktadır.\\n\\n## 2. Kullanım Kuralları\\n\\nUygulamayı kullanırken aşağıdaki kuralları kabul edersiniz:\\n\\n• Uygulamayı yalnızca yasal amaçlar için kullanacaksınız\\n• Başkalarının haklarını ihlal etmeyeceksiniz\\n• Uygunsuz içerik paylaşmayacaksınız\\n• Sistemi kötüye kullanmayacaksınız\\n\\n## 3. İçerik Politikası\\n\\nUygulamamızdaki tüm videolar editörlerimiz tarafından seçilir ve yüklenir. İçeriklerimiz iş dünyası, finansal haberler, eğitim ve profesyonel gelişim konularında hazırlanmaktadır.\\n\\n## 4. Fikri Mülkiyet Hakları\\n\\nUygulamadaki tüm içerikler telif hakkı ile korunmaktadır. İçerikleri kopyalayamaz, dağıtamaz veya ticari amaçlarla kullanamazsınız.\\n\\n## İletişim\\n\\nKullanım koşulları hakkında sorularınız için:\\ninfo@businesstime.com","last_updated":"2025-07-14T11:33:11.997Z","updated_by":"admin"}',
+    description: 'Setting for terms_of_service_content',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'privacy_policy_content',
+    value: '{"content":"Business Time olarak kullanıcılarımızın gizliliğini korumayı önemsiyoruz. Bu gizlilik politikası, uygulamamızı kullanırken kişisel bilgilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.\\n\\n## Topladığımız Bilgiler\\n\\n• İzleme geçmişi ve video tercihleri\\n• Beğenilen ve kaydedilen videolar\\n• Uygulama kullanım istatistikleri\\n• Cihaz bilgileri (model, işletim sistemi)\\n\\n## Bilgilerin Kullanımı\\n\\nToplanan bilgiler şu amaçlarla kullanılır:\\n\\n• Kişiselleştirilmiş içerik önerileri\\n• Uygulama performansının iyileştirilmesi\\n• Teknik destek sağlanması\\n• Güvenlik ve dolandırıcılık önleme\\n\\n## Veri Güvenliği\\n\\nVerilerinizi korumak için endüstri standardı güvenlik önlemleri alıyoruz. Tüm veri aktarımları SSL şifreleme ile korunur ve sunucularımız güvenli veri merkezlerinde barındırılır.\\n\\n## İletişim\\n\\nGizlilik ile ilgili sorularınız için bizimle iletişime geçebilirsiniz:\\nprivacy@businesstime.comss","last_updated":"2025-07-14T11:33:17.547Z","updated_by":"admin"}',
+    description: 'Setting for privacy_policy_content',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  },
+  {
+    key: 'suggested_search_tags',
+    value: 'merhaba',
+    description: 'Setting for suggested_search_tags',
+    updated_at: '2025-07-14T14:32:07.549Z'
+  }
+]
+ GET / 200 in 159ms
+✅ Settings upserted successfully: [
+  {
+    id: '49af99c6-cd2f-4c12-b489-0320087ea4a7',
+    key: 'appName',
+    value: 'Business Time',
+    description: 'Setting for appName',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: 'ea31e5f4-b930-418e-83b1-ee74c5fb43d1',
+    key: 'description',
+    value: 'İş dünyasından en güncel haberler, eğitimler ve içerikler',
+    description: 'Setting for description',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '7b9acdfb-5674-4e08-9533-6d07de7565d9',
+    key: 'logoUrl',
+    value: '',
+    description: 'Setting for logoUrl',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '346f9d1d-39f8-422c-bd4b-ab79bc71fdc8',
+    key: 'autoPlayVideos',
+    value: true,
+    description: 'Setting for autoPlayVideos',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '2e4e3280-3219-40f1-8423-7e51d722232e',
+    key: 'enableSharing',
+    value: true,
+    description: 'Setting for enableSharing',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '6418d23d-4215-4c27-9eae-6600d24b4b26',
+    key: 'videoQuality',
+    value: '720p',
+    description: 'Setting for videoQuality',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '5e795a0a-6fd2-4979-8775-3437025a0f5d',
+    key: 'enablePushNotifications',
+    value: true,
+    description: 'Setting for enablePushNotifications',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '981f0ddb-54e0-48d0-9948-4b1bda5e6ed7',
+    key: 'maintenanceMode',
+    value: false,
+    description: 'Setting for maintenanceMode',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '08129123-cca5-401f-88b7-7737d6111cc0',
+    key: 'maintenanceMessage',
+    value: 'Uygulama şu anda bakım modunda. Lütfen daha sonra tekrar deneyin.',
+    description: 'Setting for maintenanceMessage',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '6344d89e-fe9b-48b4-aae6-7afc1fd8eadb',
+    key: 'cacheEnabled',
+    value: true,
+    description: 'Setting for cacheEnabled',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: 'b86a7104-54c7-42fa-a169-37742545d802',
+    key: 'maxCacheSize',
+    value: 500,
+    description: 'Setting for maxCacheSize',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '5a0877a8-87d9-4714-bbb4-7ca501d1c2c7',
+    key: 'cacheExpiryHours',
+    value: 24,
+    description: 'Setting for cacheExpiryHours',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '5ab3a576-360b-4458-ba7b-beff06447ace',
+    key: 'enableOfflineMode',
+    value: true,
+    description: 'Setting for enableOfflineMode',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '3a80cb7a-2172-47f5-bbec-10239da7cfa8',
+    key: 'enableDarkMode',
+    value: true,
+    description: 'Setting for enableDarkMode',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '307ad203-8122-46f8-9354-b7fa02a3c07f',
+    key: 'enableAutoUpdate',
+    value: true,
+    description: 'Setting for enableAutoUpdate',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '748ba974-f0f7-4ff7-bd0f-83b3cfc81f01',
+    key: 'enableCrashReporting',
+    value: true,
+    description: 'Setting for enableCrashReporting',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '21bb0fff-f838-4a50-a7fb-7f81b3d9b23a',
+    key: 'enablePerformanceMonitoring',
+    value: true,
+    description: 'Setting for enablePerformanceMonitoring',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T14:32:07.549+00:00'
+  },
+  {
+    id: '8155882e-b0bf-46bb-ad4a-46bf476eb683',
+    key: 'app_name',
+    value: 'Business Time TV',
+    description: 'Setting for app_name',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: '95b5c4af-cc79-4fd4-9208-ebb2833b6012',
+    key: 'app_version',
+    value: '1.0.0',
+    description: 'Setting for app_version',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: '3d5df7f6-2c62-4016-9949-6a7792b30bb1',
+    key: 'maintenance_mode',
+    value: false,
+    description: 'Setting for maintenance_mode',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: '1337e54a-4628-4e2f-b2dd-57aa235ac482',
+    key: 'featured_videos_count',
+    value: 5,
+    description: 'Setting for featured_videos_count',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: '2013a038-2652-41c4-8f27-6bf4fa29ec05',
+    key: 'categories_per_page',
+    value: 20,
+    description: 'Setting for categories_per_page',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: '1641a0d2-3e4c-4918-8348-abdd3a6f0ffb',
+    key: 'videos_per_page',
+    value: 20,
+    description: 'Setting for videos_per_page',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: '4981daae-90e1-4f5b-84d2-81e910b1ed3a',
+    key: 'max_video_duration',
+    value: 3600,
+    description: 'Setting for max_video_duration',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: '23128543-db49-4d34-a83d-ee94e496bb8a',
+    key: 'enable_comments',
+    value: false,
+    description: 'Setting for enable_comments',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: 'ee9e0974-bdfa-40db-881d-343cc3bedaa5',
+    key: 'analytics_enabled',
+    value: true,
+    description: 'Setting for analytics_enabled',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: 'cab85394-4b4f-44dd-a67a-e3b984e303cb',
+    key: 'auto_play_videos',
+    value: true,
+    description: 'Setting for auto_play_videos',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: '30cda2f2-d6cb-4668-9add-a714c539455f',
+    key: 'video_quality_default',
+    value: '720p',
+    description: 'Setting for video_quality_default',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: 'fa89a8db-f555-4b02-8d75-1cbf7ce4b94e',
+    key: 'cache_duration_hours',
+    value: 24,
+    description: 'Setting for cache_duration_hours',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: '457a3270-a24a-4816-9415-65ee36a3477f',
+    key: 'rate_limit_per_minute',
+    value: 60,
+    description: 'Setting for rate_limit_per_minute',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: 'c34965a8-f91c-4d13-9f34-fc3c5e73cdd2',
+    key: 'admin_email',
+    value: 'admin@businesstime.app',
+    description: 'Setting for admin_email',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: '1a35e9b4-42b9-44cd-9c83-a8acfff40f54',
+    key: 'enable_push_notifications',
+    value: true,
+    description: 'Setting for enable_push_notifications',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: '48b3ee8e-0149-42c6-b604-4fac5603961d',
+    key: 'help_support_content',
+    value: {
+      content: '# Yardım ve Destek\n' +
+        '\n' +
+        '## Bizimle İletişime Geçin\n' +
+        '\n' +
+        'Sorularınız için aşağıdaki kanalları kullanabilirsiniz:\n' +
+        '\n' +
+        '### E-posta Desteği\n' +
+        'support@businesstime.app\n' +
+        '\n' +
+        '### WhatsApp Desteği\n' +
+        '7/24 anlık destek\n' +
+        '+90 555 123 45 67\n' +
+        '\n' +
+        '## Sık Sorulan Sorular\n' +
+        '\n' +
+        '### Videolar neden yüklenmiyor?\n' +
+        'Video yükleme sorunları genellikle internet bağlantısından kaynaklanır. WiFi veya mobil veri bağlantınızı kontrol edin. Ayrıca uygulamayı kapatıp tekrar açmayı deneyin.\n' +
+        '\n' +
+        '### Videoları nasıl kaydedebilirim?\n' +
+        'Video izlerken sağ alttaki kaydet butonuna tıklayarak videoları kaydedebilirsiniz. Kaydettiğiniz videolara Ayarlar > Kaydettiğim Videolar bölümünden ulaşabilirsiniz.\n' +
+        '\n' +
+        '### Koyu tema nasıl açılır?\n' +
+        'Ayarlar > Görünüm > Koyu Tema seçeneğini aktif ederek koyu temaya geçebilirsiniz. Bu ayar otomatik olarak kaydedilir.\n' +
+        '\n' +
+        '### Bildirimleri nasıl kapatabilirim?\n' +
+        'Ayarlar > Bildirimler bölümünden push bildirimlerini kapatabilirsiniz. Ayrıca cihaz ayarlarından da uygulama bildirimlerini yönetebilirsiniz.\n' +
+        '\n' +
+        '## Destek Saatleri\n' +
+        '\n' +
+        'Pazartesi - Cuma: 09:00 - 18:00\n' +
+        'Cumartesi: 10:00 - 16:00\n' +
+        'WhatsApp desteği 7/24 aktiftir\n' +
+        '\n' +
+        'Geri dönüş süresi: 2-24 saat içinde',
+      updated_by: 'admin',
+      last_updated: '2025-01-14T00:00:00Z'
+    },
+    description: 'Setting for help_support_content',
+    created_at: '2025-07-14T11:06:49.640353+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: 'c7be6e5b-99b8-4cbb-b2f2-7992654220a8',
+    key: 'about_content',
+    value: {
+      content: '# Business Time TV Hakkında\n' +
+        '\n' +
+        '## Misyonumuz\n' +
+        '\n' +
+        'İş dünyasından kaliteli, güncel ve eğitici içerikleri herkese ulaştırarak, girişimci ruhu desteklemek ve profesyonel gelişime katkıda bulunmak. Teknolojinin gücünü kullanarak öğrenmeyi erişilebilir kılmak.\n' +
+        '\n' +
+        '## Özellikler\n' +
+        '\n' +
+        '• HD Video Streaming - Yüksek kalitede video deneyimi\n' +
+        '• Video Kaydetme - Favori videolarınızı saklayın\n' +
+        '• Akıllı Arama - İstediğiniz içeriği hızlıca bulun\n' +
+        '• Koyu/Açık Tema - Gözlerinizi yormayan tasarım\n' +
+        '• Trend Videolar - En popüler iş dünyası içerikleri\n' +
+        '• Bildirimler - Yeni içeriklerden haberdar olun\n' +
+        '\n' +
+        '## Ekibimiz\n' +
+        '\n' +
+        '### Furkan Yiğit\n' +
+        'Kurucu & CEO\n' +
+        '10+ yıl teknoloji deneyimi\n' +
+        '\n' +
+        '### Geliştirici Ekibi\n' +
+        'Yazılım Geliştirme\n' +
+        'React Native & Backend uzmanları\n' +
+        '\n' +
+        '### İçerik Ekibi\n' +
+        'Video Editörleri\n' +
+        'Profesyonel iş dünyası içerikleri\n' +
+        '\n' +
+        '## İstatistikler\n' +
+        '\n' +
+        '• 500+ Video İçerik\n' +
+        '• 10K+ Aktif Kullanıcı\n' +
+        '• 25+ Kategori\n' +
+        '\n' +
+        '## İletişim\n' +
+        '\n' +
+        'info@businesstime.app\n' +
+        'businesstime.app\n' +
+        '\n' +
+        '## Sosyal Medya\n' +
+        '\n' +
+        'Twitter: @businesstimetv\n' +
+        'LinkedIn: /company/businesstimetv\n' +
+        'Instagram: @businesstimetv\n' +
+        '\n' +
+        '---\n' +
+        '\n' +
+        '© 2025 Business Time TV. Tüm hakları saklıdır.\n' +
+        'Made with ❤️ in Turkey',
+      updated_by: 'admin',
+      last_updated: '2025-01-14T00:00:00Z'
+    },
+    description: 'Setting for about_content',
+    created_at: '2025-07-14T11:06:49.640353+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: 'ff879cb6-3436-4d74-a287-22e20fc2791a',
+    key: 'terms_of_service_content',
+    value: '{"content":"# Business Time Kullanım Koşulları\\n\\nBu Kullanım Koşulları (\\"Koşullar\\"), Business Time TV mobil uygulaması (\\"Uygulama\\") kullanımınızı düzenler. Uygulamayı kullanarak bu koşulları kabul etmiş olursunuz.\\n\\n## 1. Hizmet Tanımı\\n\\nBusiness Time TV, iş dünyasından videolar, haberler ve içerikler sunan bir mobil uygulamadır. Hizmetimiz ücretsizdir ve reklam destekli olarak sunulmaktadır.\\n\\n## 2. Kullanım Kuralları\\n\\nUygulamayı kullanırken aşağıdaki kuralları kabul edersiniz:\\n\\n• Uygulamayı yalnızca yasal amaçlar için kullanacaksınız\\n• Başkalarının haklarını ihlal etmeyeceksiniz\\n• Uygunsuz içerik paylaşmayacaksınız\\n• Sistemi kötüye kullanmayacaksınız\\n\\n## 3. İçerik Politikası\\n\\nUygulamamızdaki tüm videolar editörlerimiz tarafından seçilir ve yüklenir. İçeriklerimiz iş dünyası, finansal haberler, eğitim ve profesyonel gelişim konularında hazırlanmaktadır.\\n\\n## 4. Fikri Mülkiyet Hakları\\n\\nUygulamadaki tüm içerikler telif hakkı ile korunmaktadır. İçerikleri kopyalayamaz, dağıtamaz veya ticari amaçlarla kullanamazsınız.\\n\\n## İletişim\\n\\nKullanım koşulları hakkında sorularınız için:\\ninfo@businesstime.com","last_updated":"2025-07-14T11:33:11.997Z","updated_by":"admin"}',
+    description: 'Setting for terms_of_service_content',
+    created_at: '2025-07-14T11:06:49.640353+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: 'e1bc3c9e-0c64-46cf-9622-211e5ca2ae67',
+    key: 'privacy_policy_content',
+    value: '{"content":"Business Time olarak kullanıcılarımızın gizliliğini korumayı önemsiyoruz. Bu gizlilik politikası, uygulamamızı kullanırken kişisel bilgilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.\\n\\n## Topladığımız Bilgiler\\n\\n• İzleme geçmişi ve video tercihleri\\n• Beğenilen ve kaydedilen videolar\\n• Uygulama kullanım istatistikleri\\n• Cihaz bilgileri (model, işletim sistemi)\\n\\n## Bilgilerin Kullanımı\\n\\nToplanan bilgiler şu amaçlarla kullanılır:\\n\\n• Kişiselleştirilmiş içerik önerileri\\n• Uygulama performansının iyileştirilmesi\\n• Teknik destek sağlanması\\n• Güvenlik ve dolandırıcılık önleme\\n\\n## Veri Güvenliği\\n\\nVerilerinizi korumak için endüstri standardı güvenlik önlemleri alıyoruz. Tüm veri aktarımları SSL şifreleme ile korunur ve sunucularımız güvenli veri merkezlerinde barındırılır.\\n\\n## İletişim\\n\\nGizlilik ile ilgili sorularınız için bizimle iletişime geçebilirsiniz:\\nprivacy@businesstime.comss","last_updated":"2025-07-14T11:33:17.547Z","updated_by":"admin"}',
+    description: 'Setting for privacy_policy_content',
+    created_at: '2025-07-14T11:06:49.640353+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  },
+  {
+    id: '731ffb0b-1be7-4f87-874e-48d666f14c3a',
+    key: 'suggested_search_tags',
+    value: 'merhaba',
+    description: 'Setting for suggested_search_tags',
+    created_at: '2025-07-14T12:56:18.142492+00:00',
+    updated_at: '2025-07-14T14:32:07.703874+00:00'
+  }
+]
+ POST /api/settings 200 in 2203ms
+🏠 Current active tab: dashboard
+ GET / 200 in 173ms
+ ✓ Compiled /api/videos in 208ms (624 modules)
+ ✓ Compiled in 0ms (626 modules)
+ ✓ Compiled in 1ms (626 modules)
+ ✓ Compiled in 0ms (626 modules)
+ GET /favicon.ico 200 in 2498ms
+ GET /api/videos 200 in 3193ms
+ GET /api/settings 200 in 2116ms
+ ✓ Compiled /api/categories in 329ms (628 modules)
+ GET /api/categories 200 in 704ms
+ GET /api/settings 200 in 694ms
+ GET /api/settings 200 in 145ms
+ GET /api/settings 200 in 155ms
+ GET /api/settings 200 in 200ms
+ GET /api/settings 200 in 154ms
+ GET /api/settings 200 in 150ms
+ GET /api/settings 200 in 127ms
+ ✓ Compiled in 1105ms (1081 modules)
+ GET / 200 in 77ms
+ ✓ Compiled in 1677ms (1079 modules)
+ GET / 200 in 109ms
+ ✓ Compiled in 778ms (961 modules)
+ GET / 200 in 1374ms
+ ✓ Compiled in 825ms (961 modules)
+ GET / 200 in 105ms
+ ✓ Compiled in 782ms (961 modules)
+ GET / 200 in 98ms
+ ○ Compiling /api/categories ...
+ ✓ Compiled /api/categories in 1013ms (619 modules)
+ ✓ Compiled (622 modules)
+ GET /api/featured-content 200 in 3091ms
+ GET /api/categories 200 in 3208ms
+ GET /api/featured-content 200 in 139ms
+ GET /api/categories 200 in 224ms
+ GET /api/categories 200 in 134ms
+ GET /api/categories 200 in 179ms
+ ✓ Compiled /api/videos in 176ms (624 modules)
+ GET /api/videos 200 in 357ms
+ GET /api/videos 200 in 132ms
+🏠 Current active tab: dashboard
+ GET / 200 in 1086ms
+ GET /api/featured-content 200 in 4486ms
+ GET /api/categories 200 in 4462ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1926ms (626 modules)
+ GET /favicon.ico 200 in 2711ms
+ GET /api/videos 200 in 4066ms
+ GET /api/categories 200 in 185ms
+ GET /api/featured-content 200 in 212ms
+ GET /api/featured-content 200 in 225ms
+ GET /api/categories 200 in 560ms
+ GET /api/categories 200 in 180ms
+ ✓ Compiled in 16.5s (961 modules)
+ GET / 200 in 1644ms
+ ○ Compiling /api/categories ...
+ ✓ Compiled /api/categories in 599ms (619 modules)
+ ✓ Compiled (622 modules)
+ GET /api/categories 200 in 5153ms
+ GET /api/featured-content 200 in 5170ms
+ ○ Compiling /api/settings ...
+ ✓ Compiled /api/settings in 7.4s (624 modules)
+ ○ Compiling /api/reports ...
+ GET /api/settings 200 in 10397ms
+ ✓ Compiled /api/reports in 9.3s (626 modules)
+ GET /api/settings 200 in 7221ms
+ GET /api/reports 200 in 10947ms
+ GET /api/settings 200 in 171ms
+ GET /api/reports 200 in 322ms
+ GET /api/settings 200 in 325ms
+ GET /api/settings 200 in 139ms
+ GET /api/settings 200 in 145ms
+ GET /api/settings 200 in 139ms
+ GET /api/settings 200 in 230ms
+ GET /api/settings 200 in 235ms
+ GET /api/settings 200 in 142ms
+ GET /api/reports 200 in 514ms
+ GET /api/reports 200 in 424ms
+ GET /api/settings 200 in 652ms
+ GET /api/settings 200 in 194ms
+ GET /api/featured-content 200 in 249ms
+ GET /api/categories 200 in 390ms
+ GET /api/featured-content 200 in 267ms
+ GET /api/categories 200 in 496ms
+ GET /api/categories 200 in 198ms
+ ○ Compiling /api/videos ...
+ ✓ Compiled /api/videos in 9.9s (628 modules)
+ GET /api/categories 200 in 15763ms
+ GET /api/videos 200 in 15805ms
+ GET /api/categories 200 in 176ms
+ GET /api/videos 200 in 197ms
+ GET /api/videos 200 in 3372ms
+ GET /api/categories 200 in 11413ms
+ GET /api/videos 200 in 386ms
+ ✓ Compiled in 5.7s (961 modules)
+ GET / 200 in 916ms
+ ✓ Compiled in 2.2s (961 modules)
+ GET / 200 in 1043ms
+ ✓ Compiled in 27.8s (961 modules)
+ GET / 200 in 250ms
+ ✓ Compiled in 25.8s (961 modules)
+ ○ Compiling /api/categories ...
+ ✓ Compiled /api/categories in 13.4s (620 modules)
+ GET / 200 in 14995ms
+ GET /api/categories 200 in 5916ms
+ GET /api/categories 200 in 15982ms
+ ✓ Compiled /api/videos in 143ms (622 modules)
+ GET /api/videos 200 in 446ms
+ GET /api/videos 200 in 132ms
+🏠 Current active tab: dashboard
+ GET / 200 in 5766ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /api/videos in 38.3s (524 modules)
+ ✓ Compiled (622 modules)
+ GET /favicon.ico 200 in 48599ms
+ GET /api/videos 200 in 55223ms
+ ○ Compiling /api/categories ...
+ ✓ Compiled /api/categories in 3.5s (624 modules)
+🏠 Current active tab: dashboard
+ GET /api/categories 200 in 13382ms
+ GET / 200 in 13757ms
+ GET /favicon.ico 200 in 160ms
+ GET /api/videos 200 in 298ms
+ GET /api/categories 200 in 127ms
+ ○ Compiling /api/featured-content ...
+ ✓ Compiled /api/featured-content in 554ms (626 modules)
+ GET /api/categories 200 in 1023ms
+ GET /api/videos 200 in 1041ms
+ GET /api/featured-content 200 in 1056ms
+ GET /api/categories 200 in 123ms
+ GET /api/featured-content 200 in 151ms
+ GET /api/videos 200 in 214ms
+ ✓ Compiled /api/settings in 363ms (620 modules)
+ GET /api/settings 200 in 887ms
+ GET /api/settings 200 in 145ms
+ GET /api/settings 200 in 157ms
+ GET /api/settings 200 in 128ms
+ ✓ Compiled /api/reports in 148ms (622 modules)
+ GET /api/reports 200 in 430ms
+ GET /api/reports 200 in 238ms
+ GET /api/settings 200 in 121ms
+ GET /api/settings 200 in 125ms
+ GET /api/settings 200 in 146ms
+ GET /api/settings 200 in 130ms
+ GET /api/settings 200 in 139ms
+ GET /api/settings 200 in 127ms
+ GET /api/settings 200 in 123ms
+ GET /api/settings 200 in 137ms
+ GET /api/reports 200 in 668ms
+ GET /api/reports 200 in 368ms
+ GET /api/settings 200 in 136ms
+ GET /api/settings 200 in 135ms
+ GET /api/settings 200 in 187ms
+ GET /api/settings 200 in 127ms
+ ✓ Compiled /api/categories in 265ms (624 modules)
+ ✓ Compiled (628 modules)
+ GET /api/categories 200 in 667ms
+ GET /api/featured-content 200 in 764ms
+ GET /api/videos 200 in 767ms
+ GET /api/categories 200 in 159ms
+ GET /api/videos 200 in 126ms
+ GET /api/featured-content 200 in 161ms
+ GET /api/categories 200 in 142ms
+ GET /api/categories 200 in 128ms
+ GET /api/videos 200 in 143ms
+ GET /api/videos 200 in 145ms
+ GET /api/categories 200 in 145ms
+ GET /api/videos 200 in 148ms
+ GET /api/categories 200 in 140ms
+ GET /api/videos 200 in 148ms
+ GET /api/settings 200 in 346ms
+ GET /api/settings 200 in 164ms
+ GET /api/settings 200 in 173ms
+ GET /api/settings 200 in 153ms
+ GET /api/settings 200 in 137ms
+ GET /api/settings 200 in 158ms
+ GET /api/settings 200 in 151ms
+ GET /api/settings 200 in 164ms
+ GET /api/reports 200 in 450ms
+ GET /api/reports 200 in 282ms
+ GET /api/settings 200 in 128ms
+ GET /api/settings 200 in 123ms
+ GET /api/settings 200 in 129ms
+ GET /api/settings 200 in 127ms
+ GET /api/featured-content 200 in 177ms
+ GET /api/videos 200 in 241ms
+ GET /api/categories 200 in 296ms
+ GET /api/featured-content 200 in 123ms
+ GET /api/videos 200 in 122ms
+ GET /api/categories 200 in 129ms
+ GET /api/categories 200 in 134ms
+ GET /api/categories 200 in 127ms
+ GET /api/videos 200 in 245ms
+ GET /api/videos 200 in 128ms
+ GET /api/videos 200 in 126ms
+ GET /api/categories 200 in 188ms
+ GET /api/videos 200 in 141ms
+ GET /api/categories 200 in 148ms
+ GET /api/categories 200 in 137ms
+ GET /api/categories 200 in 130ms
+ GET /api/videos 200 in 141ms
+ GET /api/videos 200 in 130ms
+🏠 Current active tab: dashboard
+ GET / 200 in 282ms
+ GET /api/videos 200 in 412ms
+ GET /api/categories 200 in 136ms
+ GET /api/categories 200 in 134ms
+ GET /api/categories 200 in 135ms
+ GET /api/videos 200 in 283ms
+ GET /api/videos 200 in 27ms
+ GET /api/videos 200 in 151ms
+ GET /api/categories 200 in 140ms
+ GET /api/categories 200 in 128ms
+ GET /api/videos 200 in 181ms
+ GET /api/categories 200 in 271ms
+ GET /api/categories 200 in 129ms
+ GET /api/videos 200 in 243ms
+ GET /api/videos 200 in 128ms
+ GET /api/videos 200 in 130ms
+ GET /api/categories 200 in 136ms
+ GET /api/videos 200 in 125ms
+ GET /api/categories 200 in 128ms
+ GET /api/categories 200 in 121ms
+ GET /api/videos 200 in 216ms
+ GET /api/categories 200 in 117ms
+ GET /api/videos 200 in 126ms
+ GET /api/categories 200 in 142ms
+ GET /api/categories 200 in 130ms
+ GET /api/videos 200 in 136ms
+ GET /api/videos 200 in 125ms
+ GET /api/featured-content 200 in 132ms
+ GET /api/categories 200 in 143ms
+ GET /api/videos 200 in 242ms
+ GET /api/featured-content 200 in 147ms
+ GET /api/categories 200 in 167ms
+ GET /api/videos 200 in 136ms
+ GET /api/categories 200 in 136ms
+ GET /api/videos 200 in 125ms
+ GET /api/categories 200 in 143ms
+ GET /api/videos 200 in 127ms
+ GET /api/videos 200 in 1463ms
+ GET /api/categories 200 in 1486ms
+ GET /api/videos 200 in 165ms
+ GET /api/categories 200 in 149ms
+ GET /api/categories 200 in 156ms
+ GET /api/videos 200 in 133ms
+ GET /api/categories 200 in 142ms
+ GET /api/videos 200 in 149ms
+ GET /api/settings 200 in 189ms
+ GET /api/settings 200 in 143ms
+ GET /api/settings 200 in 162ms
+ GET /api/settings 200 in 176ms
+ GET /api/settings 200 in 168ms
+ GET /api/settings 200 in 156ms
+ GET /api/settings 200 in 509ms
+ GET /api/settings 200 in 159ms
+ GET /api/settings 200 in 166ms
+ GET /api/settings 200 in 172ms
+ GET /api/settings 200 in 135ms
+ GET /api/settings 200 in 145ms
+ GET /api/settings 200 in 154ms
+ GET /api/settings 200 in 133ms
+ GET /api/settings 200 in 156ms
+ GET /api/settings 200 in 127ms
+ GET /api/settings 200 in 160ms
+ GET /api/settings 200 in 143ms
+ GET /api/reports 200 in 275ms
+ GET /api/reports 200 in 313ms
+ GET /api/settings 200 in 145ms
+ GET /api/settings 200 in 149ms
+ GET /api/settings 200 in 128ms
+ GET /api/settings 200 in 156ms
+ GET /api/settings 200 in 140ms
+ GET /api/settings 200 in 140ms
+ GET /api/settings 200 in 135ms
+ GET /api/settings 200 in 126ms
+ ✓ Compiled in 924ms (453 modules)
+ GET / 200 in 88ms
+ GET /api/settings 200 in 635ms
+ GET /api/settings 200 in 183ms
+ GET /api/settings 200 in 313ms
+ GET /api/settings 200 in 159ms
+ GET /api/settings 200 in 207ms
+ GET /api/settings 200 in 139ms
+ GET /api/featured-content 200 in 204ms
+ GET /api/videos 200 in 257ms
+ GET /api/categories 200 in 268ms
+ GET /api/featured-content 200 in 142ms
+ GET /api/videos 200 in 137ms
+ GET /api/categories 200 in 135ms
+ GET /api/categories 200 in 157ms
+ GET /api/videos 200 in 135ms
+ GET /api/categories 200 in 147ms
+ GET /api/videos 200 in 134ms
+ GET /api/categories 200 in 160ms
+ GET /api/videos 200 in 165ms
+ GET /api/featured-content 200 in 175ms
+ GET /api/categories 200 in 131ms
+ GET /api/featured-content 200 in 133ms
+ GET /api/videos 200 in 148ms
+ GET /api/settings 200 in 140ms
+ GET /api/settings 200 in 158ms
+ GET /api/settings 200 in 133ms
+ GET /api/settings 200 in 139ms
+ GET /api/settings 200 in 134ms
+ GET /api/settings 200 in 140ms
+ GET /api/settings 200 in 164ms
+ GET /api/settings 200 in 133ms
+📥 Received settings update: {
+  appName: '123',
+  description: 'aaasda',
+  logoUrl: 'www.golge.com',
+  autoPlayVideos: true,
+  enableSharing: true,
+  videoQuality: '720p',
+  enablePushNotifications: true,
+  maintenanceMode: false,
+  maintenanceMessage: 'Uygulama şu anda bakım modunda. Lütfen daha sonra tekrar deneyin.',
+  cacheEnabled: true,
+  maxCacheSize: 500,
+  cacheExpiryHours: 24,
+  enableOfflineMode: true,
+  enableDarkMode: true,
+  enableAutoUpdate: true,
+  enableCrashReporting: true,
+  enablePerformanceMonitoring: true,
+  maintenance_mode: false,
+  app_name: 'Business Time TV',
+  app_version: '1.0.0',
+  featured_videos_count: 5,
+  categories_per_page: 20,
+  videos_per_page: 20,
+  max_video_duration: 3600,
+  enable_comments: false,
+  analytics_enabled: true,
+  privacy_policy_content: '{"content":"Business Time olarak kullanıcılarımızın gizliliğini korumayı önemsiyoruz. Bu gizlilik politikası, uygulamamızı kullanırken kişisel bilgilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.\\n\\n## Topladığımız Bilgiler\\n\\n• İzleme geçmişi ve video tercihleri\\n• Beğenilen ve kaydedilen videolar\\n• Uygulama kullanım istatistikleri\\n• Cihaz bilgileri (model, işletim sistemi)\\n\\n## Bilgilerin Kullanımı\\n\\nToplanan bilgiler şu amaçlarla kullanılır:\\n\\n• Kişiselleştirilmiş içerik önerileri\\n• Uygulama performansının iyileştirilmesi\\n• Teknik destek sağlanması\\n• Güvenlik ve dolandırıcılık önleme\\n\\n## Veri Güvenliği\\n\\nVerilerinizi korumak için endüstri standardı güvenlik önlemleri alıyoruz. Tüm veri aktarımları SSL şifreleme ile korunur ve sunucularımız güvenli veri merkezlerinde barındırılır.\\n\\n## İletişim\\n\\nGizlilik ile ilgili sorularınız için bizimle iletişime geçebilirsiniz:\\nprivacy@businesstime.comss","last_updated":"2025-07-14T11:33:17.547Z","updated_by":"admin"}',
+  suggested_search_tags: 'merhaba',
+  auto_play_videos: true,
+  video_quality_default: '720p',
+  cache_duration_hours: 24,
+  rate_limit_per_minute: 60,
+  admin_email: 'admin@businesstime.app',
+  enable_push_notifications: true,
+  help_support_content: {
+    content: '# Yardım ve Destek\n' +
+      '\n' +
+      '## Bizimle İletişime Geçin\n' +
+      '\n' +
+      'Sorularınız için aşağıdaki kanalları kullanabilirsiniz:\n' +
+      '\n' +
+      '### E-posta Desteği\n' +
+      'support@businesstime.app\n' +
+      '\n' +
+      '### WhatsApp Desteği\n' +
+      '7/24 anlık destek\n' +
+      '+90 555 123 45 67\n' +
+      '\n' +
+      '## Sık Sorulan Sorular\n' +
+      '\n' +
+      '### Videolar neden yüklenmiyor?\n' +
+      'Video yükleme sorunları genellikle internet bağlantısından kaynaklanır. WiFi veya mobil veri bağlantınızı kontrol edin. Ayrıca uygulamayı kapatıp tekrar açmayı deneyin.\n' +
+      '\n' +
+      '### Videoları nasıl kaydedebilirim?\n' +
+      'Video izlerken sağ alttaki kaydet butonuna tıklayarak videoları kaydedebilirsiniz. Kaydettiğiniz videolara Ayarlar > Kaydettiğim Videolar bölümünden ulaşabilirsiniz.\n' +
+      '\n' +
+      '### Koyu tema nasıl açılır?\n' +
+      'Ayarlar > Görünüm > Koyu Tema seçeneğini aktif ederek koyu temaya geçebilirsiniz. Bu ayar otomatik olarak kaydedilir.\n' +
+      '\n' +
+      '### Bildirimleri nasıl kapatabilirim?\n' +
+      'Ayarlar > Bildirimler bölümünden push bildirimlerini kapatabilirsiniz. Ayrıca cihaz ayarlarından da uygulama bildirimlerini yönetebilirsiniz.\n' +
+      '\n' +
+      '## Destek Saatleri\n' +
+      '\n' +
+      'Pazartesi - Cuma: 09:00 - 18:00\n' +
+      'Cumartesi: 10:00 - 16:00\n' +
+      'WhatsApp desteği 7/24 aktiftir\n' +
+      '\n' +
+      'Geri dönüş süresi: 2-24 saat içinde',
+    updated_by: 'admin',
+    last_updated: '2025-01-14T00:00:00Z'
+  },
+  about_content: {
+    content: '# Business Time TV Hakkında\n' +
+      '\n' +
+      '## Misyonumuz\n' +
+      '\n' +
+      'İş dünyasından kaliteli, güncel ve eğitici içerikleri herkese ulaştırarak, girişimci ruhu desteklemek ve profesyonel gelişime katkıda bulunmak. Teknolojinin gücünü kullanarak öğrenmeyi erişilebilir kılmak.\n' +
+      '\n' +
+      '## Özellikler\n' +
+      '\n' +
+      '• HD Video Streaming - Yüksek kalitede video deneyimi\n' +
+      '• Video Kaydetme - Favori videolarınızı saklayın\n' +
+      '• Akıllı Arama - İstediğiniz içeriği hızlıca bulun\n' +
+      '• Koyu/Açık Tema - Gözlerinizi yormayan tasarım\n' +
+      '• Trend Videolar - En popüler iş dünyası içerikleri\n' +
+      '• Bildirimler - Yeni içeriklerden haberdar olun\n' +
+      '\n' +
+      '## Ekibimiz\n' +
+      '\n' +
+      '### Furkan Yiğit\n' +
+      'Kurucu & CEO\n' +
+      '10+ yıl teknoloji deneyimi\n' +
+      '\n' +
+      '### Geliştirici Ekibi\n' +
+      'Yazılım Geliştirme\n' +
+      'React Native & Backend uzmanları\n' +
+      '\n' +
+      '### İçerik Ekibi\n' +
+      'Video Editörleri\n' +
+      'Profesyonel iş dünyası içerikleri\n' +
+      '\n' +
+      '## İstatistikler\n' +
+      '\n' +
+      '• 500+ Video İçerik\n' +
+      '• 10K+ Aktif Kullanıcı\n' +
+      '• 25+ Kategori\n' +
+      '\n' +
+      '## İletişim\n' +
+      '\n' +
+      'info@businesstime.app\n' +
+      'businesstime.app\n' +
+      '\n' +
+      '## Sosyal Medya\n' +
+      '\n' +
+      'Twitter: @businesstimetv\n' +
+      'LinkedIn: /company/businesstimetv\n' +
+      'Instagram: @businesstimetv\n' +
+      '\n' +
+      '---\n' +
+      '\n' +
+      '© 2025 Business Time TV. Tüm hakları saklıdır.\n' +
+      'Made with ❤️ in Turkey',
+    updated_by: 'admin',
+    last_updated: '2025-01-14T00:00:00Z'
+  },
+  terms_of_service_content: '{"content":"# Business Time Kullanım Koşulları\\n\\nBu Kullanım Koşulları (\\"Koşullar\\"), Business Time TV mobil uygulaması (\\"Uygulama\\") kullanımınızı düzenler. Uygulamayı kullanarak bu koşulları kabul etmiş olursunuz.\\n\\n## 1. Hizmet Tanımı\\n\\nBusiness Time TV, iş dünyasından videolar, haberler ve içerikler sunan bir mobil uygulamadır. Hizmetimiz ücretsizdir ve reklam destekli olarak sunulmaktadır.\\n\\n## 2. Kullanım Kuralları\\n\\nUygulamayı kullanırken aşağıdaki kuralları kabul edersiniz:\\n\\n• Uygulamayı yalnızca yasal amaçlar için kullanacaksınız\\n• Başkalarının haklarını ihlal etmeyeceksiniz\\n• Uygunsuz içerik paylaşmayacaksınız\\n• Sistemi kötüye kullanmayacaksınız\\n\\n## 3. İçerik Politikası\\n\\nUygulamamızdaki tüm videolar editörlerimiz tarafından seçilir ve yüklenir. İçeriklerimiz iş dünyası, finansal haberler, eğitim ve profesyonel gelişim konularında hazırlanmaktadır.\\n\\n## 4. Fikri Mülkiyet Hakları\\n\\nUygulamadaki tüm içerikler telif hakkı ile korunmaktadır. İçerikleri kopyalayamaz, dağıtamaz veya ticari amaçlarla kullanamazsınız.\\n\\n## İletişim\\n\\nKullanım koşulları hakkında sorularınız için:\\ninfo@businesstime.com","last_updated":"2025-07-14T11:33:11.997Z","updated_by":"admin"}'
+}
+🔄 Processing settings array: [
+  {
+    key: 'appName',
+    value: '123',
+    description: 'Setting for appName',
+    updated_at: '2025-07-14T15:40:31.159Z'
+  },
+  {
+    key: 'description',
+    value: 'aaasda',
+    description: 'Setting for description',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'logoUrl',
+    value: 'www.golge.com',
+    description: 'Setting for logoUrl',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'autoPlayVideos',
+    value: true,
+    description: 'Setting for autoPlayVideos',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'enableSharing',
+    value: true,
+    description: 'Setting for enableSharing',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'videoQuality',
+    value: '720p',
+    description: 'Setting for videoQuality',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'enablePushNotifications',
+    value: true,
+    description: 'Setting for enablePushNotifications',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'maintenanceMode',
+    value: false,
+    description: 'Setting for maintenanceMode',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'maintenanceMessage',
+    value: 'Uygulama şu anda bakım modunda. Lütfen daha sonra tekrar deneyin.',
+    description: 'Setting for maintenanceMessage',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'cacheEnabled',
+    value: true,
+    description: 'Setting for cacheEnabled',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'maxCacheSize',
+    value: 500,
+    description: 'Setting for maxCacheSize',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'cacheExpiryHours',
+    value: 24,
+    description: 'Setting for cacheExpiryHours',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'enableOfflineMode',
+    value: true,
+    description: 'Setting for enableOfflineMode',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'enableDarkMode',
+    value: true,
+    description: 'Setting for enableDarkMode',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'enableAutoUpdate',
+    value: true,
+    description: 'Setting for enableAutoUpdate',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'enableCrashReporting',
+    value: true,
+    description: 'Setting for enableCrashReporting',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'enablePerformanceMonitoring',
+    value: true,
+    description: 'Setting for enablePerformanceMonitoring',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'maintenance_mode',
+    value: false,
+    description: 'Setting for maintenance_mode',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'app_name',
+    value: 'Business Time TV',
+    description: 'Setting for app_name',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'app_version',
+    value: '1.0.0',
+    description: 'Setting for app_version',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'featured_videos_count',
+    value: 5,
+    description: 'Setting for featured_videos_count',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'categories_per_page',
+    value: 20,
+    description: 'Setting for categories_per_page',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'videos_per_page',
+    value: 20,
+    description: 'Setting for videos_per_page',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'max_video_duration',
+    value: 3600,
+    description: 'Setting for max_video_duration',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'enable_comments',
+    value: false,
+    description: 'Setting for enable_comments',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'analytics_enabled',
+    value: true,
+    description: 'Setting for analytics_enabled',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'privacy_policy_content',
+    value: '{"content":"Business Time olarak kullanıcılarımızın gizliliğini korumayı önemsiyoruz. Bu gizlilik politikası, uygulamamızı kullanırken kişisel bilgilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.\\n\\n## Topladığımız Bilgiler\\n\\n• İzleme geçmişi ve video tercihleri\\n• Beğenilen ve kaydedilen videolar\\n• Uygulama kullanım istatistikleri\\n• Cihaz bilgileri (model, işletim sistemi)\\n\\n## Bilgilerin Kullanımı\\n\\nToplanan bilgiler şu amaçlarla kullanılır:\\n\\n• Kişiselleştirilmiş içerik önerileri\\n• Uygulama performansının iyileştirilmesi\\n• Teknik destek sağlanması\\n• Güvenlik ve dolandırıcılık önleme\\n\\n## Veri Güvenliği\\n\\nVerilerinizi korumak için endüstri standardı güvenlik önlemleri alıyoruz. Tüm veri aktarımları SSL şifreleme ile korunur ve sunucularımız güvenli veri merkezlerinde barındırılır.\\n\\n## İletişim\\n\\nGizlilik ile ilgili sorularınız için bizimle iletişime geçebilirsiniz:\\nprivacy@businesstime.comss","last_updated":"2025-07-14T11:33:17.547Z","updated_by":"admin"}',
+    description: 'Setting for privacy_policy_content',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'suggested_search_tags',
+    value: 'merhaba',
+    description: 'Setting for suggested_search_tags',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'auto_play_videos',
+    value: true,
+    description: 'Setting for auto_play_videos',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'video_quality_default',
+    value: '720p',
+    description: 'Setting for video_quality_default',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'cache_duration_hours',
+    value: 24,
+    description: 'Setting for cache_duration_hours',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'rate_limit_per_minute',
+    value: 60,
+    description: 'Setting for rate_limit_per_minute',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'admin_email',
+    value: 'admin@businesstime.app',
+    description: 'Setting for admin_email',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'enable_push_notifications',
+    value: true,
+    description: 'Setting for enable_push_notifications',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'help_support_content',
+    value: {
+      content: '# Yardım ve Destek\n' +
+        '\n' +
+        '## Bizimle İletişime Geçin\n' +
+        '\n' +
+        'Sorularınız için aşağıdaki kanalları kullanabilirsiniz:\n' +
+        '\n' +
+        '### E-posta Desteği\n' +
+        'support@businesstime.app\n' +
+        '\n' +
+        '### WhatsApp Desteği\n' +
+        '7/24 anlık destek\n' +
+        '+90 555 123 45 67\n' +
+        '\n' +
+        '## Sık Sorulan Sorular\n' +
+        '\n' +
+        '### Videolar neden yüklenmiyor?\n' +
+        'Video yükleme sorunları genellikle internet bağlantısından kaynaklanır. WiFi veya mobil veri bağlantınızı kontrol edin. Ayrıca uygulamayı kapatıp tekrar açmayı deneyin.\n' +
+        '\n' +
+        '### Videoları nasıl kaydedebilirim?\n' +
+        'Video izlerken sağ alttaki kaydet butonuna tıklayarak videoları kaydedebilirsiniz. Kaydettiğiniz videolara Ayarlar > Kaydettiğim Videolar bölümünden ulaşabilirsiniz.\n' +
+        '\n' +
+        '### Koyu tema nasıl açılır?\n' +
+        'Ayarlar > Görünüm > Koyu Tema seçeneğini aktif ederek koyu temaya geçebilirsiniz. Bu ayar otomatik olarak kaydedilir.\n' +
+        '\n' +
+        '### Bildirimleri nasıl kapatabilirim?\n' +
+        'Ayarlar > Bildirimler bölümünden push bildirimlerini kapatabilirsiniz. Ayrıca cihaz ayarlarından da uygulama bildirimlerini yönetebilirsiniz.\n' +
+        '\n' +
+        '## Destek Saatleri\n' +
+        '\n' +
+        'Pazartesi - Cuma: 09:00 - 18:00\n' +
+        'Cumartesi: 10:00 - 16:00\n' +
+        'WhatsApp desteği 7/24 aktiftir\n' +
+        '\n' +
+        'Geri dönüş süresi: 2-24 saat içinde',
+      updated_by: 'admin',
+      last_updated: '2025-01-14T00:00:00Z'
+    },
+    description: 'Setting for help_support_content',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'about_content',
+    value: {
+      content: '# Business Time TV Hakkında\n' +
+        '\n' +
+        '## Misyonumuz\n' +
+        '\n' +
+        'İş dünyasından kaliteli, güncel ve eğitici içerikleri herkese ulaştırarak, girişimci ruhu desteklemek ve profesyonel gelişime katkıda bulunmak. Teknolojinin gücünü kullanarak öğrenmeyi erişilebilir kılmak.\n' +
+        '\n' +
+        '## Özellikler\n' +
+        '\n' +
+        '• HD Video Streaming - Yüksek kalitede video deneyimi\n' +
+        '• Video Kaydetme - Favori videolarınızı saklayın\n' +
+        '• Akıllı Arama - İstediğiniz içeriği hızlıca bulun\n' +
+        '• Koyu/Açık Tema - Gözlerinizi yormayan tasarım\n' +
+        '• Trend Videolar - En popüler iş dünyası içerikleri\n' +
+        '• Bildirimler - Yeni içeriklerden haberdar olun\n' +
+        '\n' +
+        '## Ekibimiz\n' +
+        '\n' +
+        '### Furkan Yiğit\n' +
+        'Kurucu & CEO\n' +
+        '10+ yıl teknoloji deneyimi\n' +
+        '\n' +
+        '### Geliştirici Ekibi\n' +
+        'Yazılım Geliştirme\n' +
+        'React Native & Backend uzmanları\n' +
+        '\n' +
+        '### İçerik Ekibi\n' +
+        'Video Editörleri\n' +
+        'Profesyonel iş dünyası içerikleri\n' +
+        '\n' +
+        '## İstatistikler\n' +
+        '\n' +
+        '• 500+ Video İçerik\n' +
+        '• 10K+ Aktif Kullanıcı\n' +
+        '• 25+ Kategori\n' +
+        '\n' +
+        '## İletişim\n' +
+        '\n' +
+        'info@businesstime.app\n' +
+        'businesstime.app\n' +
+        '\n' +
+        '## Sosyal Medya\n' +
+        '\n' +
+        'Twitter: @businesstimetv\n' +
+        'LinkedIn: /company/businesstimetv\n' +
+        'Instagram: @businesstimetv\n' +
+        '\n' +
+        '---\n' +
+        '\n' +
+        '© 2025 Business Time TV. Tüm hakları saklıdır.\n' +
+        'Made with ❤️ in Turkey',
+      updated_by: 'admin',
+      last_updated: '2025-01-14T00:00:00Z'
+    },
+    description: 'Setting for about_content',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  },
+  {
+    key: 'terms_of_service_content',
+    value: '{"content":"# Business Time Kullanım Koşulları\\n\\nBu Kullanım Koşulları (\\"Koşullar\\"), Business Time TV mobil uygulaması (\\"Uygulama\\") kullanımınızı düzenler. Uygulamayı kullanarak bu koşulları kabul etmiş olursunuz.\\n\\n## 1. Hizmet Tanımı\\n\\nBusiness Time TV, iş dünyasından videolar, haberler ve içerikler sunan bir mobil uygulamadır. Hizmetimiz ücretsizdir ve reklam destekli olarak sunulmaktadır.\\n\\n## 2. Kullanım Kuralları\\n\\nUygulamayı kullanırken aşağıdaki kuralları kabul edersiniz:\\n\\n• Uygulamayı yalnızca yasal amaçlar için kullanacaksınız\\n• Başkalarının haklarını ihlal etmeyeceksiniz\\n• Uygunsuz içerik paylaşmayacaksınız\\n• Sistemi kötüye kullanmayacaksınız\\n\\n## 3. İçerik Politikası\\n\\nUygulamamızdaki tüm videolar editörlerimiz tarafından seçilir ve yüklenir. İçeriklerimiz iş dünyası, finansal haberler, eğitim ve profesyonel gelişim konularında hazırlanmaktadır.\\n\\n## 4. Fikri Mülkiyet Hakları\\n\\nUygulamadaki tüm içerikler telif hakkı ile korunmaktadır. İçerikleri kopyalayamaz, dağıtamaz veya ticari amaçlarla kullanamazsınız.\\n\\n## İletişim\\n\\nKullanım koşulları hakkında sorularınız için:\\ninfo@businesstime.com","last_updated":"2025-07-14T11:33:11.997Z","updated_by":"admin"}',
+    description: 'Setting for terms_of_service_content',
+    updated_at: '2025-07-14T15:40:31.161Z'
+  }
+]
+✅ Settings upserted successfully: [
+  {
+    id: '49af99c6-cd2f-4c12-b489-0320087ea4a7',
+    key: 'appName',
+    value: '123',
+    description: 'Setting for appName',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: 'ea31e5f4-b930-418e-83b1-ee74c5fb43d1',
+    key: 'description',
+    value: 'aaasda',
+    description: 'Setting for description',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '7b9acdfb-5674-4e08-9533-6d07de7565d9',
+    key: 'logoUrl',
+    value: 'www.golge.com',
+    description: 'Setting for logoUrl',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '346f9d1d-39f8-422c-bd4b-ab79bc71fdc8',
+    key: 'autoPlayVideos',
+    value: true,
+    description: 'Setting for autoPlayVideos',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '2e4e3280-3219-40f1-8423-7e51d722232e',
+    key: 'enableSharing',
+    value: true,
+    description: 'Setting for enableSharing',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '6418d23d-4215-4c27-9eae-6600d24b4b26',
+    key: 'videoQuality',
+    value: '720p',
+    description: 'Setting for videoQuality',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '5e795a0a-6fd2-4979-8775-3437025a0f5d',
+    key: 'enablePushNotifications',
+    value: true,
+    description: 'Setting for enablePushNotifications',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '981f0ddb-54e0-48d0-9948-4b1bda5e6ed7',
+    key: 'maintenanceMode',
+    value: false,
+    description: 'Setting for maintenanceMode',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '08129123-cca5-401f-88b7-7737d6111cc0',
+    key: 'maintenanceMessage',
+    value: 'Uygulama şu anda bakım modunda. Lütfen daha sonra tekrar deneyin.',
+    description: 'Setting for maintenanceMessage',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '6344d89e-fe9b-48b4-aae6-7afc1fd8eadb',
+    key: 'cacheEnabled',
+    value: true,
+    description: 'Setting for cacheEnabled',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: 'b86a7104-54c7-42fa-a169-37742545d802',
+    key: 'maxCacheSize',
+    value: 500,
+    description: 'Setting for maxCacheSize',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '5a0877a8-87d9-4714-bbb4-7ca501d1c2c7',
+    key: 'cacheExpiryHours',
+    value: 24,
+    description: 'Setting for cacheExpiryHours',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '5ab3a576-360b-4458-ba7b-beff06447ace',
+    key: 'enableOfflineMode',
+    value: true,
+    description: 'Setting for enableOfflineMode',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '3a80cb7a-2172-47f5-bbec-10239da7cfa8',
+    key: 'enableDarkMode',
+    value: true,
+    description: 'Setting for enableDarkMode',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '307ad203-8122-46f8-9354-b7fa02a3c07f',
+    key: 'enableAutoUpdate',
+    value: true,
+    description: 'Setting for enableAutoUpdate',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '748ba974-f0f7-4ff7-bd0f-83b3cfc81f01',
+    key: 'enableCrashReporting',
+    value: true,
+    description: 'Setting for enableCrashReporting',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '21bb0fff-f838-4a50-a7fb-7f81b3d9b23a',
+    key: 'enablePerformanceMonitoring',
+    value: true,
+    description: 'Setting for enablePerformanceMonitoring',
+    created_at: '2025-07-14T14:32:07.703874+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '3d5df7f6-2c62-4016-9949-6a7792b30bb1',
+    key: 'maintenance_mode',
+    value: false,
+    description: 'Setting for maintenance_mode',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '8155882e-b0bf-46bb-ad4a-46bf476eb683',
+    key: 'app_name',
+    value: 'Business Time TV',
+    description: 'Setting for app_name',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '95b5c4af-cc79-4fd4-9208-ebb2833b6012',
+    key: 'app_version',
+    value: '1.0.0',
+    description: 'Setting for app_version',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '1337e54a-4628-4e2f-b2dd-57aa235ac482',
+    key: 'featured_videos_count',
+    value: 5,
+    description: 'Setting for featured_videos_count',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '2013a038-2652-41c4-8f27-6bf4fa29ec05',
+    key: 'categories_per_page',
+    value: 20,
+    description: 'Setting for categories_per_page',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '1641a0d2-3e4c-4918-8348-abdd3a6f0ffb',
+    key: 'videos_per_page',
+    value: 20,
+    description: 'Setting for videos_per_page',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '4981daae-90e1-4f5b-84d2-81e910b1ed3a',
+    key: 'max_video_duration',
+    value: 3600,
+    description: 'Setting for max_video_duration',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '23128543-db49-4d34-a83d-ee94e496bb8a',
+    key: 'enable_comments',
+    value: false,
+    description: 'Setting for enable_comments',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: 'ee9e0974-bdfa-40db-881d-343cc3bedaa5',
+    key: 'analytics_enabled',
+    value: true,
+    description: 'Setting for analytics_enabled',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: 'e1bc3c9e-0c64-46cf-9622-211e5ca2ae67',
+    key: 'privacy_policy_content',
+    value: '{"content":"Business Time olarak kullanıcılarımızın gizliliğini korumayı önemsiyoruz. Bu gizlilik politikası, uygulamamızı kullanırken kişisel bilgilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.\\n\\n## Topladığımız Bilgiler\\n\\n• İzleme geçmişi ve video tercihleri\\n• Beğenilen ve kaydedilen videolar\\n• Uygulama kullanım istatistikleri\\n• Cihaz bilgileri (model, işletim sistemi)\\n\\n## Bilgilerin Kullanımı\\n\\nToplanan bilgiler şu amaçlarla kullanılır:\\n\\n• Kişiselleştirilmiş içerik önerileri\\n• Uygulama performansının iyileştirilmesi\\n• Teknik destek sağlanması\\n• Güvenlik ve dolandırıcılık önleme\\n\\n## Veri Güvenliği\\n\\nVerilerinizi korumak için endüstri standardı güvenlik önlemleri alıyoruz. Tüm veri aktarımları SSL şifreleme ile korunur ve sunucularımız güvenli veri merkezlerinde barındırılır.\\n\\n## İletişim\\n\\nGizlilik ile ilgili sorularınız için bizimle iletişime geçebilirsiniz:\\nprivacy@businesstime.comss","last_updated":"2025-07-14T11:33:17.547Z","updated_by":"admin"}',
+    description: 'Setting for privacy_policy_content',
+    created_at: '2025-07-14T11:06:49.640353+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '731ffb0b-1be7-4f87-874e-48d666f14c3a',
+    key: 'suggested_search_tags',
+    value: 'merhaba',
+    description: 'Setting for suggested_search_tags',
+    created_at: '2025-07-14T12:56:18.142492+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: 'cab85394-4b4f-44dd-a67a-e3b984e303cb',
+    key: 'auto_play_videos',
+    value: true,
+    description: 'Setting for auto_play_videos',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '30cda2f2-d6cb-4668-9add-a714c539455f',
+    key: 'video_quality_default',
+    value: '720p',
+    description: 'Setting for video_quality_default',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: 'fa89a8db-f555-4b02-8d75-1cbf7ce4b94e',
+    key: 'cache_duration_hours',
+    value: 24,
+    description: 'Setting for cache_duration_hours',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '457a3270-a24a-4816-9415-65ee36a3477f',
+    key: 'rate_limit_per_minute',
+    value: 60,
+    description: 'Setting for rate_limit_per_minute',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: 'c34965a8-f91c-4d13-9f34-fc3c5e73cdd2',
+    key: 'admin_email',
+    value: 'admin@businesstime.app',
+    description: 'Setting for admin_email',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '1a35e9b4-42b9-44cd-9c83-a8acfff40f54',
+    key: 'enable_push_notifications',
+    value: true,
+    description: 'Setting for enable_push_notifications',
+    created_at: '2025-07-12T21:45:38.017+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: '48b3ee8e-0149-42c6-b604-4fac5603961d',
+    key: 'help_support_content',
+    value: {
+      content: '# Yardım ve Destek\n' +
+        '\n' +
+        '## Bizimle İletişime Geçin\n' +
+        '\n' +
+        'Sorularınız için aşağıdaki kanalları kullanabilirsiniz:\n' +
+        '\n' +
+        '### E-posta Desteği\n' +
+        'support@businesstime.app\n' +
+        '\n' +
+        '### WhatsApp Desteği\n' +
+        '7/24 anlık destek\n' +
+        '+90 555 123 45 67\n' +
+        '\n' +
+        '## Sık Sorulan Sorular\n' +
+        '\n' +
+        '### Videolar neden yüklenmiyor?\n' +
+        'Video yükleme sorunları genellikle internet bağlantısından kaynaklanır. WiFi veya mobil veri bağlantınızı kontrol edin. Ayrıca uygulamayı kapatıp tekrar açmayı deneyin.\n' +
+        '\n' +
+        '### Videoları nasıl kaydedebilirim?\n' +
+        'Video izlerken sağ alttaki kaydet butonuna tıklayarak videoları kaydedebilirsiniz. Kaydettiğiniz videolara Ayarlar > Kaydettiğim Videolar bölümünden ulaşabilirsiniz.\n' +
+        '\n' +
+        '### Koyu tema nasıl açılır?\n' +
+        'Ayarlar > Görünüm > Koyu Tema seçeneğini aktif ederek koyu temaya geçebilirsiniz. Bu ayar otomatik olarak kaydedilir.\n' +
+        '\n' +
+        '### Bildirimleri nasıl kapatabilirim?\n' +
+        'Ayarlar > Bildirimler bölümünden push bildirimlerini kapatabilirsiniz. Ayrıca cihaz ayarlarından da uygulama bildirimlerini yönetebilirsiniz.\n' +
+        '\n' +
+        '## Destek Saatleri\n' +
+        '\n' +
+        'Pazartesi - Cuma: 09:00 - 18:00\n' +
+        'Cumartesi: 10:00 - 16:00\n' +
+        'WhatsApp desteği 7/24 aktiftir\n' +
+        '\n' +
+        'Geri dönüş süresi: 2-24 saat içinde',
+      updated_by: 'admin',
+      last_updated: '2025-01-14T00:00:00Z'
+    },
+    description: 'Setting for help_support_content',
+    created_at: '2025-07-14T11:06:49.640353+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: 'c7be6e5b-99b8-4cbb-b2f2-7992654220a8',
+    key: 'about_content',
+    value: {
+      content: '# Business Time TV Hakkında\n' +
+        '\n' +
+        '## Misyonumuz\n' +
+        '\n' +
+        'İş dünyasından kaliteli, güncel ve eğitici içerikleri herkese ulaştırarak, girişimci ruhu desteklemek ve profesyonel gelişime katkıda bulunmak. Teknolojinin gücünü kullanarak öğrenmeyi erişilebilir kılmak.\n' +
+        '\n' +
+        '## Özellikler\n' +
+        '\n' +
+        '• HD Video Streaming - Yüksek kalitede video deneyimi\n' +
+        '• Video Kaydetme - Favori videolarınızı saklayın\n' +
+        '• Akıllı Arama - İstediğiniz içeriği hızlıca bulun\n' +
+        '• Koyu/Açık Tema - Gözlerinizi yormayan tasarım\n' +
+        '• Trend Videolar - En popüler iş dünyası içerikleri\n' +
+        '• Bildirimler - Yeni içeriklerden haberdar olun\n' +
+        '\n' +
+        '## Ekibimiz\n' +
+        '\n' +
+        '### Furkan Yiğit\n' +
+        'Kurucu & CEO\n' +
+        '10+ yıl teknoloji deneyimi\n' +
+        '\n' +
+        '### Geliştirici Ekibi\n' +
+        'Yazılım Geliştirme\n' +
+        'React Native & Backend uzmanları\n' +
+        '\n' +
+        '### İçerik Ekibi\n' +
+        'Video Editörleri\n' +
+        'Profesyonel iş dünyası içerikleri\n' +
+        '\n' +
+        '## İstatistikler\n' +
+        '\n' +
+        '• 500+ Video İçerik\n' +
+        '• 10K+ Aktif Kullanıcı\n' +
+        '• 25+ Kategori\n' +
+        '\n' +
+        '## İletişim\n' +
+        '\n' +
+        'info@businesstime.app\n' +
+        'businesstime.app\n' +
+        '\n' +
+        '## Sosyal Medya\n' +
+        '\n' +
+        'Twitter: @businesstimetv\n' +
+        'LinkedIn: /company/businesstimetv\n' +
+        'Instagram: @businesstimetv\n' +
+        '\n' +
+        '---\n' +
+        '\n' +
+        '© 2025 Business Time TV. Tüm hakları saklıdır.\n' +
+        'Made with ❤️ in Turkey',
+      updated_by: 'admin',
+      last_updated: '2025-01-14T00:00:00Z'
+    },
+    description: 'Setting for about_content',
+    created_at: '2025-07-14T11:06:49.640353+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  },
+  {
+    id: 'ff879cb6-3436-4d74-a287-22e20fc2791a',
+    key: 'terms_of_service_content',
+    value: '{"content":"# Business Time Kullanım Koşulları\\n\\nBu Kullanım Koşulları (\\"Koşullar\\"), Business Time TV mobil uygulaması (\\"Uygulama\\") kullanımınızı düzenler. Uygulamayı kullanarak bu koşulları kabul etmiş olursunuz.\\n\\n## 1. Hizmet Tanımı\\n\\nBusiness Time TV, iş dünyasından videolar, haberler ve içerikler sunan bir mobil uygulamadır. Hizmetimiz ücretsizdir ve reklam destekli olarak sunulmaktadır.\\n\\n## 2. Kullanım Kuralları\\n\\nUygulamayı kullanırken aşağıdaki kuralları kabul edersiniz:\\n\\n• Uygulamayı yalnızca yasal amaçlar için kullanacaksınız\\n• Başkalarının haklarını ihlal etmeyeceksiniz\\n• Uygunsuz içerik paylaşmayacaksınız\\n• Sistemi kötüye kullanmayacaksınız\\n\\n## 3. İçerik Politikası\\n\\nUygulamamızdaki tüm videolar editörlerimiz tarafından seçilir ve yüklenir. İçeriklerimiz iş dünyası, finansal haberler, eğitim ve profesyonel gelişim konularında hazırlanmaktadır.\\n\\n## 4. Fikri Mülkiyet Hakları\\n\\nUygulamadaki tüm içerikler telif hakkı ile korunmaktadır. İçerikleri kopyalayamaz, dağıtamaz veya ticari amaçlarla kullanamazsınız.\\n\\n## İletişim\\n\\nKullanım koşulları hakkında sorularınız için:\\ninfo@businesstime.com","last_updated":"2025-07-14T11:33:11.997Z","updated_by":"admin"}',
+    description: 'Setting for terms_of_service_content',
+    created_at: '2025-07-14T11:06:49.640353+00:00',
+    updated_at: '2025-07-14T15:40:31.840666+00:00'
+  }
+]
+ POST /api/settings 200 in 830ms
+🏠 Current active tab: dashboard
+ GET / 200 in 305ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 874ms (624 modules)
+ GET /favicon.ico 200 in 1008ms
+ GET /api/videos 200 in 1169ms
+ ✓ Compiled /api/categories in 107ms (626 modules)
+ GET /api/categories 200 in 356ms
+ GET /api/settings 200 in 247ms
+ GET /api/settings 200 in 235ms
+ GET /api/settings 200 in 141ms
+ GET /api/settings 200 in 131ms
+ GET /api/settings 200 in 141ms
+ GET /api/settings 200 in 133ms
+ GET /api/settings 200 in 238ms
+ GET /api/settings 200 in 141ms
+🏠 Current active tab: dashboard
+ GET / 200 in 215ms
+ GET /favicon.ico 200 in 10ms
+ GET /api/videos 200 in 148ms
+ GET /api/categories 200 in 129ms
+ GET /api/settings 200 in 145ms
+ GET /api/settings 200 in 141ms
+ GET /api/settings 200 in 129ms
+ GET /api/settings 200 in 152ms
+ GET /api/settings 200 in 164ms
+ GET /api/settings 200 in 144ms
+ GET /api/settings 200 in 144ms
+ GET /api/settings 200 in 147ms
+ ✓ Compiled in 4.2s (961 modules)
+ GET / 200 in 648ms
+ ✓ Compiled in 1008ms (961 modules)
+ GET / 200 in 125ms
+ ✓ Compiled in 5.1s (961 modules)
+ GET / 200 in 83ms
+🏠 Current active tab: dashboard
+ GET / 200 in 363ms
+ ○ Compiling /api/videos ...
+ ✓ Compiled /api/videos in 545ms (620 modules)
+ GET /api/videos 200 in 1792ms
+ ○ Compiling /api/categories ...
+ ✓ Compiled /api/categories in 515ms (622 modules)
+ GET /api/categories 200 in 770ms
+🏠 Current active tab: dashboard
+ GET / 200 in 174ms
+ ✓ Compiled /favicon.ico in 420ms (624 modules)
+ GET /favicon.ico 200 in 551ms
+ GET /api/videos 200 in 785ms
+ GET /api/categories 200 in 142ms
+🏠 Current active tab: dashboard
+ GET / 200 in 154ms
+ GET /favicon.ico 200 in 4ms
+ GET /api/videos 200 in 239ms
+ GET /api/categories 200 in 153ms
+🏠 Current active tab: dashboard
+ GET / 200 in 69ms
+ GET /favicon.ico 200 in 5ms
+ GET /api/videos 200 in 149ms
+ GET /api/categories 200 in 138ms
+🏠 Current active tab: dashboard
+ GET / 200 in 85ms
+ GET /favicon.ico 200 in 5ms
+ GET /api/videos 200 in 195ms
+ GET /api/categories 200 in 132ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1839ms (1067 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 2223ms
+🏠 Current active tab: dashboard
+ GET / 200 in 701ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 66ms
+ GET /favicon.ico 200 in 110ms
+ GET /api/videos 200 in 363ms
+ GET /api/categories 200 in 142ms
+🏠 Current active tab: dashboard
+ GET / 200 in 89ms
+ GET /favicon.ico 200 in 5ms
+ GET /api/videos 200 in 237ms
+ GET /api/categories 200 in 126ms
+🏠 Current active tab: dashboard
+ GET / 200 in 107ms
+ GET /favicon.ico 200 in 5ms
+ GET /api/videos 200 in 298ms
+ GET /api/categories 200 in 139ms
+🏠 Current active tab: dashboard
+ GET / 200 in 71ms
+ GET /favicon.ico 200 in 6ms
+ GET /api/videos 200 in 241ms
+ GET /api/categories 200 in 125ms
+🏠 Current active tab: dashboard
+ GET / 200 in 105ms
+ GET /favicon.ico 200 in 5ms
+ GET /api/videos 200 in 242ms
+ GET /api/categories 200 in 126ms
+ ✓ Compiled in 8.5s (961 modules)
+ GET / 200 in 898ms
+ ✓ Compiled in 759ms (961 modules)
+ GET / 200 in 127ms
+ ✓ Compiled in 1341ms (961 modules)
+ GET / 200 in 290ms
+ ✓ Compiled in 4.1s (961 modules)
+ GET / 200 in 172ms
+🏠 Current active tab: dashboard
+ GET / 200 in 193ms
+ ○ Compiling /api/videos ...
+ ✓ Compiled /api/videos in 689ms (524 modules)
+ ✓ Compiled (622 modules)
+ GET /favicon.ico 200 in 1417ms
+ GET /api/videos 200 in 1998ms
+ ✓ Compiled /api/categories in 105ms (624 modules)
+ GET /api/categories 200 in 305ms
+ GET /api/videos 200 in 353ms
+ GET /api/categories 200 in 356ms
+ GET /api/categories 200 in 158ms
+ GET /api/videos 200 in 353ms
+ GET /api/categories 200 in 135ms
+ GET /api/categories 200 in 135ms
+ GET /api/videos 200 in 234ms
+ GET /api/videos 200 in 127ms
+ GET /api/videos 200 in 151ms
+ GET /api/categories 200 in 243ms
+ GET /api/videos 200 in 127ms
+ GET /api/categories 200 in 136ms
+ GET /api/categories 200 in 135ms
+ GET /api/videos 200 in 137ms
+ GET /api/categories 200 in 145ms
+ GET /api/videos 200 in 125ms
+ GET /api/videos 200 in 140ms
+ GET /api/categories 200 in 254ms
+ GET /api/videos 200 in 131ms
+ GET /api/categories 200 in 133ms
+ GET /api/categories 200 in 597ms
+ GET /api/categories 200 in 139ms
+ GET /api/videos 200 in 165ms
+ GET /api/videos 200 in 132ms
+ ○ Compiling /api/categories ...
+ ✓ Compiled /api/categories in 554ms (619 modules)
+ ✓ Compiled (624 modules)
+ GET /api/categories 200 in 1127ms
+ GET /api/featured-content 200 in 1219ms
+ GET /api/videos 200 in 1232ms
+ GET /api/categories 200 in 206ms
+ GET /api/featured-content 200 in 126ms
+ GET /api/videos 200 in 138ms
+ ✓ Compiled in 1365ms (1077 modules)
+ GET / 200 in 430ms
+ ✓ Compiled in 2.4s (1079 modules)
+ GET / 200 in 509ms
+🏠 Current active tab: dashboard
+ GET / 200 in 373ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 542ms (627 modules)
+ GET /favicon.ico 200 in 639ms
+ GET /api/videos 200 in 799ms
+ GET /api/categories 200 in 141ms
+ GET /api/videos 200 in 135ms
+ GET /api/categories 200 in 248ms
+ GET /api/videos 200 in 133ms
+ GET /api/categories 200 in 133ms
+🏠 Current active tab: dashboard
+ GET / 200 in 157ms
+ GET /favicon.ico 200 in 4ms
+ GET /api/videos 200 in 141ms
+ GET /api/categories 200 in 147ms
+ GET /api/categories 200 in 135ms
+ GET /api/videos 200 in 148ms
+ GET /api/categories 200 in 126ms
+ GET /api/videos 200 in 122ms
+ GET /api/categories 200 in 135ms
+ GET /api/videos 200 in 124ms
+ GET /api/categories 200 in 133ms
+ GET /api/videos 200 in 132ms
+ GET /api/videos 200 in 130ms
+ GET /api/categories 200 in 194ms
+ GET /api/videos 200 in 130ms
+ GET /api/categories 200 in 141ms
+ GET /api/featured-content 200 in 144ms
+ GET /api/categories 200 in 181ms
+ GET /api/videos 200 in 248ms
+ GET /api/featured-content 200 in 180ms
+ GET /api/categories 200 in 169ms
+ GET /api/videos 200 in 215ms
+ ✓ Compiled /api/settings in 413ms (629 modules)
+ GET /api/settings 200 in 660ms
+ GET /api/settings 200 in 206ms
+ GET /api/settings 200 in 230ms
+ GET /api/settings 200 in 131ms
+ GET /api/settings 200 in 126ms
+ GET /api/settings 200 in 130ms
+ GET /api/settings 200 in 132ms
+🏠 Current active tab: dashboard
+ GET /api/settings 200 in 217ms
+ GET / 200 in 167ms
+ GET /favicon.ico 200 in 7ms
+ GET /api/videos 200 in 117ms
+ GET /api/categories 200 in 117ms
+ GET /api/videos 200 in 142ms
+ GET /api/categories 200 in 237ms
+ GET /api/videos 200 in 122ms
+ GET /api/categories 200 in 126ms
+🏠 Current active tab: dashboard
+ GET / 200 in 126ms
+ GET /favicon.ico 200 in 3ms
+ GET /api/videos 200 in 123ms
+ GET /api/categories 200 in 125ms
+ GET /api/videos 200 in 137ms
+ GET /api/categories 200 in 139ms
+ GET /api/categories 200 in 122ms
+ GET /api/videos 200 in 171ms
+🏠 Current active tab: dashboard
+ GET / 200 in 122ms
+ GET /favicon.ico 200 in 3ms
+ GET /api/videos 200 in 127ms
+ GET /api/categories 200 in 122ms
+ GET /api/categories 200 in 135ms
+ GET /api/categories 200 in 130ms
+ GET /api/videos 200 in 134ms
+ GET /api/videos 200 in 124ms
+ GET /api/featured-content 200 in 137ms
+ GET /api/videos 200 in 141ms
+ GET /api/categories 200 in 248ms
+ GET /api/featured-content 200 in 126ms
+ GET /api/videos 200 in 135ms
+ GET /api/categories 200 in 154ms
+ GET /api/settings 200 in 143ms
+ GET /api/settings 200 in 143ms
+ GET /api/settings 200 in 139ms
+ GET /api/settings 200 in 133ms
+ ✓ Compiled /api/reports in 120ms (631 modules)
+ GET /api/reports 200 in 402ms
+ GET /api/reports 200 in 253ms
+ GET /api/settings 200 in 226ms
+ GET /api/settings 200 in 122ms
+ GET /api/settings 200 in 131ms
+ GET /api/settings 200 in 132ms
+ GET /api/settings 200 in 138ms
+ GET /api/settings 200 in 125ms
+ GET /api/settings 200 in 120ms
+ GET /api/settings 200 in 149ms
+ GET /api/videos 200 in 523ms
+ GET /api/categories 200 in 557ms
+ GET /api/videos 200 in 163ms
+ GET /api/categories 200 in 158ms
+ GET /api/categories 200 in 135ms
+ GET /api/videos 200 in 141ms
+ GET /api/categories 200 in 153ms
+ GET /api/videos 200 in 143ms
+🏠 Current active tab: dashboard
+ GET / 200 in 188ms
+ GET /favicon.ico 200 in 10ms
+ GET /api/videos 200 in 147ms
+ GET /api/categories 200 in 133ms
+🏠 Current active tab: dashboard
+ GET / 200 in 120ms
+ GET /favicon.ico 200 in 106ms
+ GET /api/videos 200 in 230ms
+ GET /api/categories 200 in 145ms
+ ✓ Compiled in 1871ms (1079 modules)
+ GET / 200 in 469ms
+ ✓ Compiled in 1351ms (963 modules)
+ GET / 200 in 2501ms
+ ✓ Compiled in 1466ms (963 modules)
+ GET / 200 in 650ms
+ ✓ Compiled in 1251ms (963 modules)
+ GET / 200 in 1538ms
+ ✓ Compiled in 5s (965 modules)
+ GET / 200 in 673ms
+🏠 Current active tab: dashboard
+ GET / 200 in 385ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /api/videos in 1184ms (526 modules)
+ ✓ Compiled (624 modules)
+ GET /favicon.ico 200 in 2008ms
+ GET /api/videos 200 in 1970ms
+ ✓ Compiled /api/categories in 138ms (626 modules)
+ GET /api/categories 200 in 319ms
+ GET /api/videos 200 in 133ms
+ GET /api/categories 200 in 248ms
+ GET /api/videos 200 in 129ms
+ GET /api/categories 200 in 122ms
+ GET /api/categories 200 in 131ms
+ GET /api/categories 200 in 172ms
+ GET /api/videos 200 in 179ms
+ GET /api/videos 200 in 135ms
+ ✓ Compiled /api/featured-content in 127ms (628 modules)
+ GET /api/videos 200 in 330ms
+ GET /api/categories 200 in 332ms
+ GET /api/featured-content 200 in 459ms
+ GET /api/videos 200 in 126ms
+ GET /api/categories 200 in 128ms
+ GET /api/featured-content 200 in 142ms
+🏠 Current active tab: dashboard
+ GET / 200 in 251ms
+ GET /favicon.ico 200 in 11ms
+ GET /api/videos 200 in 144ms
+ GET /api/categories 200 in 119ms
+ ✓ Compiled /api/settings in 129ms (630 modules)
+ GET /api/settings 200 in 307ms
+ GET /api/settings 200 in 125ms
+ GET /api/settings 200 in 142ms
+ GET /api/settings 200 in 130ms
+ GET /api/settings 200 in 141ms
+ GET /api/settings 200 in 135ms
+ GET /api/featured-content 200 in 140ms
+ GET /api/categories 200 in 258ms
+ GET /api/featured-content 200 in 122ms
+ GET /api/videos 200 in 306ms
+ GET /api/categories 200 in 130ms
+ GET /api/videos 200 in 178ms
+ GET /api/settings 200 in 260ms
+ GET /api/settings 200 in 129ms
+ ✓ Compiled /api/reports in 190ms (632 modules)
+ GET /api/reports 200 in 502ms
+ GET /api/reports 200 in 245ms
+ GET /api/settings 200 in 328ms
+ GET /api/settings 200 in 132ms
+ GET /api/settings 200 in 147ms
+ GET /api/settings 200 in 135ms
+ GET /api/settings 200 in 146ms
+ GET /api/settings 200 in 142ms
+ GET /api/settings 200 in 168ms
+ GET /api/settings 200 in 141ms
+ GET /api/categories 200 in 311ms
+ GET /api/videos 200 in 330ms
+ GET /api/categories 200 in 150ms
+ GET /api/videos 200 in 155ms
+ GET /api/categories 200 in 357ms
+ GET /api/categories 200 in 199ms
+ GET /api/videos 200 in 177ms
+ GET /api/videos 200 in 135ms
+ GET /api/featured-content 200 in 164ms
+ GET /api/categories 200 in 179ms
+ GET /api/videos 200 in 277ms
+ GET /api/featured-content 200 in 163ms
+ GET /api/categories 200 in 214ms
+ GET /api/videos 200 in 137ms
+ GET /api/settings 200 in 148ms
+ GET /api/settings 200 in 170ms
+ GET /api/settings 200 in 146ms
+ GET /api/settings 200 in 135ms
+ GET /api/reports 200 in 274ms
+ GET /api/reports 200 in 274ms
+ ✓ Compiled in 4s (1087 modules)
+ ✓ Compiled in 3ms (632 modules)
+ ✓ Compiled in 1ms (632 modules)
+ ✓ Compiled in 0ms (632 modules)
+ GET /api/categories 200 in 4380ms
+ GET /api/videos 200 in 4384ms
+ GET / 200 in 1542ms
+ GET /api/videos 200 in 206ms
+ GET /api/categories 200 in 210ms
+ GET /api/categories 200 in 461ms
+ GET /api/categories 200 in 147ms
+ GET /api/videos 200 in 242ms
+ GET /api/videos 200 in 142ms
+ ✓ Compiled in 2.4s (1085 modules)
+ GET / 200 in 207ms
+ ✓ Compiled in 2.2s (965 modules)
+ GET / 200 in 3013ms
+ ✓ Compiled in 986ms (965 modules)
+ GET / 200 in 344ms
+ ✓ Compiled in 2.2s (965 modules)
+ GET / 200 in 643ms
+ ✓ Compiled in 740ms (965 modules)
+ GET / 200 in 1885ms
+ ✓ Compiled in 1761ms (965 modules)
+ GET / 200 in 309ms
+ ✓ Compiled in 1266ms (455 modules)
+ GET / 200 in 46ms
+ ✓ Compiled in 452ms (455 modules)
+ GET / 200 in 43ms
+ ○ Compiling /api/videos/[id] ...
+ ✓ Compiled /api/videos/[id] in 1078ms (1063 modules)
+ PUT /api/videos/b7c1c812-2cda-464e-b703-ff9b25a4a1ff 200 in 2922ms
+ ✓ Compiled in 3.6s (965 modules)
+ GET / 200 in 951ms
+ ○ Compiling /api/categories ...
+ ✓ Compiled /api/categories in 528ms (621 modules)
+ ✓ Compiled (626 modules)
+ GET / 200 in 3999ms
+ GET /api/featured-content 200 in 6256ms
+ GET /api/categories 200 in 6266ms
+ GET /api/videos 200 in 6276ms
+ GET /api/featured-content 200 in 309ms
+ GET /api/videos 200 in 328ms
+ GET /api/categories 200 in 341ms
+ ✓ Compiled in 2.9s (1081 modules)
+ GET / 200 in 829ms
+ ○ Compiling /api/featured-content/[id] ...
+ ✓ Compiled /api/featured-content/[id] in 1361ms (1083 modules)
+ GET / 200 in 3299ms
+Error: Route "/api/featured-content/[id]" used `params.id`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at PUT (src/app/api/featured-content/[id]/route.ts:74:23)
+  72 |         is_active
+  73 |       })
+> 74 |       .eq('id', params.id)
+     |                       ^
+  75 |       .select()
+  76 |       .single();
+  77 |
+Error: Route "/api/featured-content/[id]" used `params.id`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at PUT (src/app/api/featured-content/[id]/route.ts:74:23)
+  72 |         is_active
+  73 |       })
+> 74 |       .eq('id', params.id)
+     |                       ^
+  75 |       .select()
+  76 |       .single();
+  77 |
+Error: Route "/api/featured-content/[id]" used `params.id`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at PUT (src/app/api/featured-content/[id]/route.ts:74:23)
+  72 |         is_active
+  73 |       })
+> 74 |       .eq('id', params.id)
+     |                       ^
+  75 |       .select()
+  76 |       .single();
+  77 |
+Error: Route "/api/featured-content/[id]" used `params.id`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at PUT (src/app/api/featured-content/[id]/route.ts:74:23)
+  72 |         is_active
+  73 |       })
+> 74 |       .eq('id', params.id)
+     |                       ^
+  75 |       .select()
+  76 |       .single();
+  77 |
+ PUT /api/featured-content/2eef5b37-bcab-4a94-a065-2bd10e8457b1 200 in 9503ms
+ PUT /api/featured-content/2eef5b37-bcab-4a94-a065-2bd10e8457b1 200 in 6745ms
+ PUT /api/featured-content/2eef5b37-bcab-4a94-a065-2bd10e8457b1 200 in 6794ms
+ PUT /api/featured-content/2eef5b37-bcab-4a94-a065-2bd10e8457b1 200 in 8558ms
+ GET /api/featured-content 200 in 433ms
+ GET /api/featured-content 200 in 213ms
+ GET /api/featured-content 200 in 904ms
+ GET /api/featured-content 200 in 248ms
+Error: Route "/api/featured-content/[id]" used `params.id`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at PUT (src/app/api/featured-content/[id]/route.ts:74:23)
+  72 |         is_active
+  73 |       })
+> 74 |       .eq('id', params.id)
+     |                       ^
+  75 |       .select()
+  76 |       .single();
+  77 |
+ PUT /api/featured-content/2eef5b37-bcab-4a94-a065-2bd10e8457b1 200 in 4580ms
+🏠 Current active tab: dashboard
+ GET /api/featured-content 200 in 2864ms
+ GET / 200 in 3089ms
+ ✓ Compiled in 4s (1083 modules)
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 18.2s (630 modules)
+ ✓ Compiled in 7.3s (1083 modules)
+ ✓ Compiled in 1ms (628 modules)
+ GET / 200 in 25170ms
+ ○ Compiling /api/categories ...
+ ✓ Compiled /api/categories in 1725ms (624 modules)
+ GET /api/videos 200 in 2546ms
+ GET /api/categories 200 in 2660ms
+ GET /api/videos 200 in 163ms
+ GET /api/categories 200 in 167ms
+🏠 Current active tab: dashboard
+ GET / 200 in 295ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 2.3s (626 modules)
+ GET /favicon.ico 200 in 2963ms
+ GET /api/videos 200 in 2813ms
+ GET /api/categories 200 in 927ms
+ GET /api/videos 200 in 934ms
+ GET /api/categories 200 in 833ms
+ GET /api/videos 200 in 308ms
+ GET /api/categories 200 in 1238ms
+ GET /api/categories 200 in 1456ms
+ GET /api/videos 200 in 1562ms
+ GET /api/categories 200 in 1683ms
+ GET /api/videos 200 in 163ms
+ ○ Compiling /api/featured-content ...
+ ✓ Compiled /api/featured-content in 5.1s (628 modules)
+ GET /api/featured-content 200 in 5996ms
+ GET /api/categories 200 in 6042ms
+ GET /api/videos 200 in 6058ms
+ GET /api/videos 200 in 168ms
+ GET /api/featured-content 200 in 195ms
+ GET /api/categories 200 in 205ms
+ ○ Compiling /api/settings ...
+ ✓ Compiled /api/settings in 1750ms (630 modules)
+ GET /api/settings 200 in 4955ms
+ GET /api/settings 200 in 174ms
+ GET /api/categories 200 in 1441ms
+ GET /api/videos 200 in 714ms
+ GET /api/videos 200 in 208ms
+ GET /api/categories 200 in 210ms
+ GET /api/videos 200 in 142ms
+ GET /api/categories 200 in 132ms
+ GET /api/categories 200 in 112ms
+ GET /api/videos 200 in 134ms
+ GET /api/categories 200 in 137ms
+ GET /api/videos 200 in 131ms
+ GET /api/categories 200 in 184ms
+ GET /api/videos 200 in 284ms
+ GET /api/categories 200 in 233ms
+ GET /api/featured-content 200 in 271ms
+ GET /api/videos 200 in 398ms
+ GET /api/featured-content 200 in 150ms
+ GET /api/categories 200 in 187ms
+ GET /api/videos 200 in 168ms
+ GET /api/settings 200 in 361ms
+ GET /api/settings 200 in 188ms
+ GET /api/settings 200 in 137ms
+ GET /api/settings 200 in 132ms
+ GET /api/settings 200 in 422ms
+ GET /api/settings 200 in 237ms
+ GET /api/settings 200 in 226ms
+ GET /api/settings 200 in 173ms
+ GET /api/settings 200 in 138ms
+ GET /api/settings 200 in 153ms
+ GET /api/settings 200 in 158ms
+ GET /api/settings 200 in 182ms
+ GET /api/videos 200 in 436ms
+ GET /api/categories 200 in 577ms
+ GET /api/videos 200 in 168ms
+ GET /api/categories 200 in 170ms
+ GET /api/categories 200 in 133ms
+ GET /api/categories 200 in 128ms
+ GET /api/videos 200 in 165ms
+ GET /api/videos 200 in 129ms
+ GET /api/featured-content 200 in 141ms
+ GET /api/categories 200 in 165ms
+ GET /api/videos 200 in 253ms
+ GET /api/featured-content 200 in 131ms
+ GET /api/categories 200 in 135ms
+ GET /api/videos 200 in 134ms
+ GET /api/settings 200 in 149ms
+ GET /api/settings 200 in 127ms
+ GET /api/categories 200 in 136ms
+ GET /api/categories 200 in 126ms
+ GET /api/videos 200 in 168ms
+ GET /api/videos 200 in 248ms
+ GET /api/categories 200 in 151ms
+ GET /api/videos 200 in 127ms
+ GET /api/categories 200 in 199ms
+ GET /api/videos 200 in 140ms
+ GET /api/categories 200 in 132ms
+ GET /api/categories 200 in 131ms
+ GET /api/videos 200 in 136ms
+ GET /api/videos 200 in 124ms
+ GET /api/featured-content 200 in 141ms
+ GET /api/categories 200 in 155ms
+ GET /api/videos 200 in 246ms
+ GET /api/featured-content 200 in 145ms
+ GET /api/categories 200 in 179ms
+ GET /api/videos 200 in 125ms
+ GET /api/categories 200 in 131ms
+ GET /api/categories 200 in 123ms
+ GET /api/videos 200 in 152ms
+ GET /api/videos 200 in 130ms
+ GET /api/videos 200 in 828ms
+ GET /api/categories 200 in 794ms
+ GET /api/videos 200 in 226ms
+ GET /api/categories 200 in 249ms
+ GET /api/categories 200 in 588ms
+ GET /api/categories 200 in 132ms
+ GET /api/videos 200 in 269ms
+ GET /api/videos 200 in 122ms
+ GET /api/featured-content 200 in 150ms
+ GET /api/videos 200 in 151ms
+ GET /api/categories 200 in 276ms
+ GET /api/featured-content 200 in 133ms
+ GET /api/videos 200 in 127ms
+ GET /api/categories 200 in 134ms
+ GET /api/categories 200 in 147ms
+ GET /api/categories 200 in 133ms
+ GET /api/videos 200 in 135ms
+ GET /api/videos 200 in 124ms
+ GET /api/videos 200 in 119ms
+ GET /api/categories 200 in 124ms
+ GET /api/categories 200 in 129ms
+ GET /api/videos 200 in 134ms
+ GET /api/videos 200 in 143ms
+ GET /api/categories 200 in 151ms
+ GET /api/categories 200 in 138ms
+ GET /api/videos 200 in 145ms
+ GET /api/categories 200 in 149ms
+ GET /api/videos 200 in 119ms
+ GET /api/categories 200 in 127ms
+ GET /api/videos 200 in 130ms
+ GET /api/videos 200 in 328ms
+ GET /api/categories 200 in 421ms
+ GET /api/videos 200 in 137ms
+ GET /api/categories 200 in 157ms
+ GET /api/categories 200 in 136ms
+ GET /api/categories 200 in 162ms
+ GET /api/videos 200 in 162ms
+ GET /api/videos 200 in 155ms
+ GET /api/categories 200 in 174ms
+ GET /api/featured-content 200 in 180ms
+ GET /api/videos 200 in 279ms
+ GET /api/categories 200 in 144ms
+ GET /api/featured-content 200 in 170ms
+ GET /api/videos 200 in 135ms
+ GET /api/settings 200 in 174ms
+ GET /api/settings 200 in 144ms
+🏠 Current active tab: dashboard
+ GET / 200 in 1119ms
+ GET /api/videos 200 in 630ms
+ GET /api/categories 200 in 142ms
+ GET /api/videos 200 in 159ms
+ GET /api/categories 200 in 253ms
+ GET /api/videos 200 in 119ms
+ GET /api/categories 200 in 126ms
+ ✓ Compiled in 11.5s (455 modules)
+ GET / 200 in 216ms
+ ✓ Compiled in 716ms (455 modules)
+ GET / 200 in 31ms
+ ✓ Compiled in 798ms (455 modules)
+ GET / 200 in 155ms
+ ✓ Compiled in 542ms (455 modules)
+ GET / 200 in 43ms
+ ✓ Compiled in 540ms (455 modules)
+ GET / 200 in 33ms
+ ✓ Compiled in 1558ms (455 modules)
+ GET / 200 in 377ms
+ ✓ Compiled in 6.4s (965 modules)
+ GET / 200 in 921ms
+ ○ Compiling /api/categories ...
+ ✓ Compiled /api/categories in 3.8s (622 modules)
+ ✓ Compiled (624 modules)
+ GET /api/categories 200 in 6847ms
+ GET /api/videos 200 in 6851ms
+ ✓ Compiled in 924ms (1079 modules)
+ GET / 200 in 763ms
+ ✓ Compiled in 1176ms (965 modules)
+ GET / 200 in 1681ms
+ ✓ Compiled in 1946ms (965 modules)
+ GET / 200 in 594ms
+ ✓ Compiled in 25.3s (965 modules)
+ GET / 200 in 2302ms
+ ✓ Compiled in 14.7s (965 modules)
+ GET / 200 in 350ms
+🏠 Current active tab: dashboard
+ GET / 200 in 356ms
+ ○ Compiling /api/videos ...
+ ✓ Compiled /api/videos in 1108ms (526 modules)
+ ✓ Compiled (624 modules)
+ GET /favicon.ico 200 in 3913ms
+ GET /api/videos 200 in 4319ms
+ ✓ Compiled /api/categories in 215ms (626 modules)
+ GET /api/categories 200 in 455ms
+ GET /api/videos 200 in 134ms
+ GET /api/categories 200 in 262ms
+ GET /api/videos 200 in 131ms
+ GET /api/categories 200 in 127ms
+ ○ Compiling /api/settings ...
+ ✓ Compiled /api/settings in 3.6s (622 modules)
+ GET /api/settings 200 in 4280ms
+🏠 Current active tab: dashboard
+ GET / 200 in 1601ms
+ ○ Compiling /api/videos ...
+ ✓ Compiled /api/videos in 2.6s (526 modules)
+ ✓ Compiled (624 modules)
+ GET /favicon.ico 200 in 3351ms
+ GET /api/videos 200 in 3487ms
+ ✓ Compiled /api/categories in 478ms (626 modules)
+ GET /api/categories 200 in 774ms
+ ✓ Compiled /api/settings in 304ms (628 modules)
+ GET /api/settings 200 in 536ms
+ GET /api/settings 200 in 137ms
+ ✓ Compiled in 10.5s (965 modules)
+ GET / 200 in 2412ms
+ GET / 200 in 631ms
+ ✓ Compiled in 82.2s (965 modules)
+ ✓ Compiled in 383ms (455 modules)
+ ✓ Compiled in 1032ms (951 modules)
+ ✓ Compiled in 481ms (455 modules)
+ ✓ Compiled in 1335ms (455 modules)
+ ✓ Compiled in 2.8s (455 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ○ Compiling /api/videos ...
+ ✓ Compiled /api/videos in 78.8s (1077 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /api/videos 200 in 66111ms
+ GET / 200 in 109941ms
+🏠 Current active tab: dashboard
+ ✓ Compiled in 31.4s (1077 modules)
+🏠 Current active tab: dashboard
+ GET / 200 in 1084ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /api/videos in 4s (526 modules)
+ ✓ Compiled (624 modules)
+ GET /favicon.ico 200 in 4835ms
+ GET /api/videos 200 in 5883ms
+ ○ Compiling /api/categories ...
+ ✓ Compiled /api/categories in 3.9s (626 modules)
+ GET /api/categories 200 in 4371ms
+🏠 Current active tab: dashboard
+ GET / 200 in 609ms
+ ○ Compiling /api/push/settings ...
+ ✓ Compiled /api/push/settings in 7.1s (1069 modules)
+📊 Getting push notification settings...
+ ○ Compiling /_not-found ...
+✅ Push settings retrieved: { isEnabled: false, totalDevices: 0, lastNotification: null }
+ GET /api/push/settings 200 in 9798ms
+ ✓ Compiled /_not-found in 5.6s (1073 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /_next/static/webpack/e0f7c8382ac769b6.webpack.hot-update.json 404 in 5920ms
+🏠 Current active tab: dashboard
+ GET / 200 in 904ms
+ GET /favicon.ico 200 in 512ms
+ GET /api/videos 200 in 6052ms
+ GET /api/categories 200 in 640ms
+🔄 Updating push notification settings: { isEnabled: true }
+📊 Getting push notification settings...
+✅ Push settings updated successfully: {
+  id: 1,
+  is_enabled: true,
+  created_at: '2025-07-14T19:12:10.108204+00:00',
+  updated_at: '2025-07-14T19:15:09.842616+00:00'
+}
+ POST /api/push/settings 200 in 535ms
+ ○ Compiling /api/push/send ...
+✅ Push settings retrieved: { isEnabled: true, totalDevices: 0, lastNotification: null }
+ GET /api/push/settings 200 in 1468ms
+ ✓ Compiled /api/push/send in 20.5s (1101 modules)
+📊 Getting push notification history...
+📊 Getting push notification history...
+📊 Getting push notification settings...
+ GET / 200 in 252ms
+✅ Notification history retrieved: 0 items
+ GET /api/push/send 200 in 902ms
+✅ Notification history retrieved: 0 items
+ GET /api/push/send 200 in 20965ms
+✅ Push settings retrieved: { isEnabled: true, totalDevices: 0, lastNotification: null }
+ GET /api/push/settings 200 in 19246ms
+📨 Sending push notification: {
+  title: 'Test Bildirimi',
+  message: 'Push bildirim sistemi başarıyla çalışıyor!',
+  type: 'general',
+  targetVideoId: null
+}
+ POST /api/push/send 400 in 882ms
+🏠 Current active tab: dashboard
+ GET / 200 in 421ms
+ GET /favicon.ico 200 in 87ms
+ GET /api/videos 200 in 366ms
+ GET /api/categories 200 in 135ms
+📊 Getting push notification settings...
+📊 Getting push notification history...
+✅ Notification history retrieved: 0 items
+ GET /api/push/send 200 in 259ms
+📊 Getting push notification history...
+✅ Push settings retrieved: { isEnabled: true, totalDevices: 0, lastNotification: null }
+ GET /api/push/settings 200 in 387ms
+📊 Getting push notification settings...
+✅ Notification history retrieved: 0 items
+ GET /api/push/send 200 in 213ms
+✅ Push settings retrieved: { isEnabled: true, totalDevices: 0, lastNotification: null }
+ GET /api/push/settings 200 in 379ms
+📨 Sending push notification: { title: 'asda', message: 'da', type: 'general', targetVideoId: null }
+ POST /api/push/send 400 in 414ms
+🔄 Updating push notification settings: { isEnabled: false }
+✅ Push settings updated successfully: {
+  id: 1,
+  is_enabled: false,
+  created_at: '2025-07-14T19:12:10.108204+00:00',
+  updated_at: '2025-07-14T19:19:03.900438+00:00'
+}
+ POST /api/push/settings 200 in 144ms
+🔄 Updating push notification settings: { isEnabled: true }
+✅ Push settings updated successfully: {
+  id: 1,
+  is_enabled: true,
+  created_at: '2025-07-14T19:12:10.108204+00:00',
+  updated_at: '2025-07-14T19:19:05.021829+00:00'
+}
+ POST /api/push/settings 200 in 143ms
+🏠 Current active tab: dashboard
+ GET / 200 in 267ms
+ GET /favicon.ico 200 in 9ms
+ GET /api/videos 200 in 302ms
+ GET /api/categories 200 in 129ms
+📊 Getting push notification settings...
+📊 Getting push notification history...
+✅ Notification history retrieved: 0 items
+ GET /api/push/send 200 in 261ms
+📊 Getting push notification history...
+✅ Notification history retrieved: 0 items
+ GET /api/push/send 200 in 135ms
+✅ Push settings retrieved: { isEnabled: true, totalDevices: 0, lastNotification: null }
+ GET /api/push/settings 200 in 415ms
+📊 Getting push notification settings...
+✅ Push settings retrieved: { isEnabled: true, totalDevices: 0, lastNotification: null }
+ GET /api/push/settings 200 in 405ms
+📨 Sending push notification: { title: 'asda', message: 'ada', type: 'general', targetVideoId: null }
+ POST /api/push/send 400 in 296ms
+ ○ Compiling /api/push/register ...
+ ✓ Compiled /api/push/register in 32.7s (1085 modules)
+📱 Registering device for push notifications: {
+  deviceId: 'test_device_ios_001...',
+  deviceType: 'ios',
+  deviceModel: 'iPhone 12'
+}
+ GET / 200 in 6410ms
+✅ Device registered successfully: 518840b8-3fbe-443b-9877-4b9705b9cfc6
+ POST /api/push/register 200 in 22709ms
+📊 Getting push notification settings...
+✅ Push settings retrieved: { isEnabled: true, totalDevices: 1, lastNotification: null }
+ GET /api/push/settings 200 in 509ms
+📨 Sending push notification: {
+  title: '🎉 Test Başarılı!',
+  message: 'Push bildirim sistemi çalışıyor! Admin dashboard ile mobile app arasında bağlantı kuruldu.',
+  type: 'general',
+  targetVideoId: null
+}
+📱 Found 1 active devices
+✅ Notification record created: 58de5f54-2083-43cd-92b6-418bf1f4e009
+📤 Sending to 1 valid tokens out of 1 total
+📦 Processing chunk 1/1 with 1 messages
+(node:36927) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+❌ Push notification failed: {
+  status: 'error',
+  message: '"ExponentPushToken[test_token_for_development]" is not a registered push notification recipient',
+  details: {
+    error: 'DeviceNotRegistered',
+    expoPushToken: 'ExponentPushToken[test_token_for_development]'
+  }
+}
+✅ Delivery records saved: 1
+🎉 Push notification sending completed: {
+  notificationId: '58de5f54-2083-43cd-92b6-418bf1f4e009',
+  totalDevices: 1,
+  totalSent: 0,
+  totalFailed: 1,
+  successRate: '0%'
+}
+ POST /api/push/send 200 in 1249ms
+📊 Getting push notification settings...
+✅ Push settings retrieved: {
+  isEnabled: true,
+  totalDevices: 1,
+  lastNotification: {
+    title: '🎉 Test Başarılı!',
+    createdAt: '2025-07-14T19:20:38.057078+00:00'
+  }
+}
+ GET /api/push/settings 200 in 593ms
+📨 Sending push notification: { title: 'asda', message: 'ada', type: 'general', targetVideoId: null }
+📱 Found 1 active devices
+✅ Notification record created: 8d61e584-9160-4bb0-a669-35a99c09ade9
+📤 Sending to 1 valid tokens out of 1 total
+📦 Processing chunk 1/1 with 1 messages
+❌ Push notification failed: {
+  status: 'error',
+  message: '"ExponentPushToken[test_token_for_development]" is not a registered push notification recipient',
+  details: {
+    error: 'DeviceNotRegistered',
+    expoPushToken: 'ExponentPushToken[test_token_for_development]'
+  }
+}
+✅ Delivery records saved: 1
+🎉 Push notification sending completed: {
+  notificationId: '8d61e584-9160-4bb0-a669-35a99c09ade9',
+  totalDevices: 1,
+  totalSent: 0,
+  totalFailed: 1,
+  successRate: '0%'
+}
+ POST /api/push/send 200 in 1286ms
+📊 Getting push notification settings...
+✅ Push settings retrieved: {
+  isEnabled: true,
+  totalDevices: 1,
+  lastNotification: { title: 'asda', createdAt: '2025-07-14T19:21:30.267219+00:00' }
+}
+ GET /api/push/settings 200 in 451ms
+📊 Getting push notification history...
+✅ Notification history retrieved: 2 items
+ GET /api/push/send 200 in 147ms
+🏠 Current active tab: dashboard
+ GET / 200 in 270ms
+ GET /favicon.ico 200 in 15ms
+ GET /api/videos 200 in 405ms
+ GET /api/categories 200 in 119ms
+📊 Getting push notification settings...
+📊 Getting push notification history...
+✅ Notification history retrieved: 2 items
+ GET /api/push/send 200 in 278ms
+📊 Getting push notification history...
+✅ Notification history retrieved: 2 items
+ GET /api/push/send 200 in 123ms
+✅ Push settings retrieved: {
+  isEnabled: true,
+  totalDevices: 1,
+  lastNotification: { title: 'asda', createdAt: '2025-07-14T19:21:30.267219+00:00' }
+}
+ GET /api/push/settings 200 in 681ms
+📊 Getting push notification settings...
+✅ Push settings retrieved: {
+  isEnabled: true,
+  totalDevices: 1,
+  lastNotification: { title: 'asda', createdAt: '2025-07-14T19:21:30.267219+00:00' }
+}
+ GET /api/push/settings 200 in 435ms
+ GET /api/categories 200 in 301ms
+ GET /api/videos 200 in 311ms
+ GET /api/categories 200 in 127ms
+ GET /api/videos 200 in 140ms
+ GET /api/categories 200 in 141ms
+ GET /api/categories 200 in 118ms
+ GET /api/videos 200 in 155ms
+ GET /api/videos 200 in 116ms
+ ○ Compiling /api/featured-content ...
+ ✓ Compiled /api/featured-content in 821ms (644 modules)
+ GET /api/featured-content 200 in 1160ms
+ GET /api/categories 200 in 1170ms
+ GET /api/videos 200 in 1269ms
+ GET /api/featured-content 200 in 134ms
+ GET /api/videos 200 in 128ms
+ GET /api/categories 200 in 247ms
+📨 Sending push notification: {
+  title: 'Admin Test Bildirimi',
+  message: "Push bildirim sistemi admin dashboard'dan başarıyla test ediliyor! Sistem tamamen çalışır durumda.",
+  type: 'general',
+  targetVideoId: null
+}
+📱 Found 1 active devices
+✅ Notification record created: 5557bb4b-8223-4275-9f22-4efc04c805bf
+📤 Sending to 1 valid tokens out of 1 total
+📦 Processing chunk 1/1 with 1 messages
+❌ Push notification failed: {
+  status: 'error',
+  message: '"ExponentPushToken[test_token_for_development]" is not a registered push notification recipient',
+  details: {
+    error: 'DeviceNotRegistered',
+    expoPushToken: 'ExponentPushToken[test_token_for_development]'
+  }
+}
+✅ Delivery records saved: 1
+🎉 Push notification sending completed: {
+  notificationId: '5557bb4b-8223-4275-9f22-4efc04c805bf',
+  totalDevices: 1,
+  totalSent: 0,
+  totalFailed: 1,
+  successRate: '0%'
+}
+ POST /api/push/send 200 in 1538ms
+📊 Getting push notification settings...
+✅ Push settings retrieved: {
+  isEnabled: true,
+  totalDevices: 1,
+  lastNotification: {
+    title: 'Admin Test Bildirimi',
+    createdAt: '2025-07-14T19:24:57.544141+00:00'
+  }
+}
+ GET /api/push/settings 200 in 436ms
+📊 Getting push notification history...
+✅ Notification history retrieved: 3 items
+ GET /api/push/send 200 in 132ms
+📊 Getting push notification settings...
+📊 Getting push notification history...
+✅ Notification history retrieved: 3 items
+ GET /api/push/send 200 in 702ms
+📊 Getting push notification history...
+✅ Push settings retrieved: {
+  isEnabled: true,
+  totalDevices: 1,
+  lastNotification: {
+    title: 'Admin Test Bildirimi',
+    createdAt: '2025-07-14T19:24:57.544141+00:00'
+  }
+}
+ GET /api/push/settings 200 in 923ms
+📊 Getting push notification settings...
+✅ Notification history retrieved: 3 items
+ GET /api/push/send 200 in 248ms
+✅ Push settings retrieved: {
+  isEnabled: true,
+  totalDevices: 1,
+  lastNotification: {
+    title: 'Admin Test Bildirimi',
+    createdAt: '2025-07-14T19:24:57.544141+00:00'
+  }
+}
+ GET /api/push/settings 200 in 370ms
+🏠 Current active tab: dashboard
+ GET / 200 in 267ms
+ GET /api/videos 200 in 370ms
+ GET /api/categories 200 in 131ms
+📊 Getting push notification settings...
+📊 Getting push notification history...
+✅ Notification history retrieved: 3 items
+ GET /api/push/send 200 in 240ms
+📊 Getting push notification history...
+✅ Notification history retrieved: 3 items
+ GET /api/push/send 200 in 115ms
+✅ Push settings retrieved: {
+  isEnabled: true,
+  totalDevices: 1,
+  lastNotification: {
+    title: 'Admin Test Bildirimi',
+    createdAt: '2025-07-14T19:24:57.544141+00:00'
+  }
+}
+ GET /api/push/settings 200 in 419ms
+📊 Getting push notification settings...
+✅ Push settings retrieved: {
+  isEnabled: true,
+  totalDevices: 1,
+  lastNotification: {
+    title: 'Admin Test Bildirimi',
+    createdAt: '2025-07-14T19:24:57.544141+00:00'
+  }
+}
+ GET /api/push/settings 200 in 430ms
+📨 Sending push notification: {
+  title: 'selam',
+  message: 'merhaba',
+  type: 'general',
+  targetVideoId: null
+}
+📱 Found 1 active devices
+✅ Notification record created: 0b28d0c5-aab4-480b-b77c-7641f533016e
+📤 Sending to 1 valid tokens out of 1 total
+📦 Processing chunk 1/1 with 1 messages
+❌ Push notification failed: {
+  status: 'error',
+  message: '"ExponentPushToken[test_token_for_development]" is not a registered push notification recipient',
+  details: {
+    error: 'DeviceNotRegistered',
+    expoPushToken: 'ExponentPushToken[test_token_for_development]'
+  }
+}
+✅ Delivery records saved: 1
+🎉 Push notification sending completed: {
+  notificationId: '0b28d0c5-aab4-480b-b77c-7641f533016e',
+  totalDevices: 1,
+  totalSent: 0,
+  totalFailed: 1,
+  successRate: '0%'
+}
+ POST /api/push/send 200 in 991ms
+📊 Getting push notification settings...
+✅ Push settings retrieved: {
+  isEnabled: true,
+  totalDevices: 1,
+  lastNotification: { title: 'selam', createdAt: '2025-07-14T20:15:09.403453+00:00' }
+}
+ GET /api/push/settings 200 in 388ms
+📊 Getting push notification history...
+✅ Notification history retrieved: 4 items
+ GET /api/push/send 200 in 134ms
+🏠 Current active tab: dashboard
+ GET / 200 in 401ms
+ GET /favicon.ico 200 in 55ms
+ GET /api/videos 200 in 566ms
+ GET /api/categories 200 in 145ms
+ GET /api/videos 200 in 164ms
+ GET /api/categories 200 in 239ms
+ GET /api/videos 200 in 146ms
+ GET /api/categories 200 in 120ms
+ GET /api/videos 200 in 140ms
+ GET /api/featured-content 200 in 157ms
+ GET /api/categories 200 in 275ms
+ GET /api/featured-content 200 in 146ms
+ GET /api/categories 200 in 137ms
+ GET /api/videos 200 in 332ms

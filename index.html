@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Time TV Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .btn-primary {
+            background-color: #9d1112;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #7a0d0e;
+        }
+        .btn-danger {
+            background-color: #dc2626;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+        .card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <h1 class="text-3xl font-bold" style="color: #9d1112;">Business Time TV Admin</h1>
+            <p class="text-gray-600 mt-2">Video yönetim paneli</p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+            <div>
+                <div class="card">
+                    <h2 class="text-xl font-semibold mb-4">Yeni Video Ekle</h2>
+                    <input type="text" id="title" class="form-input" placeholder="Video başlığı">
+                    <textarea id="description" class="form-input" rows="3" placeholder="Video açıklaması"></textarea>
+                    <input type="text" id="url" class="form-input" placeholder="Video URL'si">
+                    <input type="text" id="category" class="form-input" placeholder="Kategori">
+                    <input type="number" id="duration" class="form-input" placeholder="Süre (dk)">
+                    <input type="text" id="thumbnail" class="form-input" placeholder="Thumbnail URL'si">
+                    <button onclick="addVideo()" class="btn-primary w-full">Video Ekle</button>
+                </div>
+
+                <div class="card">
+                    <h2 class="text-xl font-semibold mb-4">İstatistikler</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-4 bg-red-50 rounded">
+                            <div class="text-2xl font-bold" style="color: #9d1112;" id="videoCount">0</div>
+                            <div class="text-sm text-gray-600">Toplam Video</div>
+                        </div>
+                        <div class="text-center p-4 bg-red-50 rounded">
+                            <div class="text-2xl font-bold" style="color: #9d1112;">3</div>
+                            <div class="text-sm text-gray-600">Kategori</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="card">
+                    <h2 class="text-xl font-semibold mb-4">Video Listesi</h2>
+                    <div id="videoList" class="space-y-4 max-h-96 overflow-y-auto">
+                        <p class="text-gray-600 text-center py-8">Henüz video eklenmemiş</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let videos = [];
+
+        function addVideo() {
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const url = document.getElementById('url').value;
+            const category = document.getElementById('category').value;
+            const duration = document.getElementById('duration').value;
+            const thumbnail = document.getElementById('thumbnail').value;
+
+            if (!title || !url) {
+                alert('Video başlığı ve URL zorunludur!');
+                return;
+            }
+
+            const video = {
+                id: Date.now(),
+                title,
+                description,
+                url,
+                category,
+                duration,
+                thumbnail,
+                createdAt: new Date().toLocaleString('tr-TR'),
+                views: 0,
+                likes: 0
+            };
+
+            videos.push(video);
+            updateVideoList();
+            clearForm();
+        }
+
+        function deleteVideo(id) {
+            videos = videos.filter(v => v.id !== id);
+            updateVideoList();
+        }
+
+        function updateVideoList() {
+            const videoList = document.getElementById('videoList');
+            const videoCount = document.getElementById('videoCount');
+            
+            videoCount.textContent = videos.length;
+
+            if (videos.length === 0) {
+                videoList.innerHTML = '<p class="text-gray-600 text-center py-8">Henüz video eklenmemiş</p>';
+                return;
+            }
+
+            videoList.innerHTML = videos.map(video => `
+                <div class="border rounded p-4 space-y-2">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-medium">${video.title}</h3>
+                        <button onclick="deleteVideo(${video.id})" class="btn-danger">Sil</button>
+                    </div>
+                    <p class="text-sm text-gray-600">${video.description}</p>
+                    <div class="flex gap-4 text-xs text-gray-600">
+                        <span>Kategori: ${video.category}</span>
+                        <span>Süre: ${video.duration} dk</span>
+                    </div>
+                    <div class="text-xs text-gray-600">URL: ${video.url}</div>
+                    <div class="text-xs text-gray-500">Eklenme: ${video.createdAt}</div>
+                </div>
+            `).join('');
+        }
+
+        function clearForm() {
+            document.getElementById('title').value = '';
+            document.getElementById('description').value = '';
+            document.getElementById('url').value = '';
+            document.getElementById('category').value = '';
+            document.getElementById('duration').value = '';
+            document.getElementById('thumbnail').value = '';
+        }
+    </script>
+</body>
+</html>

@@ -3582,3 +3582,13 @@ Error: Route "/api/featured-content/[id]" used `params.id`. `params` should be a
  ✓ Compiled in 1617ms (459 modules)
  ✓ Compiled in 2.6s (973 modules)
  ✓ Compiled in 1275ms (459 modules)
+ ✓ Compiled in 8.2s (973 modules)
+ ✓ Compiled in 1101ms (459 modules)
+ ✓ Compiled in 1080ms (459 modules)
+   Reload env: .env.local
+ ✓ Compiled in 1892ms (959 modules)
+ ✓ Compiled in 986ms (459 modules)
+ ✓ Compiled in 1620ms (959 modules)
+ ✓ Compiled in 369ms (459 modules)
+ ✓ Compiled in 2.9s (973 modules)
+ ✓ Compiled in 718ms (459 modules)

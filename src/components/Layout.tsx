@@ -155,12 +155,37 @@ export default function Layout({ children }: LayoutProps) {
     setIsDarkMode(newMode)
   }
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     if (confirm('Çıkış yapmak istediğinizden emin misiniz?')) {
-      // Logout logic here
-      console.log('🚪 User logged out')
-      // Redirect to login page
-      window.location.href = '/login'
+      try {
+        console.log('🚪 Initiating logout...')
+        
+        // Call logout API to clear cookie
+        const response = await fetch('/api/auth/logout', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+
+        if (response.ok) {
+          console.log('✅ Logout successful')
+          // Clear any local storage if needed
+          localStorage.removeItem('auth_token')
+          localStorage.removeItem('user_data')
+          
+          // Redirect to login page
+          window.location.href = '/login'
+        } else {
+          console.error('❌ Logout failed')
+          // Force redirect anyway for security
+          window.location.href = '/login'
+        }
+      } catch (error) {
+        console.error('❌ Logout error:', error)
+        // Force redirect anyway for security
+        window.location.href = '/login'
+      }
     }
   }
 

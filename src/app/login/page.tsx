@@ -20,12 +20,9 @@ export default function LoginPage() {
     setError('')
 
     try {
-      console.log('🔐 Attempting login with:', credentials.username)
+      console.log('🔐 JWT Login attempt with:', credentials.username)
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      // Real authentication with Supabase
+      // Call JWT login API
       const response = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -35,19 +32,20 @@ export default function LoginPage() {
       const data = await response.json()
       
       if (response.ok && data.success) {
-        console.log('✅ Login successful!')
+        console.log('✅ JWT Login successful!')
         
-        // Store auth token
-        localStorage.setItem('auth_token', data.token)
-        localStorage.setItem('user_data', JSON.stringify(data.user))
+        // Store user data in localStorage (optional, JWT is in httpOnly cookie)
+        if (data.user) {
+          localStorage.setItem('user_data', JSON.stringify(data.user))
+        }
         
-        // Redirect to dashboard
+        // Redirect to dashboard (middleware will handle authentication)
         window.location.href = '/'
       } else {
         setError(data.message || 'Kullanıcı adı veya şifre hatalı!')
       }
     } catch (error) {
-      console.error('❌ Login error:', error)
+      console.error('❌ JWT Login error:', error)
       setError('Giriş yapılırken bir hata oluştu!')
     } finally {
       setIsLoading(false)

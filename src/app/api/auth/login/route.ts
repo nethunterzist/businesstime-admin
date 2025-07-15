@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
+import { generateToken } from '@/lib/jwt'
 import bcrypt from 'bcryptjs'
 
 export async function POST(request: NextRequest) {
@@ -13,21 +14,45 @@ export async function POST(request: NextRequest) {
       }, { status: 400 })
     }
 
-    console.log('🔐 Login attempt:', { username, password: '***' })
+    console.log('🔐 JWT Login attempt:', { username, password: '***' })
 
-    // Simple fallback authentication - always use this for now
-    if (username === 'admin' && password === 'admin123') {
-      console.log('✅ Fallback authentication successful')
-      return NextResponse.json({
+    // Environment variables authentication (primary method)
+    const adminUsername = process.env.ADMIN_USERNAME || 'admin'
+    const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'
+
+    if (username === adminUsername && password === adminPassword) {
+      console.log('✅ Environment authentication successful')
+      
+      // Generate JWT token
+      const jwtToken = generateToken({
+        userId: '1',
+        username: adminUsername,
+        role: 'admin'
+      })
+
+      // Create response with JWT token in httpOnly cookie
+      const response = NextResponse.json({
         success: true,
-        token: 'admin_session_token',
+        message: 'Giriş başarılı',
         user: {
           id: '1',
-          username: 'admin',
+          username: adminUsername,
           role: 'admin',
-          email: 'admin@businesstime.com'
+          email: process.env.ADMIN_EMAIL || 'admin@businesstime.com'
         }
       })
+
+      // Set secure httpOnly cookie
+      response.cookies.set('auth-token', jwtToken, {
+        httpOnly: true,     // XSS koruması
+        secure: process.env.NODE_ENV === 'production', // HTTPS zorunlu (production'da)
+        sameSite: 'strict', // CSRF koruması
+        maxAge: 7200,       // 2 saat (7200 saniye)
+        path: '/'           // Tüm sayfalarda geçerli
+      })
+
+      console.log('✅ JWT token generated and cookie set')
+      return response
     }
 
     // Try database authentication as backup
@@ -45,6 +70,13 @@ export async function POST(request: NextRequest) {
         if (isPasswordValid) {
           console.log('✅ Database authentication successful')
           
+          // Generate JWT token
+          const jwtToken = generateToken({
+            userId: adminUsers.id,
+            username: adminUsers.username,
+            role: adminUsers.role
+          })
+
           // Update last login (ignore errors)
           try {
             await supabaseAdmin
@@ -55,9 +87,10 @@ export async function POST(request: NextRequest) {
             console.log('⚠️ Could not update last login, but continuing...')
           }
 
-          return NextResponse.json({
+          // Create response with JWT token
+          const response = NextResponse.json({
             success: true,
-            token: `auth_${adminUsers.id}_${Date.now()}`,
+            message: 'Giriş başarılı',
             user: {
               id: adminUsers.id,
               username: adminUsers.username,
@@ -65,13 +98,25 @@ export async function POST(request: NextRequest) {
               email: adminUsers.email
             }
           })
+
+          // Set secure httpOnly cookie
+          response.cookies.set('auth-token', jwtToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            maxAge: 7200,
+            path: '/'
+          })
+
+          return response
         }
       }
     } catch (dbError) {
-      console.log('⚠️ Database authentication failed, using fallback only')
+      console.log('⚠️ Database authentication failed, using environment only')
     }
 
     // If we reach here, authentication failed
+    console.log('❌ Authentication failed for username:', username)
     return NextResponse.json({
       success: false,
       message: 'Kullanıcı adı veya şifre hatalı!'
@@ -80,23 +125,6 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('❌ Login error:', error)
     
-    // Even if there's an error, try fallback authentication
-    const { username, password } = await request.json().catch(() => ({ username: '', password: '' }))
-    
-    if (username === 'admin' && password === 'admin123') {
-      console.log('✅ Emergency fallback authentication successful')
-      return NextResponse.json({
-        success: true,
-        token: 'admin_session_token',
-        user: {
-          id: '1',
-          username: 'admin',
-          role: 'admin',
-          email: 'admin@businesstime.com'
-        }
-      })
-    }
-
     return NextResponse.json({
       success: false,
       message: 'Giriş yapılırken bir hata oluştu'

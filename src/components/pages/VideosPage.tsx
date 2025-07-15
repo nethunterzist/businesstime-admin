@@ -400,7 +400,19 @@ export default function VideosPage() {
           
           <div className="flex gap-2">
             <Button 
-              onClick={() => setShowAddForm(true)}
+              onClick={() => {
+                setNewVideo({
+                  title: '',
+                  description: '',
+                  category_id: '',
+                  thumbnail_url: '',
+                  video_url: '',
+                  tags: '',
+                  is_published: false,
+                  is_featured: false
+                })
+                setShowAddForm(true)
+              }}
               className="bg-[#9d1112] hover:bg-[#7a0d0e] text-white flex items-center gap-2"
             >
               <Plus size={16} />
@@ -701,7 +713,10 @@ export default function VideosPage() {
               <div className="flex items-center justify-between">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Video Düzenle</h3>
                 <button
-                  onClick={() => setShowEditForm(false)}
+                  onClick={() => {
+                    setShowEditForm(false)
+                    setEditingVideo(null)
+                  }}
                   className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
                 >
                   <X size={24} />
@@ -825,7 +840,10 @@ export default function VideosPage() {
                   Video Güncelle
                 </Button>
                 <Button 
-                  onClick={() => setShowEditForm(false)}
+                  onClick={() => {
+                    setShowEditForm(false)
+                    setEditingVideo(null)
+                  }}
                   variant="outline"
                   className="flex items-center gap-2"
                 >

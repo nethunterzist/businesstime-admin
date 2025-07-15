@@ -34,6 +34,7 @@ export default function SliderManagementPage() {
 
   // Form state
   const [formData, setFormData] = useState({
+    title: '',
     image_url: '',
     action_type: 'video' as 'video' | 'category' | 'external_url',
     action_value: '',
@@ -162,6 +163,7 @@ export default function SliderManagementPage() {
 
   const handleEdit = (item: FeaturedContent) => {
     setFormData({
+      title: item.title,
       image_url: item.image_url,
       action_type: item.action_type,
       action_value: item.action_value,
@@ -254,6 +256,7 @@ export default function SliderManagementPage() {
 
   const resetForm = () => {
     setFormData({
+      title: '',
       image_url: '',
       action_type: 'video',
       action_value: '',
@@ -338,6 +341,16 @@ export default function SliderManagementPage() {
             </h2>
             
             <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium mb-1">Başlık</label>
+                <Input
+                  value={formData.title}
+                  onChange={(e) => setFormData({...formData, title: e.target.value})}
+                  placeholder="Slider başlığı"
+                  required
+                />
+              </div>
+
               <div>
                 <label className="block text-sm font-medium mb-1">Görsel URL</label>
                 <Input

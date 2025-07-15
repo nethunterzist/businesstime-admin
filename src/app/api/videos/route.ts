@@ -36,6 +36,11 @@ export async function POST(request: Request) {
   try {
     const body = await request.json()
     
+    // Tags alanını array'e çevir
+    if (body.tags && typeof body.tags === 'string') {
+      body.tags = body.tags.split(',').map((tag: string) => tag.trim()).filter((tag: string) => tag.length > 0)
+    }
+    
     const { data: video, error } = await supabaseAdmin
       .from('videos')
       .insert([body])

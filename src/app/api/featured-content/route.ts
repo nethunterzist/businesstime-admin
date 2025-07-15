@@ -51,10 +51,10 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { title, image_url, action_type, action_value, sort_order, is_active } = body;
 
-    // Validation
-    if (!title || !image_url || !action_type || !action_value) {
+    // Validation - title'ı opsiyonel yap
+    if (!image_url || !action_type || !action_value) {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { error: 'Missing required fields: image_url, action_type, action_value' },
         { status: 400 }
       );
     }
@@ -66,10 +66,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Title yoksa otomatik oluştur
+    const finalTitle = title || `Slider ${Date.now()}`;
+
     const { data, error } = await supabase
       .from('featured_content')
       .insert({
-        title,
+        title: finalTitle,
         image_url,
         action_type,
         action_value,

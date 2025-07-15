@@ -3547,3 +3547,16 @@ Error: Route "/api/featured-content/[id]" used `params.id`. `params` should be a
  GET /api/featured-content 200 in 146ms
  GET /api/categories 200 in 137ms
  GET /api/videos 200 in 332ms
+🏠 Current active tab: dashboard
+ GET / 200 in 337ms
+ GET /api/videos 200 in 591ms
+ GET /api/categories 200 in 212ms
+🏠 Current active tab: dashboard
+ GET / 200 in 179ms
+ GET /api/videos 200 in 663ms
+ ✓ Compiled in 3.5s (965 modules)
+ ✓ Compiled in 752ms (455 modules)
+ ✓ Compiled in 2.7s (965 modules)
+ ✓ Compiled in 1635ms (965 modules)
+ ✓ Compiled in 900ms (965 modules)
+ ✓ Compiled in 909ms (965 modules)

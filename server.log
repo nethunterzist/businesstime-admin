@@ -3593,3 +3593,12 @@ Error: Route "/api/featured-content/[id]" used `params.id`. `params` should be a
  ✓ Compiled in 2.9s (973 modules)
  ✓ Compiled in 718ms (459 modules)
  ✓ Compiled in 5s (459 modules)
+ ✓ Compiled in 11.7s (973 modules)
+ ✓ Compiled in 4.4s (459 modules)
+ ✓ Compiled in 1167ms (459 modules)
+   Reload env: .env.local
+ ✓ Compiled in 918ms (959 modules)
+ ✓ Compiled in 1828ms (459 modules)
+ ✓ Compiled in 1206ms (459 modules)
+ ✓ Compiled in 10.7s (459 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Applications/XAMPP/xamppfiles/htdocs/app/businesstime-admin/.next/cache/webpack/server-development/5.pack.gz_' -> '/Applications/XAMPP/xamppfiles/htdocs/app/businesstime-admin/.next/cache/webpack/server-development/5.pack.gz'

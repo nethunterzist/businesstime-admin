@@ -42,7 +42,13 @@ export default function LoginPage() {
         // Redirect to dashboard (middleware will handle authentication)
         window.location.href = '/'
       } else {
-        setError(data.message || 'Kullanıcı adı veya şifre hatalı!')
+        // Handle rate limiting errors
+        if (response.status === 429) {
+          console.log('❌ Rate limit exceeded')
+          setError(data.message || 'Çok fazla deneme yapıldı. Lütfen daha sonra tekrar deneyin.')
+        } else {
+          setError(data.message || 'Kullanıcı adı veya şifre hatalı!')
+        }
       }
     } catch (error) {
       console.error('❌ JWT Login error:', error)

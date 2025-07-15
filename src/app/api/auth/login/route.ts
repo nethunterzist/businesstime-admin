@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
 import { generateToken } from '@/lib/jwt'
+import { checkRateLimit, getClientIP, createRateLimitResponse, formatTimeRemaining } from '@/lib/rate-limit'
 import bcrypt from 'bcryptjs'
 
 export async function POST(request: NextRequest) {
@@ -13,6 +14,38 @@ export async function POST(request: NextRequest) {
         message: 'Kullanıcı adı ve şifre gereklidir'
       }, { status: 400 })
     }
+
+    // Rate limiting check
+    const clientIP = getClientIP(request)
+    const identifier = `login:${clientIP}:${username}`
+    
+    console.log('🛡️ Checking rate limit for:', { ip: clientIP, username })
+    
+    const rateLimit = await checkRateLimit(
+      identifier,
+      parseInt(process.env.RATE_LIMIT_MAX_ATTEMPTS || '5'),
+      parseInt(process.env.RATE_LIMIT_WINDOW_MINUTES || '15') * 60 * 1000
+    )
+
+    if (!rateLimit.success) {
+      const timeRemaining = formatTimeRemaining(rateLimit.reset)
+      console.log('❌ Rate limit exceeded:', { 
+        ip: clientIP, 
+        username, 
+        remaining: rateLimit.remaining,
+        resetTime: rateLimit.reset 
+      })
+      
+      return createRateLimitResponse(
+        `Çok fazla başarısız giriş denemesi. ${timeRemaining} sonra tekrar deneyin.`,
+        Math.ceil((rateLimit.reset.getTime() - Date.now()) / 1000)
+      )
+    }
+
+    console.log('✅ Rate limit check passed:', { 
+      remaining: rateLimit.remaining, 
+      limit: rateLimit.limit 
+    })
 
     console.log('🔐 JWT Login attempt:', { username, password: '***' })
 

@@ -59,8 +59,12 @@ export default function LoginPage() {
       <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl w-full max-w-md p-8">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="bg-[#9d1112] p-4 rounded-2xl w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-            <span className="text-white text-2xl font-bold">BT</span>
+          <div className="w-24 h-24 mx-auto mb-4 flex items-center justify-center">
+            <img 
+              src="https://businesstimetv.org/assets/images/logo.png" 
+              alt="Business Time Logo"
+              className="w-full h-full object-contain"
+            />
           </div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Business Time</h1>
           <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Admin Panel</p>

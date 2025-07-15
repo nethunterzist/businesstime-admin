@@ -172,8 +172,12 @@ export default function Layout({ children }: LayoutProps) {
           {/* Logo */}
           <div className="p-6 border-b border-gray-200 dark:border-gray-700">
             <div className="flex items-center gap-3">
-              <div className="bg-[#9d1112] p-2 rounded-lg">
-                <span className="text-white text-xl font-bold">BT</span>
+              <div className="w-10 h-10 flex items-center justify-center">
+                <img 
+                  src="https://businesstimetv.org/assets/images/logo.png" 
+                  alt="Business Time Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <h2 className="font-bold text-gray-900 dark:text-white">Business Time</h2>

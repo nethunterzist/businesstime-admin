@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Business Time TV Admin",
-  description: "Admin panel for Business Time TV video management platform",
+  title: "Business Time Admin",
+  description: "Admin panel for Business Time video management platform",
 };
 
 export default function RootLayout({

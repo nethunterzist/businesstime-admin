@@ -191,6 +191,7 @@ export default function ReportsPage() {
     translated = translated.replace(/Device:/gi, 'Cihaz:')
     translated = translated.replace(/Model:/gi, 'Model:')
     translated = translated.replace(/Unknown/gi, 'Bilinmiyor')
+    translated = translated.replace(/Video reported:/gi, 'Video raporlandı:')
     translated = translated.replace(/Video reported as:/gi, 'Video şu şekilde raporlandı:')
     translated = translated.replace(/From HomeScreen/gi, 'Ana Sayfadan')
     translated = translated.replace(/From VideoDetailScreen/gi, 'Video Detay Sayfasından')

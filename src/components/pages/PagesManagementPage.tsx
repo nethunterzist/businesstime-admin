@@ -238,17 +238,6 @@ export default function PagesManagementPage() {
         </div>
       </div>
 
-      {/* Info */}
-      <div className="bg-green-50 p-6 rounded-xl border border-green-200">
-        <h4 className="font-medium text-green-900 mb-4 flex items-center gap-2">
-          <Database size={18} />
-          Yasal Sayfa Yönetimi
-        </h4>
-        <p className="text-sm text-green-700 mb-4">
-          Uygulama içerisindeki yasal sayfaların içeriklerini buradan düzenleyebilirsiniz.
-          Bu sayfalar mobil uygulamada otomatik olarak güncellenir.
-        </p>
-      </div>
 
       <div className="space-y-6">
         {/* Privacy Policy */}
@@ -376,19 +365,6 @@ export default function PagesManagementPage() {
         </div>
       </div>
 
-      {/* Guidelines */}
-      <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
-        <div className="flex items-center gap-2 mb-2">
-          <Activity className="text-blue-600" size={18} />
-          <h4 className="font-medium text-blue-900">İçerik Rehberi</h4>
-        </div>
-        <div className="text-sm text-blue-700 space-y-2">
-          <p><strong>Gizlilik Politikası:</strong> KVKK ve GDPR uyumlu olmalı, veri toplama ve kullanım süreçlerini açık şekilde belirtmeli.</p>
-          <p><strong>Kullanım Koşulları:</strong> Kullanıcı hakları, yasaklanan davranışlar ve hizmet koşullarını net şekilde tanımlamalı.</p>
-          <p><strong>Yardım ve Destek:</strong> İletişim kanalları, SSS ve problem çözüm süreçlerini içermeli.</p>
-          <p><strong>Hakkında:</strong> Şirket bilgileri, misyon, vizyon ve değerlerinizi yansıtmalı.</p>
-        </div>
-      </div>
 
       {/* Warning */}
       <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">

@@ -9,6 +9,7 @@ import SettingsPage from '@/components/pages/SettingsPage'
 import SliderManagementPage from '@/components/pages/SliderManagementPage'
 import ReportsPage from '@/components/pages/ReportsPage'
 import PushNotificationPage from '@/components/pages/PushNotificationPage'
+import NotificationHistoryPage from '@/components/pages/NotificationHistoryPage'
 import PagesManagementPage from '@/components/pages/PagesManagementPage'
 import KPICardSkeleton from '@/components/skeletons/KPICardSkeleton'
 import VideoListItemSkeleton from '@/components/skeletons/VideoListItemSkeleton'
@@ -86,6 +87,10 @@ export default function Home() {
         
         if (activeTab === 'notifications') {
           return <PushNotificationPage />
+        }
+        
+        if (activeTab === 'notification-history') {
+          return <NotificationHistoryPage />
         }
         
         if (activeTab === 'pages') {

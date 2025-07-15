@@ -59,6 +59,12 @@ const menuItems: MenuItem[] = [
     description: 'Push bildirim yönetimi'
   },
   {
+    id: 'notification-history',
+    name: 'Bildirim Geçmişi',
+    icon: <BarChart3 size={20} />,
+    description: 'Gönderilen bildirim geçmişi'
+  },
+  {
     id: 'pages',
     name: 'Sayfa Yönetimi',
     icon: <Database size={20} />,

@@ -58,7 +58,6 @@ export default function PushNotificationPage() {
     type: 'general'
   })
   const [notificationHistory, setNotificationHistory] = useState<NotificationHistory[]>([])
-  const [showHistory, setShowHistory] = useState(false)
 
   useEffect(() => {
     loadSettings()
@@ -423,100 +422,37 @@ export default function PushNotificationPage() {
         </div>
       </div>
 
-      {/* Notification History */}
+      {/* Notification History Link */}
       <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-        <div className="flex items-center justify-between mb-4">
-          <h4 className="font-medium text-gray-900 flex items-center gap-2">
-            <BarChart3 size={18} />
-            Bildirim Geçmişi
-          </h4>
+        <div className="flex items-center justify-between">
+          <div>
+            <h4 className="font-medium text-gray-900 flex items-center gap-2 mb-2">
+              <BarChart3 size={18} />
+              Bildirim Geçmişi
+            </h4>
+            <p className="text-sm text-gray-600">
+              Gönderilen tüm bildirimlerin detaylı geçmişini görüntüleyin
+            </p>
+          </div>
           <Button
-            onClick={() => setShowHistory(!showHistory)}
-            variant="outline"
-            size="sm"
+            onClick={() => window.location.href = '/notification-history'}
+            className="bg-[#9d1112] hover:bg-[#7a0d0e] text-white flex items-center gap-2"
           >
-            {showHistory ? 'Gizle' : 'Göster'}
+            <BarChart3 size={16} />
+            Geçmişi Görüntüle
           </Button>
         </div>
         
-        {showHistory && (
-          <div className="space-y-3">
-            {notificationHistory.length === 0 ? (
-              <p className="text-gray-500 text-center py-4">Henüz bildirim gönderilmemiş</p>
-            ) : (
-              notificationHistory.map((notification) => (
-                <div key={notification.id} className="p-4 border border-gray-200 rounded-lg">
-                  <div className="flex items-center justify-between mb-2">
-                    <h5 className="font-medium text-gray-900">{notification.title}</h5>
-                    <span className={`px-2 py-1 rounded text-xs font-medium ${
-                      notification.type === 'general' ? 'bg-blue-100 text-blue-800' :
-                      notification.type === 'video' ? 'bg-green-100 text-green-800' :
-                      notification.type === 'trending' ? 'bg-purple-100 text-purple-800' :
-                      'bg-gray-100 text-gray-800'
-                    }`}>
-                      {notification.type}
-                    </span>
-                  </div>
-                  <p className="text-sm text-gray-600 mb-2">{notification.message}</p>
-                  <div className="flex items-center justify-between text-xs text-gray-500">
-                    <span>{formatDate(notification.created_at)}</span>
-                    <span>{notification.total_sent} gönderildi, {notification.total_failed} başarısız</span>
-                  </div>
-                </div>
-              ))
-            )}
+        {notificationHistory.length > 0 && (
+          <div className="mt-4 pt-4 border-t border-gray-100">
+            <div className="flex items-center justify-between text-sm text-gray-600">
+              <span>Son bildirim: {formatDate(notificationHistory[0]?.created_at)}</span>
+              <span>Toplam {notificationHistory.length} bildirim gönderildi</span>
+            </div>
           </div>
         )}
       </div>
 
-      {/* Quick Templates */}
-      <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
-        <h4 className="font-medium text-blue-900 mb-4 flex items-center gap-2">
-          <TrendingUp size={18} />
-          Hızlı Şablonlar
-        </h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white p-4 rounded-lg border border-blue-200">
-            <h5 className="font-medium text-gray-900 mb-2">Yeni Video Bildirimi</h5>
-            <p className="text-sm text-gray-600 mb-3">
-              <strong>Başlık:</strong> Yeni video yayınlandı!<br/>
-              <strong>Mesaj:</strong> İş dünyasından yeni videomuz yayında. Hemen izleyin!
-            </p>
-            <Button 
-              size="sm" 
-              variant="outline"
-              onClick={() => setNotificationForm({
-                title: 'Yeni video yayınlandı!',
-                message: 'İş dünyasından yeni videomuz yayında. Hemen izleyin!',
-                type: 'video'
-              })}
-              disabled={!settings.isEnabled || isSending}
-            >
-              Şablonu Kullan
-            </Button>
-          </div>
-          
-          <div className="bg-white p-4 rounded-lg border border-blue-200">
-            <h5 className="font-medium text-gray-900 mb-2">Trend Video Bildirimi</h5>
-            <p className="text-sm text-gray-600 mb-3">
-              <strong>Başlık:</strong> Trend olan video!<br/>
-              <strong>Mesaj:</strong> Bu video şu anda çok izleniyor. Siz de kaçırmayın!
-            </p>
-            <Button 
-              size="sm" 
-              variant="outline"
-              onClick={() => setNotificationForm({
-                title: 'Trend olan video!',
-                message: 'Bu video şu anda çok izleniyor. Siz de kaçırmayın!',
-                type: 'trending'
-              })}
-              disabled={!settings.isEnabled || isSending}
-            >
-              Şablonu Kullan
-            </Button>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

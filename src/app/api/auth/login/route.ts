@@ -2,22 +2,34 @@ import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
 import { generateToken } from '@/lib/jwt'
 import { checkRateLimit, getClientIP, createRateLimitResponse, formatTimeRemaining } from '@/lib/rate-limit'
+import { loginSchema, validateData, sanitizeInput } from '@/lib/validation'
 import bcrypt from 'bcryptjs'
 
 export async function POST(request: NextRequest) {
   try {
-    const { username, password } = await request.json()
+    const body = await request.json()
 
-    if (!username || !password) {
+    // Input validation with Zod
+    const validation = validateData(loginSchema, body)
+    if (!validation.success) {
+      console.log('❌ Login validation failed:', validation.errors)
       return NextResponse.json({
         success: false,
-        message: 'Kullanıcı adı ve şifre gereklidir'
+        message: 'Geçersiz giriş bilgileri',
+        errors: validation.errors
       }, { status: 400 })
     }
 
+    // Sanitize inputs
+    const { username, password } = validation.data!
+    const sanitizedUsername = sanitizeInput(username)
+    const sanitizedPassword = sanitizeInput(password)
+
+    console.log('✅ Input validation passed for username:', sanitizedUsername)
+
     // Rate limiting check
     const clientIP = getClientIP(request)
-    const identifier = `login:${clientIP}:${username}`
+    const identifier = `login:${clientIP}:${sanitizedUsername}`
     
     console.log('🛡️ Checking rate limit for:', { ip: clientIP, username })
     

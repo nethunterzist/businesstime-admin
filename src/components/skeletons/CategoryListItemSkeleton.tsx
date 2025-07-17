@@ -2,6 +2,14 @@ import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 
 export default function CategoryListItemSkeleton() {
+  // Dark theme aware colors
+  const isDark = typeof window !== 'undefined' && document.documentElement.classList.contains('dark');
+  
+  const skeletonColors = {
+    baseColor: isDark ? '#374151' : '#e0e0e0',
+    highlightColor: isDark ? '#4b5563' : '#f0f0f0'
+  };
+
   return (
     <div className="flex items-center gap-4 p-4 border border-gray-100 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800">
       {/* Icon */}
@@ -9,8 +17,8 @@ export default function CategoryListItemSkeleton() {
         height={48} 
         width={48} 
         circle
-        baseColor="#e0e0e0"
-        highlightColor="#f0f0f0"
+        baseColor={skeletonColors.baseColor}
+        highlightColor={skeletonColors.highlightColor}
       />
       
       {/* Content */}
@@ -20,8 +28,8 @@ export default function CategoryListItemSkeleton() {
           height={20} 
           width="60%" 
           className="mb-2"
-          baseColor="#e0e0e0"
-          highlightColor="#f0f0f0"
+          baseColor={skeletonColors.baseColor}
+          highlightColor={skeletonColors.highlightColor}
         />
         
         {/* Description */}
@@ -29,8 +37,8 @@ export default function CategoryListItemSkeleton() {
           height={16} 
           width="80%" 
           className="mb-2"
-          baseColor="#e0e0e0"
-          highlightColor="#f0f0f0"
+          baseColor={skeletonColors.baseColor}
+          highlightColor={skeletonColors.highlightColor}
         />
         
         {/* Video count and meta */}
@@ -38,14 +46,14 @@ export default function CategoryListItemSkeleton() {
           <Skeleton 
             height={14} 
             width={80}
-            baseColor="#e0e0e0"
-            highlightColor="#f0f0f0"
+            baseColor={skeletonColors.baseColor}
+            highlightColor={skeletonColors.highlightColor}
           />
           <Skeleton 
             height={14} 
             width={60}
-            baseColor="#e0e0e0"
-            highlightColor="#f0f0f0"
+            baseColor={skeletonColors.baseColor}
+            highlightColor={skeletonColors.highlightColor}
           />
         </div>
       </div>
@@ -55,8 +63,8 @@ export default function CategoryListItemSkeleton() {
         height={24} 
         width={60} 
         className="rounded-full"
-        baseColor="#e0e0e0"
-        highlightColor="#f0f0f0"
+        baseColor={skeletonColors.baseColor}
+        highlightColor={skeletonColors.highlightColor}
       />
       
       {/* Action buttons */}
@@ -65,15 +73,15 @@ export default function CategoryListItemSkeleton() {
           height={32} 
           width={32} 
           className="rounded-lg"
-          baseColor="#e0e0e0"
-          highlightColor="#f0f0f0"
+          baseColor={skeletonColors.baseColor}
+          highlightColor={skeletonColors.highlightColor}
         />
         <Skeleton 
           height={32} 
           width={32} 
           className="rounded-lg"
-          baseColor="#e0e0e0"
-          highlightColor="#f0f0f0"
+          baseColor={skeletonColors.baseColor}
+          highlightColor={skeletonColors.highlightColor}
         />
       </div>
     </div>

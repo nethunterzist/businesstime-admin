@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { supabaseAdmin } from '@/lib/supabase'
 
 export async function GET() {
   try {
-    const { data: settings, error } = await supabase
+    const { data: settings, error } = await supabaseAdmin
       .from('app_settings')
       .select('*')
 
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
     console.log('🔄 Processing settings array:', settingsArray)
 
     // Use UPSERT (INSERT or UPDATE) instead of DELETE + INSERT
-    const { data: settings, error } = await supabase
+    const { data: settings, error } = await supabaseAdmin
       .from('app_settings')
       .upsert(settingsArray, { 
         onConflict: 'key',

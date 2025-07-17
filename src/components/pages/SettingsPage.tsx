@@ -264,6 +264,7 @@ export default function SettingsPage({ initialTab }: SettingsPageProps = {}) {
     { id: 'video', name: 'Video Ayarları', icon: Video },
     { id: 'search', name: 'Arama Ayarları', icon: Activity },
     { id: 'branding', name: 'Görsel Ayarları', icon: Cloud },
+    { id: 'admin', name: 'Admin Yönetimi', icon: Shield },
     { id: 'performance', name: 'Performans', icon: Zap },
     { id: 'security', name: 'Güvenlik', icon: Shield },
     { id: 'backup', name: 'Yedekleme', icon: Archive }
@@ -1487,6 +1488,191 @@ export default function SettingsPage({ initialTab }: SettingsPageProps = {}) {
                     </span>
                   </div>
                 </div>
+              </div>
+            </div>
+          )}
+
+          {/* Admin Management */}
+          {activeTab === 'admin' && (
+            <div className="space-y-6">
+              {/* Password Change Section */}
+              <div className="bg-white p-6 rounded-lg border border-gray-200">
+                <h4 className="font-medium text-gray-900 mb-4 flex items-center gap-2">
+                  <Shield size={18} />
+                  Admin Şifre Değiştirme
+                </h4>
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Mevcut Şifre
+                    </label>
+                    <Input
+                      type="password"
+                      placeholder="Mevcut şifrenizi girin..."
+                      className="w-full"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Yeni Şifre
+                    </label>
+                    <Input
+                      type="password"
+                      placeholder="Yeni şifrenizi girin..."
+                      className="w-full"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Yeni Şifre (Tekrar)
+                    </label>
+                    <Input
+                      type="password"
+                      placeholder="Yeni şifrenizi tekrar girin..."
+                      className="w-full"
+                    />
+                  </div>
+                  <Button 
+                    className="bg-[#9d1112] hover:bg-[#7a0e0f] text-white flex items-center gap-2"
+                    onClick={() => alert('Şifre değiştirme özelliği yakında aktif edilecek!')}
+                  >
+                    <Shield size={16} />
+                    Şifreyi Değiştir
+                  </Button>
+                </div>
+              </div>
+
+              {/* Database Backup Section */}
+              <div className="bg-white p-6 rounded-lg border border-gray-200">
+                <h4 className="font-medium text-gray-900 mb-4 flex items-center gap-2">
+                  <Database size={18} />
+                  Database Yedekleme
+                </h4>
+                <p className="text-sm text-gray-600 mb-4">
+                  Tüm veritabanı verilerini JSON formatında yedekleyebilirsiniz.
+                </p>
+                <div className="flex gap-4">
+                  <Button 
+                    onClick={async () => {
+                      try {
+                        console.log('📦 Creating database backup...')
+                        
+                        // Show loading notification
+                        const loadingNotification = document.createElement('div')
+                        loadingNotification.className = 'fixed top-4 right-4 bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 flex items-center gap-2'
+                        loadingNotification.innerHTML = `
+                          <svg class="animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12a9 9 0 11-6.219-8.56"/>
+                          </svg>
+                          Database yedekleniyor...
+                        `
+                        document.body.appendChild(loadingNotification)
+                        
+                        const response = await fetch('/api/backup/export', {
+                          method: 'GET',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          }
+                        })
+
+                        loadingNotification.remove()
+
+                        if (response.ok) {
+                          const backupData = await response.json()
+                          
+                          // Create download
+                          const dataStr = JSON.stringify(backupData, null, 2)
+                          const dataBlob = new Blob([dataStr], {type: 'application/json'})
+                          const url = URL.createObjectURL(dataBlob)
+                          const link = document.createElement('a')
+                          link.href = url
+                          link.download = `businesstime-database-backup-${new Date().toISOString().split('T')[0]}.json`
+                          link.click()
+                          URL.revokeObjectURL(url)
+                          
+                          console.log('✅ Database backup created successfully!')
+                          
+                          // Show success notification
+                          const notification = document.createElement('div')
+                          notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 flex items-center gap-2'
+                          notification.innerHTML = `
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <polyline points="20,6 9,17 4,12"></polyline>
+                            </svg>
+                            Database yedekleme başarılı!
+                          `
+                          document.body.appendChild(notification)
+                          
+                          setTimeout(() => {
+                            notification.remove()
+                          }, 3000)
+                        } else {
+                          throw new Error('Backup failed')
+                        }
+                      } catch (error) {
+                        console.error('❌ Error creating database backup:', error)
+                        
+                        // Show error notification
+                        const notification = document.createElement('div')
+                        notification.className = 'fixed top-4 right-4 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 flex items-center gap-2'
+                        notification.innerHTML = `
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="15" y1="9" x2="9" y2="15"></line>
+                            <line x1="9" y1="9" x2="15" y2="15"></line>
+                          </svg>
+                          Yedekleme hatası!
+                        `
+                        document.body.appendChild(notification)
+                        
+                        setTimeout(() => {
+                          notification.remove()
+                        }, 3000)
+                      }
+                    }}
+                    className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2"
+                  >
+                    <Download size={16} />
+                    Database Yedekle
+                  </Button>
+                </div>
+              </div>
+
+              {/* System Info */}
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h4 className="font-medium text-gray-900 mb-4 flex items-center gap-2">
+                  <Activity size={18} />
+                  Sistem Bilgileri
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-white p-4 rounded-lg">
+                    <div className="text-sm text-gray-600">Admin Kullanıcısı</div>
+                    <div className="font-medium">admin</div>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg">
+                    <div className="text-sm text-gray-600">Son Giriş</div>
+                    <div className="font-medium">Şimdi</div>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg">
+                    <div className="text-sm text-gray-600">Sistem Durumu</div>
+                    <div className="font-medium text-green-600">Aktif</div>
+                  </div>
+                  <div className="bg-white p-4 rounded-lg">
+                    <div className="text-sm text-gray-600">Versiyon</div>
+                    <div className="font-medium">v1.0.0</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                <div className="flex items-center gap-2 mb-2">
+                  <AlertTriangle className="text-yellow-600" size={18} />
+                  <h4 className="font-medium text-yellow-900">Güvenlik Uyarısı</h4>
+                </div>
+                <p className="text-sm text-yellow-700">
+                  Admin şifrenizi düzenli olarak değiştirin ve güçlü şifreler kullanın.
+                  Database yedeklemelerini güvenli bir yerde saklayın.
+                </p>
               </div>
             </div>
           )}

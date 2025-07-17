@@ -3602,3 +3602,4 @@ Error: Route "/api/featured-content/[id]" used `params.id`. `params` should be a
  ✓ Compiled in 1206ms (459 modules)
  ✓ Compiled in 10.7s (459 modules)
 <w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Applications/XAMPP/xamppfiles/htdocs/app/businesstime-admin/.next/cache/webpack/server-development/5.pack.gz_' -> '/Applications/XAMPP/xamppfiles/htdocs/app/businesstime-admin/.next/cache/webpack/server-development/5.pack.gz'
+ ✓ Compiled in 12.4s (459 modules)

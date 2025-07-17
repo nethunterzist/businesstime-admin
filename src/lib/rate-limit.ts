@@ -39,7 +39,10 @@ class MemoryStore {
 }
 
 // Create Redis instance or fallback to memory
-const redis = process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
+const redis = process.env.UPSTASH_REDIS_REST_URL && 
+              process.env.UPSTASH_REDIS_REST_TOKEN &&
+              process.env.UPSTASH_REDIS_REST_URL.startsWith('https://') &&
+              process.env.UPSTASH_REDIS_REST_URL !== 'your-upstash-redis-url'
   ? new Redis({
       url: process.env.UPSTASH_REDIS_REST_URL,
       token: process.env.UPSTASH_REDIS_REST_TOKEN,

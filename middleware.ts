@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { verifyToken } from '@/lib/jwt'
+import { applySecurityHeaders, applyCorsHeaders, logSecurityEvent } from '@/lib/security-headers'
 
 // Protected routes that require authentication
 const protectedRoutes = [
@@ -25,8 +26,12 @@ const publicRoutes = [
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+  const origin = request.headers.get('origin')
   
   console.log('🔍 Middleware checking path:', pathname)
+
+  // Create base response
+  let response: NextResponse
 
   // Skip middleware for static files and API routes (except auth)
   if (
@@ -35,13 +40,20 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/public') ||
     (pathname.startsWith('/api') && !pathname.startsWith('/api/auth'))
   ) {
-    return NextResponse.next()
+    response = NextResponse.next()
+    // Apply security headers to all responses
+    applySecurityHeaders(response)
+    applyCorsHeaders(response, origin || undefined)
+    return response
   }
 
   // Allow public routes
   if (publicRoutes.includes(pathname)) {
     console.log('✅ Public route, allowing access')
-    return NextResponse.next()
+    response = NextResponse.next()
+    applySecurityHeaders(response)
+    applyCorsHeaders(response, origin || undefined)
+    return response
   }
 
   // Check if route is protected
@@ -51,7 +63,10 @@ export function middleware(request: NextRequest) {
 
   if (!isProtectedRoute) {
     console.log('✅ Non-protected route, allowing access')
-    return NextResponse.next()
+    response = NextResponse.next()
+    applySecurityHeaders(response)
+    applyCorsHeaders(response, origin || undefined)
+    return response
   }
 
   // Get token from cookie
@@ -73,11 +88,17 @@ export function middleware(request: NextRequest) {
     requestHeaders.set('x-user-username', payload.username)
     requestHeaders.set('x-user-role', payload.role)
 
-    return NextResponse.next({
+    response = NextResponse.next({
       request: {
         headers: requestHeaders
       }
     })
+
+    // Apply security headers to authenticated responses
+    applySecurityHeaders(response)
+    applyCorsHeaders(response, origin || undefined)
+    
+    return response
 
   } catch (error) {
     console.log('❌ Token verification failed:', error)

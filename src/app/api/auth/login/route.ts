@@ -3,6 +3,7 @@ import { supabaseAdmin } from '@/lib/supabase'
 import { generateToken } from '@/lib/jwt'
 import { checkRateLimit, getClientIP, createRateLimitResponse, formatTimeRemaining } from '@/lib/rate-limit'
 import { loginSchema, validateData, sanitizeInput } from '@/lib/validation'
+import { createSecureApiResponse, applyRateLimitHeaders, logSecurityEvent } from '@/lib/security-headers'
 import bcrypt from 'bcryptjs'
 
 export async function POST(request: NextRequest) {
@@ -13,11 +14,19 @@ export async function POST(request: NextRequest) {
     const validation = validateData(loginSchema, body)
     if (!validation.success) {
       console.log('❌ Login validation failed:', validation.errors)
-      return NextResponse.json({
+      
+      // Log security event
+      logSecurityEvent('login_validation_failed', {
+        ip: getClientIP(request),
+        errors: validation.errors,
+        userAgent: request.headers.get('user-agent')
+      }, 'medium')
+      
+      return createSecureApiResponse({
         success: false,
         message: 'Geçersiz giriş bilgileri',
         errors: validation.errors
-      }, { status: 400 })
+      }, 400, request.headers.get('origin') || undefined)
     }
 
     // Sanitize inputs
@@ -68,6 +77,14 @@ export async function POST(request: NextRequest) {
     if (username === adminUsername && password === adminPassword) {
       console.log('✅ Environment authentication successful')
       
+      // Log successful login
+      logSecurityEvent('login_success', {
+        ip: clientIP,
+        username: sanitizedUsername,
+        authMethod: 'environment',
+        userAgent: request.headers.get('user-agent')
+      }, 'low')
+      
       // Generate JWT token
       const jwtToken = generateToken({
         userId: '1',
@@ -75,8 +92,8 @@ export async function POST(request: NextRequest) {
         role: 'admin'
       })
 
-      // Create response with JWT token in httpOnly cookie
-      const response = NextResponse.json({
+      // Create secure response with JWT token
+      const response = createSecureApiResponse({
         success: true,
         message: 'Giriş başarılı',
         user: {
@@ -85,7 +102,7 @@ export async function POST(request: NextRequest) {
           role: 'admin',
           email: process.env.ADMIN_EMAIL || 'admin@businesstime.com'
         }
-      })
+      }, 200, request.headers.get('origin') || undefined)
 
       // Set secure httpOnly cookie
       response.cookies.set('auth-token', jwtToken, {
@@ -95,6 +112,9 @@ export async function POST(request: NextRequest) {
         maxAge: 7200,       // 2 saat (7200 saniye)
         path: '/'           // Tüm sayfalarda geçerli
       })
+
+      // Apply rate limit headers
+      applyRateLimitHeaders(response, rateLimit.limit, rateLimit.remaining, rateLimit.reset)
 
       console.log('✅ JWT token generated and cookie set')
       return response
@@ -162,10 +182,19 @@ export async function POST(request: NextRequest) {
 
     // If we reach here, authentication failed
     console.log('❌ Authentication failed for username:', username)
-    return NextResponse.json({
+    
+    // Log failed login attempt
+    logSecurityEvent('login_failed', {
+      ip: clientIP,
+      username: sanitizedUsername,
+      userAgent: request.headers.get('user-agent'),
+      reason: 'invalid_credentials'
+    }, 'high')
+    
+    return createSecureApiResponse({
       success: false,
       message: 'Kullanıcı adı veya şifre hatalı!'
-    }, { status: 401 })
+    }, 401, request.headers.get('origin') || undefined)
 
   } catch (error) {
     console.error('❌ Login error:', error)

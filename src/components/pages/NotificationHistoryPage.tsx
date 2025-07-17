@@ -144,24 +144,24 @@ export default function NotificationHistoryPage() {
     return (
       <div className="space-y-6">
         {/* Header Skeleton */}
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-7 h-7 bg-gray-200 rounded animate-pulse"></div>
-            <div className="w-64 h-7 bg-gray-200 rounded animate-pulse"></div>
+            <div className="w-7 h-7 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
+            <div className="w-64 h-7 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
           </div>
-          <div className="w-96 h-4 bg-gray-200 rounded animate-pulse"></div>
+          <div className="w-96 h-4 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
         </div>
 
         {/* Search Skeleton */}
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-          <div className="w-full h-10 bg-gray-200 rounded animate-pulse"></div>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+          <div className="w-full h-10 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
         </div>
 
         {/* Notifications Skeleton */}
         <div className="space-y-4">
           {Array.from({ length: 5 }).map((_, index) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <div className="w-full h-20 bg-gray-200 rounded animate-pulse"></div>
+            <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <div className="w-full h-20 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
             </div>
           ))}
         </div>

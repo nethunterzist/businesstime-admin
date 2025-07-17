@@ -226,18 +226,18 @@ export default function PushNotificationPage() {
     return (
       <div className="space-y-6">
         {/* Loading skeleton */}
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-7 h-7 bg-gray-200 rounded animate-pulse"></div>
-            <div className="w-64 h-7 bg-gray-200 rounded animate-pulse"></div>
+            <div className="w-7 h-7 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
+            <div className="w-64 h-7 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
           </div>
-          <div className="w-96 h-4 bg-gray-200 rounded animate-pulse"></div>
+          <div className="w-96 h-4 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[1, 2, 3].map(i => (
-            <div key={i} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <div className="w-full h-20 bg-gray-200 rounded animate-pulse"></div>
+            <div key={i} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <div className="w-full h-20 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
             </div>
           ))}
         </div>

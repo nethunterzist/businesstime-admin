@@ -594,28 +594,28 @@ export default function SettingsPage({ initialTab }: SettingsPageProps = {}) {
     return (
       <div className="space-y-6">
         {/* Header Skeleton */}
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
           <div className="flex items-center justify-between">
             <div>
-              <div className="w-48 h-7 bg-gray-200 rounded animate-pulse mb-2"></div>
-              <div className="w-80 h-4 bg-gray-200 rounded animate-pulse"></div>
+              <div className="w-48 h-7 bg-gray-200 dark:bg-gray-600 rounded animate-pulse mb-2"></div>
+              <div className="w-80 h-4 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-32 h-10 bg-gray-200 rounded-lg animate-pulse"></div>
-              <div className="w-24 h-10 bg-gray-200 rounded-lg animate-pulse"></div>
-              <div className="w-24 h-10 bg-gray-200 rounded-lg animate-pulse"></div>
+              <div className="w-32 h-10 bg-gray-200 dark:bg-gray-600 rounded-lg animate-pulse"></div>
+              <div className="w-24 h-10 bg-gray-200 dark:bg-gray-600 rounded-lg animate-pulse"></div>
+              <div className="w-24 h-10 bg-gray-200 dark:bg-gray-600 rounded-lg animate-pulse"></div>
             </div>
           </div>
         </div>
 
         {/* Tabs Skeleton */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100">
-          <div className="border-b border-gray-100">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+          <div className="border-b border-gray-100 dark:border-gray-700">
             <nav className="flex space-x-8 px-6">
               {Array.from({ length: 7 }).map((_, index) => (
                 <div key={index} className="flex items-center gap-2 py-4 px-2">
-                  <div className="w-4 h-4 bg-gray-200 rounded animate-pulse"></div>
-                  <div className="w-24 h-4 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="w-4 h-4 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
+                  <div className="w-24 h-4 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
                 </div>
               ))}
             </nav>
@@ -626,26 +626,26 @@ export default function SettingsPage({ initialTab }: SettingsPageProps = {}) {
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <div className="w-32 h-4 bg-gray-200 rounded animate-pulse mb-2"></div>
-                  <div className="w-full h-10 bg-gray-200 rounded-lg animate-pulse"></div>
+                  <div className="w-32 h-4 bg-gray-200 dark:bg-gray-600 rounded animate-pulse mb-2"></div>
+                  <div className="w-full h-10 bg-gray-200 dark:bg-gray-600 rounded-lg animate-pulse"></div>
                 </div>
                 <div>
-                  <div className="w-32 h-4 bg-gray-200 rounded animate-pulse mb-2"></div>
-                  <div className="w-full h-10 bg-gray-200 rounded-lg animate-pulse"></div>
+                  <div className="w-32 h-4 bg-gray-200 dark:bg-gray-600 rounded animate-pulse mb-2"></div>
+                  <div className="w-full h-10 bg-gray-200 dark:bg-gray-600 rounded-lg animate-pulse"></div>
                 </div>
               </div>
               <div>
-                <div className="w-40 h-4 bg-gray-200 rounded animate-pulse mb-2"></div>
-                <div className="w-full h-24 bg-gray-200 rounded-lg animate-pulse"></div>
+                <div className="w-40 h-4 bg-gray-200 dark:bg-gray-600 rounded animate-pulse mb-2"></div>
+                <div className="w-full h-24 bg-gray-200 dark:bg-gray-600 rounded-lg animate-pulse"></div>
               </div>
               <div className="space-y-4">
                 {Array.from({ length: 3 }).map((_, index) => (
-                  <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div key={index} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                     <div className="flex-1">
-                      <div className="w-48 h-5 bg-gray-200 rounded animate-pulse mb-1"></div>
-                      <div className="w-64 h-4 bg-gray-200 rounded animate-pulse"></div>
+                      <div className="w-48 h-5 bg-gray-200 dark:bg-gray-600 rounded animate-pulse mb-1"></div>
+                      <div className="w-64 h-4 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
                     </div>
-                    <div className="w-11 h-6 bg-gray-200 rounded-full animate-pulse"></div>
+                    <div className="w-11 h-6 bg-gray-200 dark:bg-gray-600 rounded-full animate-pulse"></div>
                   </div>
                 ))}
               </div>

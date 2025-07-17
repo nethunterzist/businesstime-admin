@@ -287,17 +287,17 @@ export default function SliderManagementPage() {
     return (
       <div className="p-6">
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold">Slider Yönetimi</h1>
-          <div className="w-32 h-10 bg-gray-200 rounded-lg animate-pulse"></div>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Slider Yönetimi</h1>
+          <div className="w-32 h-10 bg-gray-200 dark:bg-gray-600 rounded-lg animate-pulse"></div>
         </div>
 
         {/* Info Card Skeleton */}
-        <div className="mb-4 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+        <div className="mb-4 p-4 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-4 h-4 bg-gray-300 rounded animate-pulse"></div>
-            <div className="w-32 h-4 bg-gray-300 rounded animate-pulse"></div>
+            <div className="w-4 h-4 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
+            <div className="w-32 h-4 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
           </div>
-          <div className="w-full h-4 bg-gray-300 rounded animate-pulse"></div>
+          <div className="w-full h-4 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
         </div>
 
         {/* Slider Items Skeleton */}
@@ -527,7 +527,10 @@ export default function SliderManagementPage() {
                   variant="outline"
                   size="sm"
                   onClick={() => toggleActive(item)}
-                  className={item.is_active ? 'bg-green-50' : 'bg-red-50'}
+                  className={item.is_active 
+                    ? 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 border-green-200 dark:border-green-700' 
+                    : 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 border-red-200 dark:border-red-700'
+                  }
                 >
                   {item.is_active ? 'Aktif' : 'Pasif'}
                 </Button>

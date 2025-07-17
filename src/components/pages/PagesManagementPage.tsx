@@ -158,65 +158,65 @@ export default function PagesManagementPage() {
     return (
       <div className="space-y-6">
         {/* Header Skeleton */}
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-7 h-7 bg-gray-200 rounded animate-pulse"></div>
-              <div className="w-48 h-7 bg-gray-200 rounded animate-pulse"></div>
+              <div className="w-7 h-7 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
+              <div className="w-48 h-7 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
             </div>
           </div>
-          <div className="w-80 h-4 bg-gray-200 rounded animate-pulse mt-2"></div>
+          <div className="w-80 h-4 bg-gray-200 dark:bg-gray-600 rounded animate-pulse mt-2"></div>
         </div>
 
         {/* Info Card Skeleton */}
-        <div className="bg-green-50 p-6 rounded-xl border border-green-200">
+        <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl border border-green-200 dark:border-green-700">
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-5 h-5 bg-green-200 rounded animate-pulse"></div>
-            <div className="w-40 h-5 bg-green-200 rounded animate-pulse"></div>
+            <div className="w-5 h-5 bg-green-200 dark:bg-green-600 rounded animate-pulse"></div>
+            <div className="w-40 h-5 bg-green-200 dark:bg-green-600 rounded animate-pulse"></div>
           </div>
           <div className="space-y-2">
-            <div className="w-full h-3 bg-green-200 rounded animate-pulse"></div>
-            <div className="w-3/4 h-3 bg-green-200 rounded animate-pulse"></div>
+            <div className="w-full h-3 bg-green-200 dark:bg-green-600 rounded animate-pulse"></div>
+            <div className="w-3/4 h-3 bg-green-200 dark:bg-green-600 rounded animate-pulse"></div>
           </div>
         </div>
 
         {/* Page Content Skeletons */}
         <div className="space-y-6">
           {Array.from({ length: 4 }).map((_, index) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-4 h-4 bg-gray-200 rounded animate-pulse"></div>
-                <div className="w-32 h-5 bg-gray-200 rounded animate-pulse"></div>
+                <div className="w-4 h-4 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
+                <div className="w-32 h-5 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
               </div>
-              <div className="w-full h-3 bg-gray-200 rounded animate-pulse mb-3"></div>
-              <div className="w-full h-32 bg-gray-200 rounded-lg animate-pulse mb-3"></div>
-              <div className="w-48 h-10 bg-gray-200 rounded-lg animate-pulse"></div>
+              <div className="w-full h-3 bg-gray-200 dark:bg-gray-600 rounded animate-pulse mb-3"></div>
+              <div className="w-full h-32 bg-gray-200 dark:bg-gray-600 rounded-lg animate-pulse mb-3"></div>
+              <div className="w-48 h-10 bg-gray-200 dark:bg-gray-600 rounded-lg animate-pulse"></div>
             </div>
           ))}
         </div>
 
         {/* Guidelines Skeleton */}
-        <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
+        <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-200 dark:border-blue-700">
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-5 h-5 bg-blue-200 rounded animate-pulse"></div>
-            <div className="w-32 h-5 bg-blue-200 rounded animate-pulse"></div>
+            <div className="w-5 h-5 bg-blue-200 dark:bg-blue-600 rounded animate-pulse"></div>
+            <div className="w-32 h-5 bg-blue-200 dark:bg-blue-600 rounded animate-pulse"></div>
           </div>
           <div className="space-y-2">
             {Array.from({ length: 4 }).map((_, index) => (
-              <div key={index} className="w-full h-3 bg-blue-200 rounded animate-pulse"></div>
+              <div key={index} className="w-full h-3 bg-blue-200 dark:bg-blue-600 rounded animate-pulse"></div>
             ))}
           </div>
         </div>
 
         {/* Warning Skeleton */}
-        <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+        <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg border border-yellow-200 dark:border-yellow-700">
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-5 h-5 bg-yellow-200 rounded animate-pulse"></div>
-            <div className="w-32 h-5 bg-yellow-200 rounded animate-pulse"></div>
+            <div className="w-5 h-5 bg-yellow-200 dark:bg-yellow-600 rounded animate-pulse"></div>
+            <div className="w-32 h-5 bg-yellow-200 dark:bg-yellow-600 rounded animate-pulse"></div>
           </div>
           <div className="space-y-2">
-            <div className="w-full h-3 bg-yellow-200 rounded animate-pulse"></div>
-            <div className="w-5/6 h-3 bg-yellow-200 rounded animate-pulse"></div>
+            <div className="w-full h-3 bg-yellow-200 dark:bg-yellow-600 rounded animate-pulse"></div>
+            <div className="w-5/6 h-3 bg-yellow-200 dark:bg-yellow-600 rounded animate-pulse"></div>
           </div>
         </div>
       </div>

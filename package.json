@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3000 --hostname localhost",
+    "dev": "next dev --port 3000 --hostname 0.0.0.0",
     "dev:stable": "npx kill-port 3000 && next dev --port 3000 --hostname localhost",
     "dev:clean": "rm -rf .next && npm run dev:stable",
     "build": "next build",

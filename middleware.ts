@@ -21,7 +21,11 @@ const protectedRoutes = [
 const publicRoutes = [
   '/login',
   '/api/auth/login',
-  '/api/auth/logout'
+  '/api/auth/logout',
+  '/api/public/videos',
+  '/api/public/categories',
+  '/api/public/settings',
+  '/api/public/featured-content'
 ]
 
 export function middleware(request: NextRequest) {
@@ -68,6 +72,7 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/_next') ||
     pathname.startsWith('/favicon.ico') ||
     pathname.startsWith('/public') ||
+    pathname.startsWith('/api/public') ||
     (pathname.startsWith('/api') && !pathname.startsWith('/api/auth'))
   ) {
     response = NextResponse.next()

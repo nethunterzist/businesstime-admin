@@ -25,7 +25,8 @@ const publicRoutes = [
   '/api/public/videos',
   '/api/public/categories',
   '/api/public/settings',
-  '/api/public/featured-content'
+  '/api/public/featured-content',
+  '/api/compliance/gdpr-consent'
 ]
 
 export function middleware(request: NextRequest) {

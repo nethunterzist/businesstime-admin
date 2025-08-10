@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/card';
 import ConfirmDialog from '@/components/ui/ConfirmDialog';
 import SliderItemSkeleton from '@/components/skeletons/SliderItemSkeleton';
 import KPICardSkeleton from '@/components/skeletons/KPICardSkeleton';
+import toast from 'react-hot-toast';
 
 interface FeaturedContent {
   id: string;
@@ -128,6 +129,22 @@ export default function SliderManagementPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Validation
+    if (!formData.title.trim()) {
+      toast.error('Başlık zorunludur!');
+      return;
+    }
+    
+    if (!formData.image_url.trim()) {
+      toast.error('Görsel URL zorunludur!');
+      return;
+    }
+    
+    if (!formData.action_value.trim()) {
+      toast.error('Eylem değeri zorunludur!');
+      return;
+    }
+    
     try {
       const url = editingItem 
         ? `/api/featured-content/${editingItem.id}`
@@ -149,15 +166,15 @@ export default function SliderManagementPage() {
       if (response.ok) {
         await fetchFeaturedContent();
         resetForm();
-        alert(editingItem ? '✅ Slider içeriği güncellendi!' : '✅ Yeni slider içeriği eklendi!');
+        toast.success(editingItem ? 'Slider içeriği güncellendi!' : 'Yeni slider içeriği eklendi!');
       } else {
         const data = await response.json();
         console.error('Error saving:', data.error);
-        alert('❌ Kaydetme hatası: ' + (data.error || 'Bilinmeyen hata'));
+        toast.error('Kaydetme hatası: ' + (data.error || 'Bilinmeyen hata'));
       }
     } catch (error) {
       console.error('Error saving:', error);
-      alert('❌ Bağlantı hatası: ' + (error instanceof Error ? error.message : 'Bilinmeyen hata'));
+      toast.error('Bağlantı hatası: ' + (error instanceof Error ? error.message : 'Bilinmeyen hata'));
     }
   };
 
@@ -181,15 +198,15 @@ export default function SliderManagementPage() {
 
       if (response.ok) {
         await fetchFeaturedContent();
-        alert('✅ Slider içeriği silindi!');
+        toast.success('Slider içeriği silindi!');
       } else {
         const data = await response.json();
         console.error('Error deleting item:', data.error);
-        alert('❌ Silme hatası: ' + (data.error || 'Bilinmeyen hata'));
+        toast.error('Silme hatası: ' + (data.error || 'Bilinmeyen hata'));
       }
     } catch (error) {
       console.error('Error deleting:', error);
-      alert('❌ Bağlantı hatası: ' + (error instanceof Error ? error.message : 'Bilinmeyen hata'));
+      toast.error('Bağlantı hatası: ' + (error instanceof Error ? error.message : 'Bilinmeyen hata'));
     }
     setDeleteId(null);
   };
@@ -209,15 +226,15 @@ export default function SliderManagementPage() {
 
       if (response.ok) {
         await fetchFeaturedContent();
-        alert(`✅ Slider içeriği ${!item.is_active ? 'aktif' : 'pasif'} hale getirildi!`);
+        toast.success(`Slider içeriği ${!item.is_active ? 'aktif' : 'pasif'} hale getirildi!`);
       } else {
         const data = await response.json();
         console.error('Error toggling active status:', data.error);
-        alert('❌ Durum değiştirme hatası: ' + (data.error || 'Bilinmeyen hata'));
+        toast.error('Durum değiştirme hatası: ' + (data.error || 'Bilinmeyen hata'));
       }
     } catch (error) {
       console.error('Error toggling active status:', error);
-      alert('❌ Bağlantı hatası: ' + (error instanceof Error ? error.message : 'Bilinmeyen hata'));
+      toast.error('Bağlantı hatası: ' + (error instanceof Error ? error.message : 'Bilinmeyen hata'));
     }
   };
 
@@ -250,7 +267,7 @@ export default function SliderManagementPage() {
       console.error('Error updating sort order:', error);
       // Revert on error
       await fetchFeaturedContent();
-      alert('❌ Sıralama güncelleme hatası: ' + (error instanceof Error ? error.message : 'Bilinmeyen hata'));
+      toast.error('Sıralama güncelleme hatası: ' + (error instanceof Error ? error.message : 'Bilinmeyen hata'));
     }
   };
 

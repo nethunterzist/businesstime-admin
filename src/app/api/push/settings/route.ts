@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { supabaseAdmin } from '@/lib/supabase'
 
 export async function GET() {
   try {
     console.log('📊 Getting push notification settings...')
     
     // Get push settings
-    const { data: settings, error: settingsError } = await supabase
+    const { data: settings, error: settingsError } = await supabaseAdmin
       .from('push_settings')
       .select('is_enabled')
       .eq('id', 1)
@@ -18,7 +18,7 @@ export async function GET() {
     }
 
     // Get device count
-    const { count: deviceCount, error: deviceError } = await supabase
+    const { count: deviceCount, error: deviceError } = await supabaseAdmin
       .from('device_registrations')
       .select('*', { count: 'exact' })
       .eq('is_active', true)
@@ -29,7 +29,7 @@ export async function GET() {
     }
 
     // Get recent notification
-    const { data: recentNotification, error: notificationError } = await supabase
+    const { data: recentNotification, error: notificationError } = await supabaseAdmin
       .from('push_notifications')
       .select('created_at, title')
       .order('created_at', { ascending: false })
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
     }
 
     // Update push settings
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from('push_settings')
       .upsert({ 
         id: 1, 

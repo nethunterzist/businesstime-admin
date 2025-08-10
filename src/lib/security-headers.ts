@@ -2,20 +2,24 @@ import { NextResponse } from 'next/server'
 
 // Security headers configuration
 export const SECURITY_HEADERS = {
-  // Content Security Policy - XSS ve code injection koruması
+  // Content Security Policy - Enhanced XSS and code injection protection
   'Content-Security-Policy': [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // Next.js için gerekli
-    "style-src 'self' 'unsafe-inline'", // Tailwind için gerekli
-    "img-src 'self' data: https: blob:", // Resim yükleme için
-    "font-src 'self' data:",
-    "connect-src 'self' https://api.supabase.co https://*.supabase.co", // Supabase API
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' 'nonce-{NONCE}'", // Next.js requirements with nonce
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com", // Tailwind and Google Fonts
+    "img-src 'self' data: https: blob:", // Image uploads
+    "font-src 'self' data: https://fonts.gstatic.com", // Font sources
+    "connect-src 'self' https://api.supabase.co https://*.supabase.co https://api.upstash.com", // APIs
     "media-src 'self' https: blob:",
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",
-    "frame-ancestors 'none'", // Clickjacking koruması
-    "upgrade-insecure-requests"
+    "frame-ancestors 'none'", // Clickjacking protection
+    "frame-src 'none'", // Prevent iframe embedding
+    "worker-src 'self' blob:",
+    "manifest-src 'self'",
+    "upgrade-insecure-requests",
+    "block-all-mixed-content"
   ].join('; '),
 
   // Clickjacking koruması

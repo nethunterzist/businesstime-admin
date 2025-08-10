@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { supabaseAdmin } from '@/lib/supabase'
 import { Expo } from 'expo-server-sdk'
 
 // Initialize Expo SDK
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     }
 
     // 1. Check if push notifications are enabled
-    const { data: settings, error: settingsError } = await supabase
+    const { data: settings, error: settingsError } = await supabaseAdmin
       .from('push_settings')
       .select('is_enabled')
       .eq('id', 1)
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     }
 
     // 2. Get active devices
-    const { data: devices, error: devicesError } = await supabase
+    const { data: devices, error: devicesError } = await supabaseAdmin
       .from('device_registrations')
       .select('device_id, expo_token, device_type')
       .eq('is_active', true)
@@ -68,7 +68,7 @@ export async function POST(request: Request) {
     console.log(`📱 Found ${devices.length} active devices`)
 
     // 3. Create notification record
-    const { data: notification, error: notificationError } = await supabase
+    const { data: notification, error: notificationError } = await supabaseAdmin
       .from('push_notifications')
       .insert({
         title,
@@ -177,7 +177,7 @@ export async function POST(request: Request) {
 
     // 6. Save delivery records
     if (deliveryRecords.length > 0) {
-      const { error: deliveryError } = await supabase
+      const { error: deliveryError } = await supabaseAdmin
         .from('notification_deliveries')
         .insert(deliveryRecords)
 
@@ -190,7 +190,7 @@ export async function POST(request: Request) {
     }
 
     // 7. Update notification statistics
-    const { error: updateError } = await supabase
+    const { error: updateError } = await supabaseAdmin
       .from('push_notifications')
       .update({
         sent_at: new Date().toISOString(),
@@ -238,7 +238,7 @@ export async function GET() {
     console.log('📊 Getting push notification history...')
     
     // Get recent notifications with stats
-    const { data: notifications, error } = await supabase
+    const { data: notifications, error } = await supabaseAdmin
       .from('push_notifications')
       .select(`
         *,

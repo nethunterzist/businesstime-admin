@@ -179,37 +179,52 @@ export default function VideosPage() {
   }
 
   const addVideo = async () => {
-    if (newVideo.title.trim()) {
-      try {
-        const response = await fetch('/api/videos', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(newVideo)
-        })
+    // Validation
+    if (!newVideo.title.trim()) {
+      toast.error('Video başlığı zorunludur!')
+      return
+    }
+    
+    if (!newVideo.category_id) {
+      toast.error('Kategori seçimi zorunludur!')
+      return
+    }
 
-        if (response.ok) {
-          await loadVideos()
-          setNewVideo({
-            title: '',
-            description: '',
-            category_id: '',
-            thumbnail_url: '',
-            video_url: '',
-            tags: '',
-            is_published: false,
-            is_featured: false
-          })
-          setShowAddForm(false)
-          toast.success('Video başarıyla eklendi!')
-        } else {
-          const errorData = await response.json()
-          console.error('Failed to add video:', errorData)
-          toast.error(`Video ekleme hatası: ${errorData.error || 'Bilinmeyen hata'}`)
-        }
-      } catch (error) {
-        console.error('Error adding video:', error)
-        toast.error(`Video ekleme hatası: ${error instanceof Error ? error.message : 'Bilinmeyen hata'}`)
+    try {
+      // category_id boş string ise null yap
+      const videoData = {
+        ...newVideo,
+        category_id: newVideo.category_id || null
       }
+
+      const response = await fetch('/api/videos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(videoData)
+      })
+
+      if (response.ok) {
+        await loadVideos()
+        setNewVideo({
+          title: '',
+          description: '',
+          category_id: '',
+          thumbnail_url: '',
+          video_url: '',
+          tags: '',
+          is_published: false,
+          is_featured: false
+        })
+        setShowAddForm(false)
+        toast.success('Video başarıyla eklendi!')
+      } else {
+        const errorData = await response.json()
+        console.error('Failed to add video:', errorData)
+        toast.error(`Video ekleme hatası: ${errorData.error || 'Bilinmeyen hata'}`)
+      }
+    } catch (error) {
+      console.error('Error adding video:', error)
+      toast.error(`Video ekleme hatası: ${error instanceof Error ? error.message : 'Bilinmeyen hata'}`)
     }
   }
 

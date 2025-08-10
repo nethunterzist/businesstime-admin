@@ -27,8 +27,38 @@ const publicRoutes = [
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   const origin = request.headers.get('origin')
+  const userAgent = request.headers.get('user-agent') || ''
+  const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown'
   
   console.log('🔍 Middleware checking path:', pathname)
+
+  // Security validations
+  // 1. Block suspicious user agents
+  const suspiciousAgents = ['sqlmap', 'nikto', 'nessus', 'nmap', 'masscan']
+  if (suspiciousAgents.some(agent => userAgent.toLowerCase().includes(agent))) {
+    logSecurityEvent('suspicious_user_agent', { userAgent, ip, pathname }, 'high')
+    return new NextResponse('Access Denied', { status: 403 })
+  }
+
+  // 2. Block requests with suspicious paths
+  const suspiciousPaths = [
+    '/wp-admin', '/admin.php', '/.env', '/config.php', '/phpinfo.php',
+    '/wp-config.php', '/backup.sql', '/database.sql', '/.git/'
+  ]
+  if (suspiciousPaths.some(path => pathname.includes(path))) {
+    logSecurityEvent('suspicious_path_access', { pathname, ip, userAgent }, 'high')
+    return new NextResponse('Not Found', { status: 404 })
+  }
+
+  // 3. Validate content length for non-GET requests
+  if (request.method !== 'GET') {
+    const contentLength = request.headers.get('content-length')
+    const maxSize = 10 * 1024 * 1024 // 10MB
+    if (contentLength && parseInt(contentLength) > maxSize) {
+      logSecurityEvent('large_request_blocked', { size: contentLength, ip, pathname }, 'medium')
+      return new NextResponse('Request too large', { status: 413 })
+    }
+  }
 
   // Create base response
   let response: NextResponse

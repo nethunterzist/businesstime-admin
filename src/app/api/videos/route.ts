@@ -36,6 +36,16 @@ export async function POST(request: Request) {
   try {
     const body = await request.json()
     
+    // Validation
+    if (!body.title || !body.title.trim()) {
+      return NextResponse.json({ error: 'Video başlığı zorunludur' }, { status: 400 })
+    }
+    
+    // category_id boş string ise null yap
+    if (body.category_id === '') {
+      body.category_id = null
+    }
+    
     // Tags alanını array'e çevir
     if (body.tags && typeof body.tags === 'string') {
       body.tags = body.tags.split(',').map((tag: string) => tag.trim()).filter((tag: string) => tag.length > 0)

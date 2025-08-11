@@ -23,7 +23,9 @@ import {
   Calendar,
   Heart,
   X,
-  Save
+  Save,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react'
 import VideoListItemSkeleton from '@/components/skeletons/VideoListItemSkeleton'
 import KPICardSkeleton from '@/components/skeletons/KPICardSkeleton'
@@ -38,7 +40,7 @@ export default function VideosPage() {
   const [searchTerm, setSearchTerm] = useState('')
   const [filterCategory, setFilterCategory] = useState('')
   const [filterStatus, setFilterStatus] = useState('')
-  const [currentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(1)
   const [showAddForm, setShowAddForm] = useState(false)
   const [showEditForm, setShowEditForm] = useState(false)
   const [editingVideo, setEditingVideo] = useState<VideoType | null>(null)
@@ -101,8 +103,58 @@ export default function VideosPage() {
     return matchesSearch && matchesCategory && matchesStatus
   })
 
+  const totalPages = Math.ceil(filteredVideos.length / videosPerPage)
   const startIndex = (currentPage - 1) * videosPerPage
   const paginatedVideos = filteredVideos.slice(startIndex, startIndex + videosPerPage)
+
+  // Reset current page when filters change
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [searchTerm, filterCategory, filterStatus])
+
+  const goToPage = (page: number) => {
+    setCurrentPage(page)
+    // Scroll to top of the page
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      goToPage(currentPage + 1)
+    }
+  }
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      goToPage(currentPage - 1)
+    }
+  }
+
+  // Generate pagination numbers
+  const getPaginationNumbers = () => {
+    const pages = []
+    const maxVisible = 5
+    
+    if (totalPages <= maxVisible) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i)
+      }
+    } else {
+      if (currentPage <= 3) {
+        pages.push(1, 2, 3, 4, 5)
+      } else if (currentPage >= totalPages - 2) {
+        for (let i = totalPages - 4; i <= totalPages; i++) {
+          pages.push(i)
+        }
+      } else {
+        for (let i = currentPage - 2; i <= currentPage + 2; i++) {
+          pages.push(i)
+        }
+      }
+    }
+    
+    return pages
+  }
 
   const togglePublish = async (videoId: string) => {
     try {
@@ -444,7 +496,12 @@ export default function VideosPage() {
             <div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Videolar</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                {filteredVideos.length} videodan {paginatedVideos.length} tanesi gösteriliyor
+                {filteredVideos.length} videodan {startIndex + 1}-{Math.min(startIndex + videosPerPage, filteredVideos.length)} arası gösteriliyor
+                {totalPages > 1 && (
+                  <span className="ml-2">
+                    (Sayfa {currentPage} / {totalPages})
+                  </span>
+                )}
               </p>
             </div>
           </div>
@@ -568,6 +625,54 @@ export default function VideosPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          )}
+          
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between pt-6 border-t border-gray-100 dark:border-gray-700">
+              <div className="text-sm text-gray-600 dark:text-gray-400">
+                Toplam {filteredVideos.length} video, {totalPages} sayfa
+              </div>
+              
+              <div className="flex items-center gap-1">
+                {/* Previous Button */}
+                <button
+                  onClick={prevPage}
+                  disabled={currentPage === 1}
+                  className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition-colors"
+                >
+                  <ChevronLeft size={16} />
+                  Önceki
+                </button>
+                
+                {/* Page Numbers */}
+                <div className="flex">
+                  {getPaginationNumbers().map((pageNum, index) => (
+                    <button
+                      key={index}
+                      onClick={() => goToPage(pageNum)}
+                      className={`px-3 py-2 text-sm font-medium border-t border-b border-r transition-colors ${
+                        currentPage === pageNum
+                          ? 'z-10 text-white bg-[#9d1112] border-[#9d1112]'
+                          : 'text-gray-500 bg-white border-gray-300 hover:bg-gray-50 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+                      }`}
+                    >
+                      {pageNum}
+                    </button>
+                  ))}
+                </div>
+                
+                {/* Next Button */}
+                <button
+                  onClick={nextPage}
+                  disabled={currentPage === totalPages}
+                  className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-50 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition-colors"
+                >
+                  Sonraki
+                  <ChevronRight size={16} />
+                </button>
+              </div>
             </div>
           )}
         </div>

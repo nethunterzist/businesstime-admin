@@ -1,10 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+import { DatabaseAdapter } from '@/lib/database';
 
 // GET - Fetch single featured content by ID
 export async function GET(
@@ -12,20 +7,18 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const { data, error } = await supabase
-      .from('featured_content')
-      .select('*')
-      .eq('id', params.id)
-      .single();
+    const data = await DatabaseAdapter.select('featured_content', {
+      where: { id: params.id }
+    });
 
-    if (error) {
+    if (!data || data.length === 0) {
       return NextResponse.json(
         { error: 'Featured content not found' },
         { status: 404 }
       );
     }
 
-    return NextResponse.json({ featuredContent: data });
+    return NextResponse.json({ featuredContent: data[0] });
 
   } catch (error) {
     return NextResponse.json(
@@ -59,26 +52,25 @@ export async function PUT(
       );
     }
 
-    const { data, error } = await supabase
-      .from('featured_content')
-      .update({
-        title,
-        image_url,
-        action_type,
-        action_value,
-        sort_order,
-        is_active
-      })
-      .eq('id', params.id)
-      .select()
-      .single();
+    const updatedData = await DatabaseAdapter.update('featured_content', {
+      title,
+      image_url,
+      action_type,
+      action_value,
+      sort_order,
+      is_active
+    }, {
+      id: params.id
+    });
 
-    if (error) {
+    if (!updatedData || updatedData.length === 0) {
       return NextResponse.json(
         { error: 'Failed to update featured content' },
         { status: 500 }
       );
     }
+
+    const data = updatedData[0];
 
     return NextResponse.json({ 
       featuredContent: data,
@@ -99,14 +91,13 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const { error } = await supabase
-      .from('featured_content')
-      .delete()
-      .eq('id', params.id);
+    const deletedData = await DatabaseAdapter.delete('featured_content', {
+      id: params.id
+    });
 
-    if (error) {
+    if (!deletedData || deletedData.length === 0) {
       return NextResponse.json(
-        { error: 'Failed to delete featured content' },
+        { error: 'Featured content not found or failed to delete' },
         { status: 500 }
       );
     }

@@ -1,54 +1,36 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
+import { DatabaseAdapter } from '@/lib/database'
 
 export async function GET(request: NextRequest) {
   try {
-    // Direct Supabase client creation for API routes
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!,
-      {
-        auth: {
-          autoRefreshToken: false,
-          persistSession: false
-        }
-      }
-    )
     const { searchParams } = new URL(request.url)
     
     const status = searchParams.get('status') || 'all'
     const limit = parseInt(searchParams.get('limit') || '50')
     const offset = parseInt(searchParams.get('offset') || '0')
 
-    let query = supabase
-      .from('content_reports')
-      .select(`
-        *,
-        videos!inner(
-          id,
-          title,
-          thumbnail_url,
-          duration,
-          views
-        )
-      `)
-      .order('reported_at', { ascending: false })
-      .range(offset, offset + limit - 1)
+    const whereCondition = status !== 'all' ? { status } : {};
+    
+    // Get reports with video details using JOIN
+    const reportsQuery = `
+      SELECT cr.*, v.id as video_id, v.title, v.thumbnail_url, v.duration, v.views
+      FROM content_reports cr
+      INNER JOIN videos v ON cr.video_id = v.id
+      ${status !== 'all' ? 'WHERE cr.status = $3' : ''}
+      ORDER BY cr.reported_at DESC
+      LIMIT $1 OFFSET $2
+    `;
+    
+    const params = status !== 'all' 
+      ? [limit, offset, status]
+      : [limit, offset];
+    
+    const reports = await DatabaseAdapter.query(reportsQuery, params);
 
-    if (status !== 'all') {
-      query = query.eq('status', status)
-    }
-
-    const { data: reports, error } = await query
-
-    if (error) {
-      return NextResponse.json({ error: 'Failed to fetch reports' }, { status: 500 })
-    }
-
-    // İstatistikler
-    const { data: stats } = await supabase
-      .from('content_reports')
-      .select('status')
+    // Get statistics
+    const stats = await DatabaseAdapter.select('content_reports', {
+      columns: ['status']
+    });
 
     const statistics = {
       total: stats?.length || 0,
@@ -93,48 +75,33 @@ export async function POST(request: NextRequest) {
       }, { status: 400 })
     }
 
-    // Direct Supabase client creation for API routes
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!,
-      {
-        auth: {
-          autoRefreshToken: false,
-          persistSession: false
-        }
+    // Check for existing report from same device for same video
+    const existingReport = await DatabaseAdapter.select('content_reports', {
+      columns: ['id'],
+      where: {
+        video_id,
+        device_id
       }
-    )
+    });
 
-    // Aynı video için aynı device'dan önceki raporları kontrol et
-    const { data: existingReport } = await supabase
-      .from('content_reports')
-      .select('id')
-      .eq('video_id', video_id)
-      .eq('device_id', device_id)
-      .single()
-
-    if (existingReport) {
+    if (existingReport && existingReport.length > 0) {
       return NextResponse.json({ 
         error: 'Bu video için zaten bir bildirim gönderdiniz' 
       }, { status: 409 })
     }
 
-    // Yeni rapor oluştur
-    const { data: report, error } = await supabase
-      .from('content_reports')
-      .insert({
-        video_id,
-        device_id,
-        report_type,
-        reason,
-        additional_details,
-        user_id,
-        status: 'pending'
-      })
-      .select()
-      .single()
+    // Create new report
+    const report = await DatabaseAdapter.insert('content_reports', {
+      video_id,
+      device_id,
+      report_type,
+      reason,
+      additional_details,
+      user_id,
+      status: 'pending'
+    });
 
-    if (error) {
+    if (!report || report.length === 0) {
       return NextResponse.json({ error: 'Failed to create report' }, { status: 500 })
     }
 

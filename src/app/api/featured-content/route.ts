@@ -1,10 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+import { DatabaseAdapter } from '@/lib/database';
 
 // GET - Fetch all featured content
 export async function GET(request: NextRequest) {
@@ -12,23 +7,12 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const activeOnly = searchParams.get('active') === 'true';
 
-    let query = supabase
-      .from('featured_content')
-      .select('*')
-      .order('sort_order', { ascending: true });
-
-    if (activeOnly) {
-      query = query.eq('is_active', true);
-    }
-
-    const { data, error } = await query;
-
-    if (error) {
-      return NextResponse.json(
-        { error: 'Failed to fetch featured content' },
-        { status: 500 }
-      );
-    }
+    const whereCondition = activeOnly ? { is_active: true } : {};
+    
+    const data = await DatabaseAdapter.select('featured_content', {
+      where: whereCondition,
+      orderBy: 'sort_order ASC'
+    });
 
     return NextResponse.json({ 
       featuredContent: data || [],
@@ -67,28 +51,26 @@ export async function POST(request: NextRequest) {
     // Title yoksa otomatik oluştur
     const finalTitle = title || `Slider ${Date.now()}`;
 
-    const { data, error } = await supabase
-      .from('featured_content')
-      .insert({
-        title: finalTitle,
-        image_url,
-        action_type,
-        action_value,
-        sort_order: sort_order || 0,
-        is_active: is_active !== false
-      })
-      .select()
-      .single();
+    const data = await DatabaseAdapter.insert('featured_content', {
+      title: finalTitle,
+      image_url,
+      action_type,
+      action_value,
+      sort_order: sort_order || 0,
+      is_active: is_active !== false
+    });
 
-    if (error) {
+    if (!data || data.length === 0) {
       return NextResponse.json(
         { error: 'Failed to create featured content' },
         { status: 500 }
       );
     }
 
+    const insertedData = data[0];
+
     return NextResponse.json({ 
-      featuredContent: data,
+      featuredContent: insertedData,
       message: 'Featured content created successfully'
     });
 
@@ -113,19 +95,16 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    // Update sort orders in a transaction-like manner
-    const updatePromises = items.map((item, index) => 
-      supabase
-        .from('featured_content')
-        .update({ sort_order: index + 1 })
-        .eq('id', item.id)
-    );
-
-    const results = await Promise.all(updatePromises);
-    
-    // Check for errors
-    const hasErrors = results.some(result => result.error);
-    if (hasErrors) {
+    // Update sort orders sequentially
+    try {
+      for (let i = 0; i < items.length; i++) {
+        await DatabaseAdapter.update('featured_content', {
+          sort_order: i + 1
+        }, {
+          id: items[i].id
+        });
+      }
+    } catch (updateError) {
       return NextResponse.json(
         { error: 'Failed to update sort orders' },
         { status: 500 }

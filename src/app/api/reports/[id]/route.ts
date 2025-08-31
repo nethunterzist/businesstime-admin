@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
+import { DatabaseAdapter } from '@/lib/database'
 
 export async function PUT(
   request: NextRequest,
@@ -14,60 +14,46 @@ export async function PUT(
       return NextResponse.json({ error: 'Report ID is required' }, { status: 400 })
     }
 
-    // Direct Supabase client creation for API routes
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!,
-      {
-        auth: {
-          autoRefreshToken: false,
-          persistSession: false
-        }
-      }
-    )
+    // Update report
+    const report = await DatabaseAdapter.update('content_reports', {
+      status,
+      admin_notes,
+      action_taken,
+      reviewed_by,
+      reviewed_at: status !== 'pending' ? new Date().toISOString() : null,
+      updated_at: new Date().toISOString()
+    }, {
+      id: reportId
+    });
 
-    // Raporu güncelle
-    const { data: report, error } = await supabase
-      .from('content_reports')
-      .update({
-        status,
-        admin_notes,
-        action_taken,
-        reviewed_by,
-        reviewed_at: status !== 'pending' ? new Date().toISOString() : null,
-        updated_at: new Date().toISOString()
-      })
-      .eq('id', reportId)
-      .select(`
-        *,
-        videos!inner(
-          id,
-          title,
-          thumbnail_url
-        )
-      `)
-      .single()
-
-    if (error) {
+    if (!report || report.length === 0) {
       return NextResponse.json({ error: 'Failed to update report' }, { status: 500 })
     }
 
-    // Eğer işlem yapıldıysa, report_actions tablosuna kaydet
+    // Get updated report with video details
+    const updatedReportQuery = `
+      SELECT cr.*, v.id as video_id, v.title, v.thumbnail_url
+      FROM content_reports cr
+      INNER JOIN videos v ON cr.video_id = v.id
+      WHERE cr.id = $1
+    `;
+    
+    const reportWithVideo = await DatabaseAdapter.query(updatedReportQuery, [reportId]);
+
+    // If action taken and resolved, save to report_actions
     if (action_taken && status === 'resolved') {
-      await supabase
-        .from('report_actions')
-        .insert({
-          report_id: reportId,
-          action_type: action_taken,
-          description: admin_notes,
-          performed_by: reviewed_by
-        })
+      await DatabaseAdapter.insert('report_actions', {
+        report_id: reportId,
+        action_type: action_taken,
+        description: admin_notes,
+        performed_by: reviewed_by
+      });
     }
 
     return NextResponse.json({
       success: true,
       message: 'Rapor başarıyla güncellendi',
-      report
+      report: reportWithVideo[0] || report[0]
     })
 
   } catch (error) {
@@ -86,24 +72,11 @@ export async function DELETE(
       return NextResponse.json({ error: 'Report ID is required' }, { status: 400 })
     }
 
-    // Direct Supabase client creation for API routes
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!,
-      {
-        auth: {
-          autoRefreshToken: false,
-          persistSession: false
-        }
-      }
-    )
+    const deletedReport = await DatabaseAdapter.delete('content_reports', {
+      id: reportId
+    });
 
-    const { error } = await supabase
-      .from('content_reports')
-      .delete()
-      .eq('id', reportId)
-
-    if (error) {
+    if (!deletedReport || deletedReport.length === 0) {
       return NextResponse.json({ error: 'Failed to delete report' }, { status: 500 })
     }
 

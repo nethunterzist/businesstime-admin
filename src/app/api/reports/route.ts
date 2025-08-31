@@ -42,7 +42,6 @@ export async function GET(request: NextRequest) {
     const { data: reports, error } = await query
 
     if (error) {
-      console.error('❌ Error fetching reports:', error)
       return NextResponse.json({ error: 'Failed to fetch reports' }, { status: 500 })
     }
 
@@ -71,7 +70,6 @@ export async function GET(request: NextRequest) {
     })
 
   } catch (error) {
-    console.error('❌ Error in reports API:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
@@ -137,7 +135,6 @@ export async function POST(request: NextRequest) {
       .single()
 
     if (error) {
-      console.error('❌ Error creating report:', error)
       return NextResponse.json({ error: 'Failed to create report' }, { status: 500 })
     }
 
@@ -148,7 +145,6 @@ export async function POST(request: NextRequest) {
     })
 
   } catch (error) {
-    console.error('❌ Error in reports POST:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

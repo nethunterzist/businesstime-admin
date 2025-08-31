@@ -13,7 +13,6 @@ export async function POST(request: NextRequest) {
     // Input validation with Zod
     const validation = validateData(loginSchema, body)
     if (!validation.success) {
-      console.log('❌ Login validation failed:', validation.errors)
       
       // Log security event
       logSecurityEvent('login_validation_failed', {
@@ -34,13 +33,11 @@ export async function POST(request: NextRequest) {
     const sanitizedUsername = sanitizeInput(username)
     const sanitizedPassword = sanitizeInput(password)
 
-    console.log('✅ Input validation passed for username:', sanitizedUsername)
 
     // Rate limiting check
     const clientIP = getClientIP(request)
     const identifier = `login:${clientIP}:${sanitizedUsername}`
     
-    console.log('🛡️ Checking rate limit for:', { ip: clientIP, username })
     
     const rateLimit = await checkRateLimit(
       identifier,
@@ -49,13 +46,14 @@ export async function POST(request: NextRequest) {
     )
 
     if (!rateLimit.success) {
-      const timeRemaining = formatTimeRemaining(rateLimit.reset)
-      console.log('❌ Rate limit exceeded:', { 
+      const timeRemaining = formatTimeRemaining(rateLimit.reset);
+      
+      logSecurityEvent('login_rate_limited', {
         ip: clientIP, 
         username, 
         remaining: rateLimit.remaining,
         resetTime: rateLimit.reset 
-      })
+      }, 'high');
       
       return createRateLimitResponse(
         `Çok fazla başarısız giriş denemesi. ${timeRemaining} sonra tekrar deneyin.`,
@@ -63,19 +61,15 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    console.log('✅ Rate limit check passed:', { 
-      remaining: rateLimit.remaining, 
-      limit: rateLimit.limit 
-    })
+    // Apply rate limit headers  
+    // applyRateLimitHeaders(response, rateLimit.limit, rateLimit.remaining, rateLimit.reset);
 
-    console.log('🔐 JWT Login attempt:', { username, password: '***' })
 
     // Environment variables authentication (primary method)
     const adminUsername = process.env.ADMIN_USERNAME || 'admin'
     const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'
 
     if (username === adminUsername && password === adminPassword) {
-      console.log('✅ Environment authentication successful')
       
       // Log successful login
       logSecurityEvent('login_success', {
@@ -116,7 +110,6 @@ export async function POST(request: NextRequest) {
       // Apply rate limit headers
       applyRateLimitHeaders(response, rateLimit.limit, rateLimit.remaining, rateLimit.reset)
 
-      console.log('✅ JWT token generated and cookie set')
       return response
     }
 
@@ -133,7 +126,6 @@ export async function POST(request: NextRequest) {
         const isPasswordValid = await bcrypt.compare(password, adminUsers.password_hash)
 
         if (isPasswordValid) {
-          console.log('✅ Database authentication successful')
           
           // Generate JWT token
           const jwtToken = generateToken({
@@ -149,7 +141,6 @@ export async function POST(request: NextRequest) {
               .update({ last_login: new Date().toISOString() })
               .eq('id', adminUsers.id)
           } catch (updateError) {
-            console.log('⚠️ Could not update last login, but continuing...')
           }
 
           // Create response with JWT token
@@ -177,11 +168,9 @@ export async function POST(request: NextRequest) {
         }
       }
     } catch (dbError) {
-      console.log('⚠️ Database authentication failed, using environment only')
     }
 
     // If we reach here, authentication failed
-    console.log('❌ Authentication failed for username:', username)
     
     // Log failed login attempt
     logSecurityEvent('login_failed', {
@@ -197,7 +186,7 @@ export async function POST(request: NextRequest) {
     }, 401, request.headers.get('origin') || undefined)
 
   } catch (error) {
-    console.error('❌ Login error:', error)
+    console.error('Login error:', error);
     
     return NextResponse.json({
       success: false,

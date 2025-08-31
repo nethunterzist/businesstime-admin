@@ -198,11 +198,11 @@ export function logSecurityEvent(
       critical: '🔴'
     }[severity]
 
-    console.log(`${emoji} Security Event [${severity.toUpperCase()}]:`, {
+    console.log(`${emoji} [SECURITY] ${event}:`, {
       event,
       ...details,
       timestamp
-    })
+    });
   }
 
   // Production'da external logging service'e gönderilebilir

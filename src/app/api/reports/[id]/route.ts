@@ -49,7 +49,6 @@ export async function PUT(
       .single()
 
     if (error) {
-      console.error('❌ Error updating report:', error)
       return NextResponse.json({ error: 'Failed to update report' }, { status: 500 })
     }
 
@@ -72,7 +71,6 @@ export async function PUT(
     })
 
   } catch (error) {
-    console.error('❌ Error in report update:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
@@ -106,7 +104,6 @@ export async function DELETE(
       .eq('id', reportId)
 
     if (error) {
-      console.error('❌ Error deleting report:', error)
       return NextResponse.json({ error: 'Failed to delete report' }, { status: 500 })
     }
 
@@ -116,7 +113,6 @@ export async function DELETE(
     })
 
   } catch (error) {
-    console.error('❌ Error in report delete:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

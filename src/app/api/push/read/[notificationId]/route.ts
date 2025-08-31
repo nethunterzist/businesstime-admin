@@ -10,7 +10,6 @@ export async function POST(
     const { deviceId } = body
     const { notificationId } = params
 
-    console.log('📖 Marking notification as read:', { notificationId, deviceId: deviceId?.substring(0, 20) + '...' })
 
     // Input validation
     if (!deviceId) {
@@ -35,7 +34,6 @@ export async function POST(
       })
 
     if (error) {
-      console.error('❌ Error marking notification as read:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
@@ -46,14 +44,12 @@ export async function POST(
       )
     }
 
-    console.log('✅ Notification marked as read successfully')
     return NextResponse.json({
       success: true,
       message: 'Notification marked as read successfully'
     })
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error: ' + (error instanceof Error ? error.message : 'Unknown error') }, 
       { status: 500 }
@@ -68,7 +64,6 @@ export async function GET(
   try {
     const { notificationId } = params
 
-    console.log('📊 Getting notification delivery stats:', notificationId)
 
     if (!notificationId) {
       return NextResponse.json(
@@ -88,7 +83,6 @@ export async function GET(
       .single()
 
     if (notificationError) {
-      console.error('❌ Error fetching notification:', notificationError)
       return NextResponse.json({ error: notificationError.message }, { status: 500 })
     }
 
@@ -106,7 +100,6 @@ export async function GET(
       .eq('notification_id', notificationId)
 
     if (statsError) {
-      console.error('❌ Error fetching delivery stats:', statsError)
       return NextResponse.json({ error: statsError.message }, { status: 500 })
     }
 
@@ -119,14 +112,12 @@ export async function GET(
       read: deliveryStats?.filter(d => d.status === 'read').length || 0
     }
 
-    console.log('✅ Notification delivery stats retrieved:', stats)
     return NextResponse.json({
       notification,
       deliveryStats: stats
     })
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error: ' + (error instanceof Error ? error.message : 'Unknown error') }, 
       { status: 500 }

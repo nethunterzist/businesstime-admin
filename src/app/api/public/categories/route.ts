@@ -10,7 +10,6 @@ export async function GET() {
       .order('sort_order', { ascending: true })
 
     if (error) {
-      console.error('Supabase error:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
@@ -20,7 +19,6 @@ export async function GET() {
       timestamp: new Date().toISOString()
     })
   } catch (error) {
-    console.error('Public API error:', error)
     return NextResponse.json({ 
       error: 'Internal server error',
       success: false 

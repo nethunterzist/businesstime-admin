@@ -6,7 +6,6 @@ export async function POST(request: Request) {
     const body = await request.json()
     const { title, message, type = 'general', videoId = null, targetAudience = 'all' } = body
 
-    console.log('📨 Sending notification:', { title, message, type, videoId, targetAudience })
 
     // Input validation
     if (!title || !message) {
@@ -27,14 +26,12 @@ export async function POST(request: Request) {
       })
 
     if (functionError) {
-      console.error('❌ Supabase function error:', functionError)
       return NextResponse.json(
         { error: 'Failed to create notification: ' + functionError.message }, 
         { status: 500 }
       )
     }
 
-    console.log('✅ Notification created with ID:', notificationId)
 
     // Aktif cihaz tokenlarını al
     const { data: deviceTokens, error: tokensError } = await supabase
@@ -43,11 +40,9 @@ export async function POST(request: Request) {
       .eq('is_active', true)
 
     if (tokensError) {
-      console.error('❌ Error fetching device tokens:', tokensError)
     }
 
     const activeDevices = deviceTokens || []
-    console.log('📱 Found active devices:', activeDevices.length)
 
     // Expo Push Notification gönderimi (mock for now)
     let successfulSends = 0
@@ -68,11 +63,9 @@ export async function POST(request: Request) {
         .insert(recipients)
 
       if (recipientsError) {
-        console.error('❌ Error inserting recipients:', recipientsError)
         failedSends = activeDevices.length
       } else {
         successfulSends = activeDevices.length
-        console.log('✅ Notification recipients created:', successfulSends)
       }
     }
 
@@ -87,12 +80,10 @@ export async function POST(request: Request) {
       .eq('id', notificationId)
 
     if (updateError) {
-      console.error('❌ Error updating notification stats:', updateError)
     }
 
     // TODO: Gerçek push notification servisi entegrasyonu
     // Bu kısımda Expo Push Notifications, Firebase FCM, veya OneSignal kullanılabilir
-    console.log('🚀 Mock push notification sent to', successfulSends, 'devices')
 
     return NextResponse.json({
       success: true,
@@ -106,7 +97,6 @@ export async function POST(request: Request) {
     })
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error: ' + (error instanceof Error ? error.message : 'Unknown error') }, 
       { status: 500 }
@@ -127,7 +117,6 @@ export async function GET() {
       .limit(20)
 
     if (error) {
-      console.error('❌ Error fetching notifications:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
@@ -137,7 +126,6 @@ export async function GET() {
     })
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error' }, 
       { status: 500 }

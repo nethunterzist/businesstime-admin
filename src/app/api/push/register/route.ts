@@ -6,11 +6,11 @@ export async function POST(request: Request) {
     const body = await request.json()
     const { deviceId, expoToken, deviceType, deviceModel, appVersion, osVersion } = body
 
-    console.log('📱 Registering device for push notifications:', { 
+    console.log('Push register request:', {
       deviceId: deviceId?.substring(0, 20) + '...', 
       deviceType, 
       deviceModel 
-    })
+    });
 
     // Input validation
     if (!deviceId || !expoToken || !deviceType) {
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
     // Validate Expo token format (basic check)
     if (!expoToken.startsWith('ExponentPushToken[') && !expoToken.startsWith('ExpoPushToken[')) {
-      console.warn('⚠️ Unusual Expo token format:', expoToken.substring(0, 30) + '...')
+      console.warn('Invalid Expo token format:', expoToken.substring(0, 20) + '...');
     }
 
     // Register device using Supabase function
@@ -45,11 +45,9 @@ export async function POST(request: Request) {
       })
 
     if (error) {
-      console.error('❌ Error registering device:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
-    console.log('✅ Device registered successfully:', deviceUuid)
 
     // Get updated device count
     const { count: totalDevices, error: countError } = await supabase
@@ -58,7 +56,7 @@ export async function POST(request: Request) {
       .eq('is_active', true)
 
     if (countError) {
-      console.error('❌ Error getting device count:', countError)
+      console.warn('Failed to get device count:', countError.message);
     }
 
     return NextResponse.json({
@@ -69,7 +67,6 @@ export async function POST(request: Request) {
     })
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error: ' + (error instanceof Error ? error.message : 'Unknown error') }, 
       { status: 500 }
@@ -79,22 +76,19 @@ export async function POST(request: Request) {
 
 export async function GET() {
   try {
-    console.log('📊 Getting device registration statistics...')
+    console.log('Push stats request');
     
     // Get device statistics
     const { data: stats, error } = await supabase
       .rpc('get_push_stats')
 
     if (error) {
-      console.error('❌ Error fetching push stats:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
-    console.log('✅ Device stats retrieved:', stats)
     return NextResponse.json(stats)
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error: ' + (error instanceof Error ? error.message : 'Unknown error') }, 
       { status: 500 }
@@ -108,7 +102,7 @@ export async function PUT(request: Request) {
     const body = await request.json()
     const { deviceId } = body
 
-    console.log('🔄 Updating device last seen:', deviceId?.substring(0, 20) + '...')
+    console.log('Update device last seen:', { deviceId: deviceId?.substring(0, 20) + '...' });
 
     if (!deviceId) {
       return NextResponse.json(
@@ -124,7 +118,6 @@ export async function PUT(request: Request) {
       })
 
     if (error) {
-      console.error('❌ Error updating device last seen:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
@@ -135,14 +128,12 @@ export async function PUT(request: Request) {
       )
     }
 
-    console.log('✅ Device last seen updated successfully')
     return NextResponse.json({
       success: true,
       message: 'Device last seen updated successfully'
     })
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error: ' + (error instanceof Error ? error.message : 'Unknown error') }, 
       { status: 500 }
@@ -156,7 +147,7 @@ export async function DELETE(request: Request) {
     const body = await request.json()
     const { deviceId } = body
 
-    console.log('🗑️ Deactivating device:', deviceId?.substring(0, 20) + '...')
+    console.log('Deactivate device request:', { deviceId: deviceId?.substring(0, 20) + '...' });
 
     if (!deviceId) {
       return NextResponse.json(
@@ -172,7 +163,6 @@ export async function DELETE(request: Request) {
       })
 
     if (error) {
-      console.error('❌ Error deactivating device:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
@@ -183,14 +173,12 @@ export async function DELETE(request: Request) {
       )
     }
 
-    console.log('✅ Device deactivated successfully')
     return NextResponse.json({
       success: true,
       message: 'Device deactivated successfully'
     })
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error: ' + (error instanceof Error ? error.message : 'Unknown error') }, 
       { status: 500 }

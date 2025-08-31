@@ -100,13 +100,11 @@ export function withCSRFProtection(handler: Function) {
 
     const secret = process.env.JWT_SECRET
     if (!secret) {
-      console.error('❌ CSRF: JWT_SECRET not configured')
       return new Response('Server configuration error', { status: 500 })
     }
 
     // Validate CSRF token
     if (!CSRFProtection.validateRequestToken(request, secret)) {
-      console.log('❌ CSRF validation failed for:', request.url)
       return new Response('CSRF validation failed', { status: 403 })
     }
 

@@ -8,7 +8,6 @@ export async function GET() {
       .select('*')
 
     if (error) {
-      console.error('Supabase error:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
@@ -20,7 +19,6 @@ export async function GET() {
 
     return NextResponse.json({ settings: settingsObject })
   } catch (error) {
-    console.error('API error:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
@@ -28,7 +26,6 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    console.log('📥 Received settings update:', body)
     
     // Convert settings object to array of key-value pairs
     const settingsArray = Object.entries(body).map(([key, value]) => ({
@@ -38,7 +35,6 @@ export async function POST(request: Request) {
       updated_at: new Date().toISOString()
     }))
 
-    console.log('🔄 Processing settings array:', settingsArray)
 
     // Use UPSERT (INSERT or UPDATE) instead of DELETE + INSERT
     const { data: settings, error } = await supabaseAdmin
@@ -50,14 +46,11 @@ export async function POST(request: Request) {
       .select()
 
     if (error) {
-      console.error('❌ Supabase upsert error:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
-    console.log('✅ Settings upserted successfully:', settings)
     return NextResponse.json({ success: true, settings })
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

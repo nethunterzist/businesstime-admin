@@ -252,7 +252,10 @@ export default function VideosPage() {
       const response = await fetch('/api/videos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(videoData)
+        body: JSON.stringify({
+          ...videoData,
+          tags: videoData.tags ? videoData.tags.split(',').map(tag => tag.trim()).filter(tag => tag) : []
+        })
       })
 
       if (response.ok) {
@@ -288,7 +291,7 @@ export default function VideosPage() {
       category_id: video.category_id || '',
       thumbnail_url: video.thumbnail_url || '',
       video_url: video.video_url || '',
-      tags: (typeof video.tags === 'string' ? video.tags : '') || '',
+      tags: Array.isArray(video.tags) ? video.tags.join(', ') : (typeof video.tags === 'string' ? video.tags : ''),
       is_published: video.is_published,
       is_featured: video.is_featured
     })
@@ -298,13 +301,36 @@ export default function VideosPage() {
   const updateVideo = async () => {
     if (editingVideo && newVideo.title.trim()) {
       try {
+        console.log('🎬 [VideosPage] Starting video update process...')
+        console.log('📝 [VideosPage] Original newVideo data:', newVideo)
+        console.log('🎯 [VideosPage] Editing video ID:', editingVideo.id)
+
+        // Process tags data
+        const processedTags = newVideo.tags ? newVideo.tags.split(',').map(tag => tag.trim()).filter(tag => tag) : []
+        console.log('🏷️ [VideosPage] Processed tags:', { 
+          original: newVideo.tags, 
+          processed: processedTags 
+        })
+
+        // Prepare request body
+        const requestBody = {
+          ...newVideo,
+          tags: processedTags
+        }
+        console.log('📤 [VideosPage] Request body:', requestBody)
+
         const response = await fetch(`/api/videos/${editingVideo.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(newVideo)
+          body: JSON.stringify(requestBody)
         })
 
+        console.log('🌐 [VideosPage] Response status:', response.status)
+
         if (response.ok) {
+          const responseData = await response.json()
+          console.log('✅ [VideosPage] Update successful:', responseData)
+          
           await loadVideos()
           setEditingVideo(null)
           setNewVideo({
@@ -321,13 +347,29 @@ export default function VideosPage() {
           toast.success('Video başarıyla güncellendi!')
         } else {
           const errorData = await response.json()
-          console.error('Failed to update video:', errorData)
+          console.error('❌ [VideosPage] Failed to update video:')
+          console.error('📊 [VideosPage] Error response:', errorData)
+          console.error('🔍 [VideosPage] Error details:', {
+            status: response.status,
+            statusText: response.statusText,
+            url: response.url,
+            body: requestBody
+          })
           toast.error(`Video güncelleme hatası: ${errorData.error || 'Bilinmeyen hata'}`)
         }
       } catch (error) {
-        console.error('Error updating video:', error)
+        console.error('💥 [VideosPage] Exception during video update:')
+        console.error('🔍 [VideosPage] Exception details:', error)
+        console.error('📝 [VideosPage] Error message:', error instanceof Error ? error.message : 'Bilinmeyen hata')
+        console.error('📊 [VideosPage] Full error object:', error)
         toast.error(`Video güncelleme hatası: ${error instanceof Error ? error.message : 'Bilinmeyen hata'}`)
       }
+    } else {
+      console.warn('⚠️ [VideosPage] Update blocked - missing editing video or empty title:', {
+        hasEditingVideo: !!editingVideo,
+        titleTrimmed: newVideo.title?.trim(),
+        newVideoTitle: newVideo.title
+      })
     }
   }
 

@@ -24,7 +24,6 @@ export async function GET(request: NextRequest) {
     const { data, error } = await query;
 
     if (error) {
-      console.error('Error fetching featured content:', error);
       return NextResponse.json(
         { error: 'Failed to fetch featured content' },
         { status: 500 }
@@ -37,7 +36,6 @@ export async function GET(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('API Error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -83,7 +81,6 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (error) {
-      console.error('Error creating featured content:', error);
       return NextResponse.json(
         { error: 'Failed to create featured content' },
         { status: 500 }
@@ -96,7 +93,6 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('API Error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -130,7 +126,6 @@ export async function PUT(request: NextRequest) {
     // Check for errors
     const hasErrors = results.some(result => result.error);
     if (hasErrors) {
-      console.error('Error updating sort orders:', results);
       return NextResponse.json(
         { error: 'Failed to update sort orders' },
         { status: 500 }
@@ -142,7 +137,6 @@ export async function PUT(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('API Error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

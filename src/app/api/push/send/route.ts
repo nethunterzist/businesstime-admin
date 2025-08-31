@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     const body = await request.json()
     const { title, message, type = 'general', targetVideoId = null } = body
 
-    console.log('📨 Sending push notification:', { title, message, type, targetVideoId })
+    console.log('Push notification request:', { title, type, targetVideoId });
 
     // Input validation
     if (!title || !message) {
@@ -36,7 +36,6 @@ export async function POST(request: Request) {
       .single()
 
     if (settingsError) {
-      console.error('❌ Error fetching push settings:', settingsError)
       return NextResponse.json({ error: 'Failed to check push settings' }, { status: 500 })
     }
 
@@ -54,7 +53,6 @@ export async function POST(request: Request) {
       .eq('is_active', true)
 
     if (devicesError) {
-      console.error('❌ Error fetching devices:', devicesError)
       return NextResponse.json({ error: 'Failed to fetch devices' }, { status: 500 })
     }
 
@@ -65,8 +63,7 @@ export async function POST(request: Request) {
       )
     }
 
-    console.log(`📱 Found ${devices.length} active devices`)
-
+    console.log(`Found ${devices.length} active devices for push notification`);
     // 3. Create notification record
     const { data: notification, error: notificationError } = await supabaseAdmin
       .from('push_notifications')
@@ -81,11 +78,9 @@ export async function POST(request: Request) {
       .single()
 
     if (notificationError) {
-      console.error('❌ Error creating notification record:', notificationError)
       return NextResponse.json({ error: 'Failed to create notification record' }, { status: 500 })
     }
 
-    console.log('✅ Notification record created:', notification.id)
 
     // 4. Prepare push notification messages
     const messages = devices.map(device => ({
@@ -106,13 +101,11 @@ export async function POST(request: Request) {
     // Filter out invalid tokens
     const validMessages = messages.filter(message => {
       if (!Expo.isExpoPushToken(message.to)) {
-        console.warn('⚠️ Invalid Expo push token:', message.to.substring(0, 30) + '...')
         return false
       }
       return true
     })
 
-    console.log(`📤 Sending to ${validMessages.length} valid tokens out of ${messages.length} total`)
 
     // 5. Send push notifications in chunks
     const chunks = expo.chunkPushNotifications(validMessages)
@@ -122,7 +115,6 @@ export async function POST(request: Request) {
 
     for (let i = 0; i < chunks.length; i++) {
       const chunk = chunks[i]
-      console.log(`📦 Processing chunk ${i + 1}/${chunks.length} with ${chunk.length} messages`)
 
       try {
         const tickets = await expo.sendPushNotificationsAsync(chunk)
@@ -145,7 +137,6 @@ export async function POST(request: Request) {
             })
           } else {
             totalFailed++
-            console.error('❌ Push notification failed:', ticket)
             deliveryRecords.push({
               notification_id: notification.id,
               device_id: device.device_id,
@@ -156,7 +147,7 @@ export async function POST(request: Request) {
           }
         }
       } catch (chunkError) {
-        console.error('❌ Error sending chunk:', chunkError)
+        console.error('Failed to send push notification chunk:', chunkError);
         
         // Mark all messages in this chunk as failed
         chunk.forEach(message => {
@@ -182,10 +173,9 @@ export async function POST(request: Request) {
         .insert(deliveryRecords)
 
       if (deliveryError) {
-        console.error('❌ Error saving delivery records:', deliveryError)
-        // Don't fail the request, just log the error
+        console.error('Failed to save delivery records:', deliveryError.message);
       } else {
-        console.log('✅ Delivery records saved:', deliveryRecords.length)
+        console.log(`Saved ${deliveryRecords.length} delivery records`);
       }
     }
 
@@ -200,17 +190,16 @@ export async function POST(request: Request) {
       .eq('id', notification.id)
 
     if (updateError) {
-      console.error('❌ Error updating notification stats:', updateError)
-      // Don't fail the request, just log the error
+      console.error('Failed to update notification stats:', updateError.message);
     }
 
-    console.log('🎉 Push notification sending completed:', {
+    console.log('Push notification completed:', {
       notificationId: notification.id,
       totalDevices: devices.length,
       totalSent,
       totalFailed,
       successRate: `${Math.round((totalSent / devices.length) * 100)}%`
-    })
+    });
 
     return NextResponse.json({
       success: true,
@@ -225,7 +214,6 @@ export async function POST(request: Request) {
     })
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error: ' + (error instanceof Error ? error.message : 'Unknown error') }, 
       { status: 500 }
@@ -235,7 +223,7 @@ export async function POST(request: Request) {
 
 export async function GET() {
   try {
-    console.log('📊 Getting push notification history...')
+    console.log('Fetching recent push notifications');
     
     // Get recent notifications with stats
     const { data: notifications, error } = await supabaseAdmin
@@ -248,18 +236,15 @@ export async function GET() {
       .limit(20)
 
     if (error) {
-      console.error('❌ Error fetching notifications:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
-    console.log('✅ Notification history retrieved:', notifications?.length || 0, 'items')
     return NextResponse.json({ 
       notifications: notifications || [],
       total: notifications?.length || 0
     })
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error: ' + (error instanceof Error ? error.message : 'Unknown error') }, 
       { status: 500 }

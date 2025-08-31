@@ -5,7 +5,6 @@ import { getClientIP } from '@/lib/rate-limit'
 
 export async function GET(request: NextRequest) {
   try {
-    console.log('📦 Starting database backup export...')
     
     // Log backup request
     logSecurityEvent('database_backup_requested', {
@@ -52,7 +51,6 @@ export async function GET(request: NextRequest) {
 
     for (const table of tables) {
       try {
-        console.log(`📊 Exporting table: ${table}`)
         
         const { data, error } = await supabaseAdmin
           .from(table)
@@ -60,7 +58,6 @@ export async function GET(request: NextRequest) {
           .order('created_at', { ascending: false })
 
         if (error) {
-          console.warn(`⚠️ Warning: Could not export ${table}:`, error.message)
           backupData.data[table] = {
             error: error.message,
             exported: false,
@@ -72,10 +69,8 @@ export async function GET(request: NextRequest) {
             exported: true,
             count: data?.length || 0
           }
-          console.log(`✅ Exported ${table}: ${data?.length || 0} records`)
         }
       } catch (tableError) {
-        console.warn(`⚠️ Error exporting ${table}:`, tableError)
         backupData.data[table] = {
           error: tableError instanceof Error ? tableError.message : 'Unknown error',
           exported: false,
@@ -96,7 +91,6 @@ export async function GET(request: NextRequest) {
       backupSize: JSON.stringify(backupData).length
     }
 
-    console.log('✅ Database backup completed:', backupData.metadata.summary)
 
     // Log successful backup
     logSecurityEvent('database_backup_completed', {
@@ -108,7 +102,6 @@ export async function GET(request: NextRequest) {
     return createSecureApiResponse(backupData, 200, request.headers.get('origin') || undefined)
 
   } catch (error) {
-    console.error('❌ Database backup failed:', error)
     
     // Log backup failure
     logSecurityEvent('database_backup_failed', {

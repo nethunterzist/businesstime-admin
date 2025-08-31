@@ -11,7 +11,14 @@
     "lint": "next lint",
     "bulk-upload": "node scripts/bulk-video-upload.js",
     "upload-videos": "npm run bulk-upload",
-    "clean-descriptions": "node scripts/clean-video-descriptions.js"
+    "clean-descriptions": "node scripts/clean-video-descriptions.js",
+    "add-tags": "node scripts/add-video-tags.js",
+    "supabase:setup": "node scripts/supabase-admin-setup.js",
+    "supabase:migrate": "npx supabase db push",
+    "supabase:status": "npx supabase status",
+    "supabase:reset": "npx supabase db reset",
+    "supabase:link": "npx supabase link --project-ref zcihvuaocrkuftmryrib",
+    "db:verify": "npx supabase rpc verify_video_views_fix"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
@@ -23,6 +30,8 @@
     "@radix-ui/react-tabs": "^1.1.12",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/supabase-js": "^2.50.5",
+    "pg": "^8.11.3",
+    "@types/pg": "^8.11.2",
     "@types/bcryptjs": "^2.4.6",
     "@types/jsonwebtoken": "^9.0.10",
     "@upstash/ratelimit": "^2.0.5",

@@ -14,7 +14,6 @@ export async function GET() {
       .limit(50)
 
     if (error) {
-      console.error('❌ Error fetching notifications:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
@@ -30,7 +29,6 @@ export async function GET() {
       `)
 
     if (statsError) {
-      console.error('❌ Error fetching notification stats:', statsError)
     }
 
     // Aktif cihaz sayısı
@@ -40,7 +38,6 @@ export async function GET() {
       .eq('is_active', true)
 
     if (devicesError) {
-      console.error('❌ Error fetching active devices:', devicesError)
     }
 
     // İstatistikleri hesapla
@@ -62,7 +59,6 @@ export async function GET() {
     })
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error' }, 
       { status: 500 }
@@ -89,11 +85,9 @@ export async function DELETE(request: Request) {
       .eq('id', notificationId)
 
     if (error) {
-      console.error('❌ Error deleting notification:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
-    console.log('🗑️ Notification deleted:', notificationId)
 
     return NextResponse.json({ 
       success: true, 
@@ -101,7 +95,6 @@ export async function DELETE(request: Request) {
     })
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error' }, 
       { status: 500 }

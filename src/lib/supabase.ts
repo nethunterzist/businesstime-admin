@@ -1,19 +1,22 @@
-import { createClient } from '@supabase/supabase-js'
-import { Database } from '@/types/database'
+// PostgreSQL Database Adapter - Replacing Supabase
+import { DatabaseAdapter, db } from './database'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey)
-
-// Server-side client with service role key for admin operations
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
-export const supabaseAdmin = createClient<Database>(supabaseUrl, supabaseServiceKey, {
+// Legacy compatibility exports
+export const supabase = db
+export const supabaseAdmin = {
+  from: (table: string) => db.from(table),
+  // Additional admin methods
   auth: {
-    autoRefreshToken: false,
-    persistSession: false
+    admin: {
+      createUser: async (userData: any) => {
+        return DatabaseAdapter.insert('admin_users', userData)
+      }
+    }
   }
-})
+}
 
-// Export createClient function for API routes
-export { createClient }
+// Database adapter export
+export { DatabaseAdapter }
+
+// Mock createClient for compatibility
+export const createClient = () => db

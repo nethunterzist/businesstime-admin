@@ -7,7 +7,6 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
     const { id } = await params
     const { isLiked, deviceId } = body
 
-    console.log('📱 Like API called:', { videoId: id, isLiked, deviceId })
 
     // Track user interaction
     const { error: interactionError } = await supabaseAdmin
@@ -19,7 +18,6 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
       })
 
     if (interactionError) {
-      console.error('❌ User interaction tracking error:', interactionError)
     }
 
     // Update video likes count
@@ -30,7 +28,6 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
       .single()
 
     if (fetchError) {
-      console.error('❌ Error fetching current video:', fetchError)
       return NextResponse.json({ error: fetchError.message }, { status: 500 })
     }
 
@@ -44,11 +41,9 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
       .single()
 
     if (updateError) {
-      console.error('❌ Error updating video likes:', updateError)
       return NextResponse.json({ error: updateError.message }, { status: 500 })
     }
 
-    console.log('✅ Video likes updated:', { videoId: id, newLikesCount })
 
     return NextResponse.json({ 
       success: true, 
@@ -56,7 +51,6 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
       likesCount: newLikesCount
     })
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

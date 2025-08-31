@@ -11,7 +11,6 @@ export async function GET() {
       .not('key', 'like', 'secret_%') // Exclude secret settings
 
     if (error) {
-      console.error('Supabase error:', error)
       // Return default settings on error
       return NextResponse.json({ 
         settings: {
@@ -47,7 +46,6 @@ export async function GET() {
       timestamp: new Date().toISOString()
     })
   } catch (error) {
-    console.error('Public API error:', error)
     return NextResponse.json({ 
       settings: {
         app_name: 'Business Time',

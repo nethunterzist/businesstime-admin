@@ -1,33 +1,38 @@
 import { NextResponse } from 'next/server'
-import { supabaseAdmin } from '@/lib/supabase'
+import { DatabaseAdapter } from '@/lib/database'
 
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url)
     const search = searchParams.get('search')
 
-    let query = supabaseAdmin
-      .from('videos')
-      .select('*')
+    let videos
+    let error
 
     if (search) {
       // Arama terimi varsa, title ve description alanlarında ara
-      // tags alanı için daha güvenli bir yaklaşım kullan
-      const searchTerm = search.toLowerCase()
-      query = query.or(`title.ilike.%${searchTerm}%,description.ilike.%${searchTerm}%`)
+      const searchTerm = `%${search.toLowerCase()}%`
+      const result = await DatabaseAdapter.query(`
+        SELECT * FROM videos 
+        WHERE LOWER(title) LIKE $1 OR LOWER(description) LIKE $1 
+        ORDER BY created_at DESC
+      `, [searchTerm])
+      videos = result.data
+      error = result.error
+    } else {
+      const result = await DatabaseAdapter.select('videos', { 
+        orderBy: 'created_at DESC' 
+      })
+      videos = result.data
+      error = result.error
     }
 
-    const { data: videos, error } = await query
-      .order('created_at', { ascending: false })
-
     if (error) {
-      console.error('Supabase error:', error)
-      return NextResponse.json({ error: error.message }, { status: 500 })
+      return NextResponse.json({ error }, { status: 500 })
     }
 
     return NextResponse.json({ videos: videos || [] })
   } catch (error) {
-    console.error('API error:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
@@ -51,20 +56,14 @@ export async function POST(request: Request) {
       body.tags = body.tags.split(',').map((tag: string) => tag.trim()).filter((tag: string) => tag.length > 0)
     }
     
-    const { data: video, error } = await supabaseAdmin
-      .from('videos')
-      .insert([body])
-      .select()
-      .single()
+    const { data: videos, error } = await DatabaseAdapter.insert('videos', body)
 
     if (error) {
-      console.error('Supabase error:', error)
-      return NextResponse.json({ error: error.message }, { status: 500 })
+      return NextResponse.json({ error }, { status: 500 })
     }
 
-    return NextResponse.json({ video })
+    return NextResponse.json({ video: videos?.[0] })
   } catch (error) {
-    console.error('API error:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

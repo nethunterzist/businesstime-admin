@@ -1,52 +1,45 @@
-import { createClient } from '@supabase/supabase-js'
+// PostgreSQL Database Connection - Replacing Supabase
+import { DatabaseAdapter, db } from './database'
 
 // Environment variables
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+const databaseUrl = process.env.DATABASE_URL || ''
 
-console.log('🔧 Supabase Config:', {
-  url: supabaseUrl,
-  hasAnonKey: !!supabaseAnonKey,
-  hasServiceKey: !!supabaseServiceKey
-})
+console.log('PostgreSQL config:', {
+  hasDatabaseUrl: !!databaseUrl,
+  database: 'businessmobile_db'
+});
 
-// Client-side Supabase client
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-  auth: {
-    persistSession: false,
-    autoRefreshToken: false
-  }
-})
-
-// Server-side Supabase client with service role
-export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: {
-    persistSession: false,
-    autoRefreshToken: false
-  }
-})
+// Client and admin are same in PostgreSQL setup
+export const supabase = db
+export const supabaseAdmin = db
 
 // Test connection function
 export async function testSupabaseConnection() {
   try {
-    console.log('🧪 Testing Supabase connection...')
+    console.log('Testing PostgreSQL connection...');
     
-    const { data, error } = await supabaseAdmin
-      .from('videos')
-      .select('count')
-      .limit(1)
+    const result = await DatabaseAdapter.testConnection()
     
-    if (error) {
-      console.error('❌ Connection test failed:', error)
-      return { success: false, error: error.message }
+    if (!result.success) {
+      return { success: false, error: result.error }
     }
     
-    console.log('✅ Connection test successful:', data)
-    return { success: true, data }
+    // Test actual data access
+    const { data: videos, error } = await DatabaseAdapter.select('videos', { limit: 1 })
+    
+    if (error) {
+      return { success: false, error }
+    }
+    
+    return { 
+      success: true, 
+      data: { 
+        connection: result.data,
+        videoCount: videos?.length || 0
+      }
+    }
     
   } catch (err) {
-    console.error('❌ Connection error:', err)
     return { success: false, error: err instanceof Error ? err.message : 'Unknown error' }
   }
 }

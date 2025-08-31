@@ -22,7 +22,6 @@ export async function GET() {
       .order('sort_order')
 
     if (error) {
-      console.error('❌ Error fetching report categories:', error)
       return NextResponse.json({ error: 'Failed to fetch categories' }, { status: 500 })
     }
 
@@ -32,7 +31,6 @@ export async function GET() {
     })
 
   } catch (error) {
-    console.error('❌ Error in report categories API:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

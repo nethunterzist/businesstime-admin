@@ -19,7 +19,6 @@ export async function GET(request: Request) {
     const { data: featuredContent, error } = await query
 
     if (error) {
-      console.error('Supabase error:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
@@ -29,7 +28,6 @@ export async function GET(request: Request) {
       timestamp: new Date().toISOString()
     })
   } catch (error) {
-    console.error('Public API error:', error)
     return NextResponse.json({ 
       error: 'Internal server error',
       success: false 

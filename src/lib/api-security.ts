@@ -287,7 +287,6 @@ export class ApiSecurity {
     
     // Log in development
     if (process.env.NODE_ENV === 'development') {
-      console.log('📊 API Access:', logEntry)
     }
   }
 
@@ -369,7 +368,6 @@ export class ApiSecurity {
       } catch (error) {
         const duration = Date.now() - startTime
         
-        console.error('API Error:', error)
         logSecurityEvent('api_internal_error', {
           error: error instanceof Error ? error.message : 'Unknown error',
           path: request.nextUrl.pathname,

@@ -19,7 +19,6 @@ export async function GET(
       .single();
 
     if (error) {
-      console.error('Error fetching featured content:', error);
       return NextResponse.json(
         { error: 'Featured content not found' },
         { status: 404 }
@@ -29,7 +28,6 @@ export async function GET(
     return NextResponse.json({ featuredContent: data });
 
   } catch (error) {
-    console.error('API Error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -76,7 +74,6 @@ export async function PUT(
       .single();
 
     if (error) {
-      console.error('Error updating featured content:', error);
       return NextResponse.json(
         { error: 'Failed to update featured content' },
         { status: 500 }
@@ -89,7 +86,6 @@ export async function PUT(
     });
 
   } catch (error) {
-    console.error('API Error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -109,7 +105,6 @@ export async function DELETE(
       .eq('id', params.id);
 
     if (error) {
-      console.error('Error deleting featured content:', error);
       return NextResponse.json(
         { error: 'Failed to delete featured content' },
         { status: 500 }
@@ -121,7 +116,6 @@ export async function DELETE(
     });
 
   } catch (error) {
-    console.error('API Error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

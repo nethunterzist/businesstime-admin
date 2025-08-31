@@ -34,7 +34,6 @@ export async function GET(request: Request) {
       .limit(50) // Limit for mobile performance
 
     if (error) {
-      console.error('Supabase error:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
@@ -44,7 +43,6 @@ export async function GET(request: Request) {
       timestamp: new Date().toISOString()
     })
   } catch (error) {
-    console.error('Public API error:', error)
     return NextResponse.json({ 
       error: 'Internal server error',
       success: false 

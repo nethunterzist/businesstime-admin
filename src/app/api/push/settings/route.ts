@@ -3,7 +3,6 @@ import { supabaseAdmin } from '@/lib/supabase'
 
 export async function GET() {
   try {
-    console.log('📊 Getting push notification settings...')
     
     // Get push settings
     const { data: settings, error: settingsError } = await supabaseAdmin
@@ -13,7 +12,6 @@ export async function GET() {
       .single()
 
     if (settingsError) {
-      console.error('❌ Error fetching push settings:', settingsError)
       return NextResponse.json({ error: settingsError.message }, { status: 500 })
     }
 
@@ -24,7 +22,6 @@ export async function GET() {
       .eq('is_active', true)
 
     if (deviceError) {
-      console.error('❌ Error fetching device count:', deviceError)
       return NextResponse.json({ error: deviceError.message }, { status: 500 })
     }
 
@@ -38,7 +35,6 @@ export async function GET() {
 
     // Don't fail if no notifications exist
     if (notificationError && notificationError.code !== 'PGRST116') {
-      console.error('❌ Error fetching recent notification:', notificationError)
     }
 
     const response = {
@@ -50,11 +46,9 @@ export async function GET() {
       } : null
     }
 
-    console.log('✅ Push settings retrieved:', response)
     return NextResponse.json(response)
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error: ' + (error instanceof Error ? error.message : 'Unknown error') }, 
       { status: 500 }
@@ -67,7 +61,6 @@ export async function POST(request: Request) {
     const body = await request.json()
     const { isEnabled } = body
 
-    console.log('🔄 Updating push notification settings:', { isEnabled })
 
     // Validate input
     if (typeof isEnabled !== 'boolean') {
@@ -89,11 +82,9 @@ export async function POST(request: Request) {
       .single()
 
     if (error) {
-      console.error('❌ Error updating push settings:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
-    console.log('✅ Push settings updated successfully:', data)
     return NextResponse.json({ 
       success: true, 
       isEnabled: data.is_enabled,
@@ -101,7 +92,6 @@ export async function POST(request: Request) {
     })
 
   } catch (error) {
-    console.error('❌ API error:', error)
     return NextResponse.json(
       { error: 'Internal server error: ' + (error instanceof Error ? error.message : 'Unknown error') }, 
       { status: 500 }
